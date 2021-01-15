@@ -1,0 +1,836 @@
+﻿<!doctype html>
+<html lang="es-es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Depuración en dispositivos móviles</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">Otros documentos de Brightcove</option>
+      
+        
+          <option value="https://support.brightcove.com">Documentación Inicio</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">Brightcove Social</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/developer/">Desarrolladores</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Depuración en dispositivos móviles</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Inicio</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">Descripción general del producto Brightcove</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">Descripción general de Brightcove Continuum</a></li>
+                  
+                
+                  
+                    <li>Proyectos de código abierto<a href="/general/brightcove-open-source-projects.html"></a></li>
+                  
+                
+                  
+                    <li>Vídeo MPEG-DASH<a href="/general/mpeg-dash-video.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">Grupos de foros y listas de correo electrónico de Brightcove</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">Desarrolladores <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Comprensión de CORS<a href="/developer/concepts-cors.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">Presentamos a JSON</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">Conceptos básicos de la depuración de JavaScript</a></li>
+                  
+                
+                  
+                    <li>El patrón de diseño del módulo JavaScript<a href="/developer/concepts-javascript-module-design-pattern.html"></a></li>
+                  
+                
+                  
+                    <li>Configuración de cURL<a href="/developer/concepts-set-curl.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de promesas JavaScript<a href="/developer/concepts-using-javascript-promises.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">Creación de un token web JSON (JWT)</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">Depuración en dispositivos móviles</a></li>
+                  
+                
+                  
+                    <li>Usando MTR (mi traceroute)<a href="/developer/using-mtr-to-look-at-network-traffic.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de Wireshark para rastrear el tráfico de red<a href="/developer/using-wireshark-track-network-traffic-debugging.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Migrando desde Ooyala +<a href="/ooyala/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Documentos de Migración para Clientes de Ooyala<a href="/ooyala/migration-docs-ooyala-customers.html"></a></li>
+                  
+                
+                  
+                    <li>Migración a la API de Brightcove Analytics<a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html"></a></li>
+                  
+                
+                  
+                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ad-sets.html"> Conjuntos de anuncios</a></li>
+                  
+                
+                  
+                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html"> Adaptador de ingestión</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto CSV</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Adaptador de ingestión: Ingerir con Aspera</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">Adaptador de ingestión: Ingerir con FTPS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">Adaptador de ingestión: Ingerir con OIS 2.5</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">Adaptador de ingestión: Ingerir con la API de backlot</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">Adaptador de ingestión: Ingerir activos remotos a través de MRSS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">Adaptador de ingestión: Ingerir desde MRSS alojado</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot/Conector CMS de Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">Backlot y Video Cloud: Campos de vídeo y lista de reproducción</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">Adaptador de ingestión: Formatos de archivo manifiesto</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto XML</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">Adaptador de ingestión: Formatos de ingesta admitidos</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">Agregar el servidor DNS de Brightcove para pruebas</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">Autenticación para solicitudes de API de Brightcove</a></li>
+                  
+                
+                  
+                    <li>Referencia del informe Tendencias ahora<a href="/ooyala/trending-now-report-reference.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de reproductores Ooyala para contenido de Video Cloud<a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Utilidades +<a href="/utilities/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">Herramienta de codificación Base 64</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">Conversor de fecha</a></li>
+                  
+                
+                  
+                    <li>Codificador de cadenas<a href="/utilities/string-encoder.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Entrenamiento +<a href="/training/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">Todos los cursos de formación en línea</a></li>
+                  
+                
+                  
+                    <li>Regístrese para la formación impartida por instructor<a href="/training/register-training.html"></a></li>
+                  
+                
+                  
+                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud.html"> Introducción a Video Cloud</a></li>
+                  
+                
+                  
+                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud-analytics.html"> Introducción a la analítica de Video Cloud</a></li>
+                  
+                
+                  
+                    <li>Capacitación:<a href="/training/training-demand-video-cloud-basics.html"> Conceptos básicos de Video Cloud</a></li>
+                  
+                
+                  
+                    <li>Vídeos de formación de Video Cloud Studio<a href="/training/video-cloud-studio-training-videos.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">Cursos de formación de la Universidad de Brightcove</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Problemas conocidos<a href="/support/known-issues-studio-brightcove-player-and-apis.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">Respuestas de Brightcove</a></li>
+                  
+                
+                  
+                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
+                  
+                
+                  
+                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenido de la página</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<article class="bcls-article">
+  <h1>Depuración en dispositivos móviles</h1>
+  <summary>En este tema, aprenderá acerca de la depuración de JavaScript en dispositivos móviles. Durante el desarrollo, las pruebas y la depuración de contenido en plataformas móviles pueden ser muy difíciles.</summary>
+  <section class="bcls-section">
+    <h2 id="Overview">Resumen</h2>
+    <p>En este documento aprenderá cómo comenzar con la depuración en dispositivos móviles y cubre las siguientes soluciones:</p>
+    <ul>
+      <li>Depuración en dispositivos iOS</li>
+      <li>Depuración en dispositivos Android</li>
+      <li>Uso de Charles en dispositivos móviles</li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information language-editable">Este documento sirve como punto de partida para que los desarrolladores puedan depurar en dispositivos móviles. No cubre todos los métodos para la depuración móvil. Para obtener más información sobre la depuración en general, visite la documentación <a href="/developer/concepts-javascript-debugging-basics.html">básica de la depuración de JavaScript</a> .</aside>
+  </section>
+  <section class="bcls-section">
+    <h2 id="iOS_debugging">Depuración de iOS</h2>
+    <div class="BCL-concept">
+      <div class="BCL-subsection">
+        <h3>Requisitos mínimos para la depuración de iOS</h3>
+        <ul>
+          <li>Safari versión 6+ ejecutándose en Mac OS</li>
+          <li>iPhone o iPad con iOS 6+</li>
+        </ul>
+        <aside class="bcls-aside bcls-aside--information language-editable">Nota: si está en iOS 10.3 o posterior, abra la Configuración y vaya a General &gt; Acerca de la configuración de confianza de &gt; certificados, busque el certificado de Charles Proxy y enciéndalo para habilitar la confianza total para él.</aside>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Uso de la depuración remota de Safari</h3>
+        <p>La actualización de Apple iOS 6 introdujo Safari Remote Debugging, que te permite depurar páginas web en la aplicación Safari en dispositivos iOS. Para empezar, siga los pasos que se indican a continuación:</p>
+        <ol>
+          <li>Conecte su dispositivo iOS a su máquina a través de un cable USB.</li>
+          <li>En el dispositivo, abre la aplicación <strong>Configuración</strong> . Selecciona <strong>Safari</strong>, desplázate hacia abajo hasta la parte inferior de la página y abre el menú <strong>Avanzado</strong>.  Habilite la opción <strong>Inspector Web</strong> .
+            <figure class="bcls-figure"><img class="bcls-image" alt="Inspector Web" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/01-iOS.png"/>
+              <figcaption class="bcls-caption--image">Inspector Web</figcaption>
+            </figure>
+          </li>
+          <li>Aún en tu dispositivo, abre la aplicación <strong>Safari</strong> y navega a cualquier página web.</li>
+          <li>En el Mac, inicia <strong>Safari</strong>, abre <strong>Preferencias (Preferencias</strong>de<strong>Safari &gt;</strong>) y navega a la sección <strong>Avanzadas</strong>.  Active el <strong>menú Mostrar desarrollo en la opción de barra de menús</strong> .
+            <figure class="bcls-figure"><img class="bcls-image" alt="Mostrar menú Desarrollar" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/02-iOS.png"/>
+              <figcaption class="bcls-caption--image">Mostrar menú Desarrollar</figcaption>
+            </figure>
+          </li>
+          <li>Abra el menú <strong>Desarrollar</strong> . Verás tu dispositivo iOS en la lista. Al pasar el ratón sobre el nombre del dispositivo, verá la URL del sitio que ha explorado en el dispositivo que se muestra.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Encontrar el dispositivo" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/03-iOS.png"/>
+              <figcaption class="bcls-caption--image">Encontrar el dispositivo</figcaption>
+            </figure>
+          </li>
+          <li>Seleccione la dirección URL y se abrirá una ventana de <strong>Web Inspector</strong> , que le permitirá previsualizar, inspeccionar y depurar contenido en su navegador móvil desde el escritorio.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Depurar en el escritorio" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/04-iOS.png"/>
+              <figcaption class="bcls-caption--image">Depurar en el escritorio</figcaption>
+            </figure>
+          </li>
+          <li>En la sección <strong>Recursos</strong> , puede obtener una vista previa e inspeccionar la página Web. Al pasar el cursor sobre los elementos del <strong>Inspector Web</strong> , se resaltarán los elementos correspondientes en el navegador de su dispositivo iOS.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Inspección de elementos" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/05-iOS.png"/>
+              <figcaption class="bcls-caption--image">Inspección de elementos</figcaption>
+            </figure>
+          </li>
+          <li>También puede usar las secciones <strong>Depurador</strong> y <strong>Consola</strong> para depurar aún más su página estableciendo puntos de interrupción, registro de datos, etc.</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information language-editable">Para obtener información más detallada sobre cómo usar Safari Web Inspector, visite la <a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html">documentación del desarrollador de Apple</a>.</aside>
+      </div>
+    </div>
+  </section>
+  <!-- div id="ios" -->
+  
+  <section class="bcls-section">
+    <h2 id="Android_debugging">Depuración de Android</h2>
+    <div class="BCL-concept">
+      <div class="BCL-subsection">
+        <h3>Requisitos mínimos para la depuración de Android</h3>
+        <ul>
+          <li>Chrome 32+ ejecutándose en Mac o Windows</li>
+          <li>Dispositivo Android con Chrome para Android 32+</li>
+        </ul>
+        <p class="BCL-aside">Nota: Los pasos de esta sección se escribieron usando un dispositivo que ejecuta Android 4.3.</p>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Habilitar la depuración en el dispositivo</h3>
+        <p>Antes de comenzar a depurar contenido en el dispositivo, debe habilitar la depuración USB en la configuración del dispositivo.</p>
+        <ol>
+          <li>Si tienes Android 4.2+ con Android, tendrás que habilitar <strong>las opciones de desarrollador</strong> de tu dispositivo antes de poder activar la depuración USB. En el dispositivo, abre la aplicación <strong>Configuración</strong> y selecciona el menú <strong>Acerca del teléfono</strong> . Localiza el <strong>número de compilación de</strong> tu dispositivo y tócalo siete veces.
+            <aside class="bcls-aside bcls-aside--tip">Si está ejecutando una versión anterior de Android, puede habilitar la depuración USB yendo directamente a Opciones del &gt; desarrollador de Configuración.</aside>
+          </li>
+          <li>Pulsa el botón <strong>Atrás</strong> de tu dispositivo y verás el menú <strong>Opciones del desarrollador</strong> que aparece en Configuración.
+            <figure class="bcls-figure"><img width="400" class="bcls-image--no-border" alt="Llegar a Opciones de Desarrollador" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/01-android.png"/>
+              <figcaption class="bcls-caption--image">Llegar a Opciones de Desarrollador</figcaption>
+            </figure>
+          </li>
+          <li>Abra el menú <strong>Opciones del desarrollador</strong> y marque la casilla para habilitar la <strong>depuración USB</strong>.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Activar depuración USB" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/02-android.png"/>
+              <figcaption class="bcls-caption--image">Activar depuración USB</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Depuración remota con Chrome para Android</h3>
+        <p>Ahora que la depuración USB está habilitada en tu dispositivo, sigue estos pasos para iniciar la depuración remota con Chrome:</p>
+        <ol>
+          <li>En tu ordenador, inicia <strong>Chrome</strong> y navega hasta <code translate="No">about:inspect</code>. En la página <strong>Dispositivos</strong> , habilite la opción <strong>Descubrir dispositivos USB</strong> .
+            <figure class="bcls-figure"><img class="bcls-image" alt="Descubra dispositivos USB" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/03-android.png"/>
+              <figcaption class="bcls-caption--image">Descubra dispositivos USB</figcaption>
+            </figure>
+          </li>
+          <li>Conecte su dispositivo a su máquina a través de un cable USB. En el dispositivo, se le pedirá un cuadro de diálogo que le preguntará si desea permitir la depuración USB. Elija <strong>Aceptar</strong> para permitir que el equipo se conecte al dispositivo.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Permitir conexión al dispositivo" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/04-android.png"/>
+              <figcaption class="bcls-caption--image">Permitir conexión al dispositivo</figcaption>
+            </figure>
+            <aside class="bcls-aside bcls-aside--information language-editable">Si está en una computadora con Windows, es posible que necesite instalar controladores USB. Para obtener más información, visite la <a href="//developer.android.com/tools/extras/oem-usb.html">documentación del desarrollador de Android</a>.</aside>
+          </li>
+          <li>En tu dispositivo, abre la aplicación <strong>Chrome</strong> y accede a una página web.</li>
+          <li>Vuelve a <strong>Chrome</strong> en tu ordenador. En la <code translate="No">about:inspect</code> página, debería ver el dispositivo conectado. Debajo del nombre del dispositivo, podrás ver una lista de todas las páginas abiertas en Chrome en tu dispositivo.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Dispositivos conectados" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/05-android.png"/>
+              <figcaption class="bcls-caption--image">Dispositivos conectados</figcaption>
+            </figure>
+          </li>
+          <li>Para comenzar a depurar una página Web, seleccione el vínculo <strong>Inspeccionar</strong> debajo de la URL de la página. Esto abrirá las <strong>herramientas para desarrolladores</strong>de Chrome.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Inspeccionar página Web" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/06-android.png"/>
+              <figcaption class="bcls-caption--image">Inspeccionar página Web</figcaption>
+            </figure>
+          </li>
+          <li>A la izquierda de la pestaña <strong>Elementos</strong> , puede seleccionar el icono del dispositivo para abrir la función Screencast de DevTool. Esto le permite abrir una vista previa en vivo del contenido tal como aparece en su dispositivo móvil. Para obtener más información sobre cómo utilizar la difusión de pantalla para interactuar con el dispositivo, visite <a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging#screencasting">la documentación de Google</a>.</li>
+        </ol>
+        <aside class="bcls-aside bcls-aside--information language-editable">Para obtener información más detallada sobre cómo utilizar las herramientas para desarrolladores de Chrome, visita la <a href="https://developers.google.com/chrome-developer-tools/docs/remote-debugging">documentación para desarrolladores de Google</a>.</aside>
+      </div>
+    </div>
+  </section>
+  <!-- div id="android" -->
+  
+  <section class="bcls-section">
+    <h2 id="Charles_for_mobile">Charles para móviles</h2>
+    <div class="BCL-concept">
+      <p>Charles es un proxy web que se puede ejecutar en su propio ordenador, lo que le permite registrar los datos que se envían y reciben a través de su navegador web. Visite el <a href="//www.charlesproxy.com/">sitio web de Charles</a> para obtener más información sobre esta aplicación.</p>
+      <div class="BCL-subsection">
+        <h3>Requisitos mínimos para Charles</h3>
+        <ul>
+          <li>Charles es compatible con Windows, Mac y Linux</li>
+          <li>Dispositivo iOS y/o Android</li>
+        </ul>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Configuración de Charles en su máquina</h3>
+        <p>Siga los pasos que se indican a continuación para que Charles funcione en su máquina.</p>
+        <ol>
+          <li><a href="//www.charlesproxy.com/download/">Descargue</a> e instale Charles en su máquina.</li>
+          <li>En tu computadora, ejecuta <strong>Charles</strong>. En el menú, seleccione Configuración de <strong>&gt; proxy proxy</strong>. Asegúrese de que se ha asignado un puerto (por ejemplo, 8888) y la opción <strong>Habilitar proxy HTTP transparente</strong> está seleccionada.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Configuración del proxy" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/proxy-settings.png"/>
+              <figcaption class="bcls-caption--image">Configuración del proxy</figcaption>
+            </figure>
+          </li>
+          <li>Seleccione Aceptar para guardar los cambios y cerrar el cuadro de diálogo.<strong></strong></li>
+          <li>En el menú, seleccione <strong>Proxy &gt; SSL Proxy Settings</strong>. Asegúrese de <strong>que la opción Habilitar proxy SSL</strong> esté seleccionada.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Configuración del proxy SSL" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/ssl-proxy-settings.png"/>
+              <figcaption class="bcls-caption--image">Configuración del proxy SSL</figcaption>
+            </figure>
+          </li>
+          <li>En la sección <strong>Ubicación</strong> , seleccione el botón <strong>Agregar</strong> . En el cuadro de diálogo <strong>Editar ubicación</strong> , vaya al campo <strong>Puerto</strong> e introduzca <strong>443</strong>. Seleccione Aceptar para guardar este cambio.<strong></strong>
+            <figure class="bcls-figure"><img class="bcls-image" alt="Puerto de ubicación 443" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/port-443.png"/>
+              <figcaption class="bcls-caption--image">Puerto de ubicación 443</figcaption>
+            </figure>
+          </li>
+          <li>Seleccione Aceptar para cerrar el cuadro de diálogo Editar ubicación.<strong></strong><strong></strong>
+            <figure class="bcls-figure"><img class="bcls-image" alt="Configuración de SSL con ubicación" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/ssl-settings-location.png"/>
+              <figcaption class="bcls-caption--image">Configuración de SSL con ubicación</figcaption>
+            </figure>
+          </li>
+          <li>Seleccione Aceptar para salir del cuadro de diálogo Configuración de proxy SSL.<strong></strong><strong></strong></li>
+          <li>Navegue hasta <strong>Ayuda &gt; SSL Proxying &gt; Instale Charles Root Certificate en un dispositivo móvil o explorador remoto</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Instalar certificado raíz" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/01-root-certificate.png"/>
+              <figcaption class="bcls-caption--image">Instalar certificado raíz</figcaption>
+            </figure>
+          </li>
+          <li>Debería ver un mensaje que identifica la IP del servidor local y el número de puerto (8888) que utilizará para configurar el dispositivo. También debería ver la URL para descargar e instalar el certificado. Copíe estos en el equipo para usarlos posteriormente.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Mensaje de certificado" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/02-certificate-msg.png"/>
+              <figcaption class="bcls-caption--image">Mensaje de certificado</figcaption>
+            </figure>
+            <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que deberá habilitar el certificado Charles para ser de confianza.</aside>
+          </li>
+        </ol>
+      </div>
+      <div class="BCL-subsection">
+        <h3>Configuración de Charles en el dispositivo</h3>
+        <p>En esta sección, aprenderás cómo configurar tu dispositivo iOS y/o Android para que funcione con Charles en tu ordenador.</p>
+        <h4>Configurar el dispositivo iOS</h4>
+        <ol>
+          <li>En el dispositivo, asegúrese de que está conectado a la misma red que el equipo. Puede verificar esto navegando a la <strong>configuración &gt; Wifi</strong> y seleccionando el nombre de la red para mostrar las opciones avanzadas.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Red de dispositivos" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/03-device-network.png"/>
+              <figcaption class="bcls-caption--image">Red de dispositivos</figcaption>
+            </figure>
+          </li>
+          <li>En la sección HTTP de la parte inferior, seleccione Modo <strong>manual</strong> . A continuación, agregue la IP del servidor y el número de puerto (8888) que copió de Charles en un paso anterior.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Detalles de Wifi" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/04-wifi-details.png"/>
+              <figcaption class="bcls-caption--image">Detalles de Wifi</figcaption>
+            </figure>
+          </li>
+          <li>En el dispositivo, abre un navegador y navega a <a href="//www.charlesproxy.com/getssl/">http://www.charlesproxy.com/getssl</a>. Se le redirigirá a la configuración de su dispositivo, donde se le pedirá que instale el perfil de <strong>certificado raíz personalizado de Charles Proxy</strong> . Seleccione el botón <strong>Instalar</strong> para instalar el certificado Charles en su dispositivo.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Instalar certificado Charles" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/06-charles-install.png"/>
+              <figcaption class="bcls-caption--image">Instalar certificado Charles</figcaption>
+            </figure>
+          </li>
+          <li>Siga los pasos para instalar el certificado Charles. Cuando haya finalizado, seleccione <strong>Listo</strong>.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Perfil de Charles instalado" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/09-profile-installed.png"/>
+              <figcaption class="bcls-caption--image">Perfil de Charles instalado</figcaption>
+            </figure>
+          </li>
+          <li>A continuación, está listo para asegurarse de que su dispositivo confía en el certificado Charles. En el dispositivo, vaya a <strong>General &gt; Acerca de la configuración de confianza de &gt; certificados</strong>. Aquí debe encontrar el certificado Charles Proxy.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Configuración de confianza de certificados" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/certificate-trust-settings.png"/>
+              <figcaption class="bcls-caption--image">Configuración de confianza de certificados</figcaption>
+            </figure>
+          </li>
+          <li>Habilite el certificado Charles. Observe el mensaje de advertencia. Es posible que desee deshabilitar este certificado cuando no se depura con Charles.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Habilitar certificado de confianza" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/enable-trust.png"/>
+              <figcaption class="bcls-caption--image">Habilitar certificado de confianza</figcaption>
+            </figure>
+          </li>
+          <!-- <li>On your device, return to the browser and open any web page. Charles will alert you about the connection attempt. You should allow this.
+    <figure class="bcls-figure"><img class="bcls-image" alt="Allow Charles connection" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/10-connection-alert.png" />
+    <figcaption class="bcls-caption--image">Allow Charles connection</figcaption>
+    </figure>
+    </li> -->
+          <li>Ahora, usted será capaz de ver cualquier dato enviado y recibido en Charles.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Ver datos de Charles" src="//learning-services-media.brightcove.com/doc-assets/concepts/mobile-debugging/11-charles-data.png"/>
+              <figcaption class="bcls-caption--image">Ver datos de Charles</figcaption>
+            </figure>
+          </li>
+        </ol>
+        <h4>Configuración de su dispositivo Android</h4>
+        <aside class="bcls-aside bcls-aside--information language-editable">Estos pasos solo funcionarán en dispositivos con Android 2.3 y versiones posteriores.</aside>
+        <ol>
+          <li>En el dispositivo, abra un navegador y vaya a <a href="//www.charlesproxy.com/getssl/">//chls.pro/ssl</a>.</li>
+          <li>Se le pedirá un cuadro de diálogo <strong>Nombre de certificado</strong> . Especifique un nombre para el certificado y establezca el campo <strong>Usado para</strong> en <strong>Wi-Fi</strong>. Seleccione <strong>Aceptar</strong> para instalar el certificado.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Instalar certificado Charles" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/04-charles.png"/>
+              <figcaption class="bcls-caption--image">Instalar certificado Charles</figcaption>
+            </figure>
+          </li>
+          <li>A continuación, abre el menú <strong>Configuración &gt; Wi-Fi</strong> . Verá una lista de redes a las que se ha conectado en su dispositivo. Seleccione la red inalámbrica a la que está conectado actualmente. Recuerde que esta red debe coincidir con la red a la que está conectado en su equipo.</li>
+          <li>Esto abrirá un pequeño cuadro de diálogo con tres opciones: Editar, Ver u Olvidar. Seleccione Editar.<strong></strong></li>
+          <li>En este cuadro de diálogo, desplácese hacia abajo hasta la parte inferior y active el campo <strong>Mostrar opciones avanzadas</strong> . Esto revelará la configuración de proxy e IP.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Ajustes avanzados" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/05-charles.png"/>
+              <figcaption class="bcls-caption--image">Ajustes avanzados</figcaption>
+            </figure>
+          </li>
+          <li>Cambie el campo <strong>Configuración del proxy</strong> a <strong>Manual</strong>.</li>
+          <li>Rellene el campo <strong>Nombre de host del proxy</strong> con la dirección IP del equipo y el campo <strong>Puerto proxy</strong> para que coincida con el puerto establecido en Charles (de forma predeterminada, el puerto está establecido en 8888). Seleccione Guardar.
+            <figure class="bcls-figure"><img width="400" class="bcls-image" alt="Establecer dirección IP" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/06-charles.png"/>
+              <figcaption class="bcls-caption--image">Establecer dirección IP</figcaption>
+            </figure>
+          </li>
+          <li>En el navegador predeterminado de tu dispositivo, navega a un sitio web. Podrá ver los datos enviados y recibidos en Charles.
+            <figure class="bcls-figure"><img class="bcls-image" alt="Consulte Transferencia de datos" src="//learning-services-media.brightcove.com/doc-assets/video-cloud-apis/general-information/mobile-debugging/07-charles.png"/>
+              <figcaption class="bcls-caption--image">Consulte Transferencia de datos</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- div id="charles" --></article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenido de la página</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  Última actualización de la página el 29-09-2020
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Asistencia técnica de Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            Estado del sistema<a href="https://status.brightcove.com"></a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentación</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formación</h2>
+
+        <ul class="menu">
+          <li>
+            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
+          </li>
+          <li>
+            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
