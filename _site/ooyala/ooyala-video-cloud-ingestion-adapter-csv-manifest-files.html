@@ -1,0 +1,725 @@
+﻿<!doctype html>
+<html lang="es-es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>Adaptador de ingestión Ooyala-Video Cloud: Archivos de manifiesto CSV</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
+
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+      
+      
+      
+      <li class="breadcrumb-item">Migrando desde Ooyala<a href="/ooyala/"></a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Adaptador de ingestión Ooyala-Video Cloud: Archivos de manifiesto CSV</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Otros documentos de Brightcove</option>
+          
+            
+              <option value="https://support.brightcove.com">Documentación Inicio</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Inicio</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/brightcove-product-overview.html">Descripción general del producto Brightcove</a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-continuum-overview.html">Descripción general de Brightcove Continuum</a></li>
+                  
+                
+                  
+                    <li>Proyectos de código abierto<a href="/general/brightcove-open-source-projects.html"></a></li>
+                  
+                
+                  
+                    <li>Vídeo MPEG-DASH<a href="/general/mpeg-dash-video.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">Grupos de foros y listas de correo electrónico de Brightcove</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer/index.html">Desarrolladores <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Comprensión de CORS<a href="/developer/concepts-cors.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-introducing-json.html">Presentamos a JSON</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/concepts-javascript-debugging-basics.html">Conceptos básicos de la depuración de JavaScript</a></li>
+                  
+                
+                  
+                    <li>El patrón de diseño del módulo JavaScript<a href="/developer/concepts-javascript-module-design-pattern.html"></a></li>
+                  
+                
+                  
+                    <li>Configuración de cURL<a href="/developer/concepts-set-curl.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de promesas JavaScript<a href="/developer/concepts-using-javascript-promises.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/developer/create-jwt.html">Creación de un token web JSON (JWT)</a></li>
+                  
+                
+                  
+                    <li><a href="/developer/debugging-mobile-devices.html">Depuración en dispositivos móviles</a></li>
+                  
+                
+                  
+                    <li>Usando MTR (mi traceroute)<a href="/developer/using-mtr-to-look-at-network-traffic.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de Wireshark para rastrear el tráfico de red<a href="/developer/using-wireshark-track-network-traffic-debugging.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Migrando desde Ooyala +<a href="/ooyala/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Documentos de Migración para Clientes de Ooyala<a href="/ooyala/migration-docs-ooyala-customers.html"></a></li>
+                  
+                
+                  
+                    <li>Migración a la API de Brightcove Analytics<a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html"></a></li>
+                  
+                
+                  
+                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ad-sets.html"> Conjuntos de anuncios</a></li>
+                  
+                
+                  
+                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html"> Adaptador de ingestión</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto CSV</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Adaptador de ingestión: Ingerir con Aspera</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">Adaptador de ingestión: Ingerir con FTPS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">Adaptador de ingestión: Ingerir con OIS 2.5</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">Adaptador de ingestión: Ingerir con la API de backlot</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">Adaptador de ingestión: Ingerir activos remotos a través de MRSS</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">Adaptador de ingestión: Ingerir desde MRSS alojado</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot/Conector CMS de Video Cloud</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">Backlot y Video Cloud: Campos de vídeo y lista de reproducción</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">Adaptador de ingestión: Formatos de archivo manifiesto</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto XML</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">Adaptador de ingestión: Formatos de ingesta admitidos</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">Agregar el servidor DNS de Brightcove para pruebas</a></li>
+                  
+                
+                  
+                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">Autenticación para solicitudes de API de Brightcove</a></li>
+                  
+                
+                  
+                    <li>Referencia del informe Tendencias ahora<a href="/ooyala/trending-now-report-reference.html"></a></li>
+                  
+                
+                  
+                    <li>Uso de reproductores Ooyala para contenido de Video Cloud<a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Utilidades +<a href="/utilities/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/utilities/base-64-encoding-tool.html">Herramienta de codificación Base 64</a></li>
+                  
+                
+                  
+                    <li><a href="/utilities/date-converter.html">Conversor de fecha</a></li>
+                  
+                
+                  
+                    <li>Codificador de cadenas<a href="/utilities/string-encoder.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Entrenamiento +<a href="/training/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/training/online-training-courses.html">Todos los cursos de formación en línea</a></li>
+                  
+                
+                  
+                    <li>Regístrese para la formación impartida por instructor<a href="/training/register-training.html"></a></li>
+                  
+                
+                  
+                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud.html"> Introducción a Video Cloud</a></li>
+                  
+                
+                  
+                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud-analytics.html"> Introducción a la analítica de Video Cloud</a></li>
+                  
+                
+                  
+                    <li>Capacitación:<a href="/training/training-demand-video-cloud-basics.html"> Conceptos básicos de Video Cloud</a></li>
+                  
+                
+                  
+                    <li>Vídeos de formación de Video Cloud Studio<a href="/training/video-cloud-studio-training-videos.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/training/brightcove-university.html">Cursos de formación de la Universidad de Brightcove</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li>Problemas conocidos<a href="/support/known-issues-studio-brightcove-player-and-apis.html"></a></li>
+                  
+                
+                  
+                    
+                  
+                
+                  
+                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
+                  
+                
+                  
+                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Contenido de la página</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+
+<h1>Adaptador de ingestión Ooyala-Video Cloud: Archivos de manifiesto CSV</h1>
+<article class="bcls-article">
+  <summary>Puede seguir utilizando FTP o Aspera con un manifiesto CSV para ingerir sus vídeos en Video Cloud. Este tema explica la estructura del CSV.</summary>
+  <aside class="bcls-aside bcls-aside--information language-editable">Nota: este tema sólo se aplica a los clientes de Ooyala migrados a Video Cloud.<strong></strong></aside>
+  
+  <section class="bcls-section">
+    <h2 id="introduction">Introducción</h2>
+    <p>Al ingerir vídeos, puede utilizar archivos de manifiesto CSV para especificar metadatos adicionales (incluidos el título del vídeo, la descripción, los tiempos de vuelo, las etiquetas y los metadatos personalizados), así como archivos de miniaturas y subtítulos opcionales. Puede utilizar archivos de manifiesto CSV al ingerir contenido con FTP o Aspera.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Limitations">Limitaciones</h2>
+    <div class="note note">Nota:<span class="notetitle"></span> Este tema se aplica a OIS v2.5.</div>
+    <p>El formato CSV del archivo de metadatos admite menos entidades que el formato XML. El formato CSV permite especificar miniaturas (imágenes de vista previa) y metadatos personalizados para asociarlos a un vídeo. El formato XML admite estas funciones, así como la asociación de los nombres de los conjuntos de anuncios definidos existentes.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Handling_of_metadata">Manejo de metadatos</h2>
+    <p>Si incluye vídeos al ingerirlos, se asigna a los campos de vídeo de Video Cloud de una de estas dos maneras:<code translate="No">metadata</code></p>
+    <ol>
+      <li><strong>De forma predeterminada</strong>, cada par <code translate="No">metadata</code> clave/valor se agrega como una <em>etiqueta</em> en el formulario: <code translate="No">meta::key::value</code>. Por ejemplo, <code translate="No">&lt;ooyala:metadata name="category"&gt;cooking&lt;/ooyala:metadata&gt;</code> produciría la etiqueta <code translate="No">meta::category::cooking</code></li>
+      <li>Si prefiere utilizar para almacenar metadatos, Brightcove Support puede cambiar una configuración de su cuenta para hacerlo.<code translate="No">custom_fields</code> Tenga en cuenta lo siguiente:
+        <ul>
+          <li>Tendrá que crear campos personalizados con nombres correspondientes a sus claves de metadatos.</li>
+          <li>El número de campos personalizados está limitado a 10 de forma predeterminada, por lo que si necesita más que eso para acomodar sus metadatos, deberá solicitar campos personalizados adicionales de Soporte.</li>
+          <li>Si no existe un campo personalizado correspondiente a cada elemento de metadatos en su cuenta, se producirá un error en toda la operación de metadatos.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="CSV_Manifest_Column_Headings">Encabezados de columna de manifiesto CSV</h2>
+    <p>Los siguientes campos son la primera línea (encabezados de columna) del archivo CSV, con campos de datos reales seguidos en las filas siguientes (una fila por vídeo).</p>
+    <div class="note note">Nota:<span class="notetitle"></span> Puede especificar estas columnas en cualquier orden y omitir las columnas que no necesite, siempre que los datos de las filas de datos coincidan exactamente con los encabezados.</div>
+    <table class="bcls-table">
+      <caption class="bcls-caption--table">
+      Encabezados de columna de manifiesto CSV
+      </caption>
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Título de columna</th>
+          <th>Descripción</th>
+          <th>Necesario/Opcional</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><samp translate="No">video</samp></td>
+          <td>Nombre de archivo del vídeo o la URL donde se encuentra el vídeo. La URL puede incluir o.<samp translate="No">http://</samp><samp translate="No">https://</samp></td>
+          <td>requerido</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">title</samp></td>
+          <td>Nombre o título del vídeo.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">thumbnail</samp></td>
+          <td>Nombre de archivo de la miniatura o de la URL donde se encuentra la miniatura.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">content_type</samp></td>
+          <td>Tipo de contenido (vídeo o activo remoto). Si el nombre de archivo especificado en la columna de vídeo es una dirección URL en la que se encuentra el vídeo y si desea definir un activo remoto, cambie el valor de la columna content_type (de <samp translate="No">video</samp>, predeterminado) a <samp translate="No">content_type=remoteasset</samp>.</td>
+          <td>requerido (sólo activos remotos)</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">description</samp></td>
+          <td>Descripción del vídeo.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">hosted_at</samp></td>
+          <td>URL permanente donde se incrusta el vídeo. Asigna al valor de la <samp translate="No">hosted_at</samp> propiedad de un activo remoto.
+            <div class="note note">Nota:<span class="notetitle"></span> Después de crear un activo remoto, su propagación a los distintos CDN podría retrasarse 60 segundos o más. Si solicita un activo remoto demasiado pronto después de su creación, los CDN almacenarán en caché los resultados, lo que podría tardar varios minutos en borrarse. Práctica recomendada: después de la creación, espere 30 o 60 segundos, consulte con el <span class="ph">API de backlot</span> <samp translate="No">[GET] /v2/assets/<var class="keyword varname">asset_id</var></samp> route, y después de recuperar el código de inserción del activo remoto (ID de contenido o ID de activo), proceda a insertar el activo.</div></td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">flight_start_time</samp></td>
+          <td>La hora de inicio cuando se puede reproducir el activo, en UTC. Ejemplo:<samp translate="No">2011-06-01T00:00:00Z</samp></td>
+          <td>requerido (sólo si <samp translate="No">flight_end_time</samp>se especifica)</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">flight_end_time</samp></td>
+          <td>La hora de finalización en la que se puede reproducir el activo, en UTC. Ejemplo:<samp translate="No">2011-07-01T00:00:00Z</samp></td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">durationInMs</samp></td>
+          <td>(Sólo OS v2.5) Duración que representa la duración del vídeo (en milisegundos). Requerido cuando <samp translate="No">content_type=remoteasset</samp>.</td>
+          <td>necesario (sólo para activos remotos)</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">labels</samp></td>
+          <td>Una o más etiquetas, separadas por comas. Por ejemplo: <samp translate="No">/sports,/sports/jogging</samp>.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">metadata</samp></td>
+          <td>Metadatos personalizados para el vídeo. Puede tener una columna para cada tipo de metadatos. Consulte la sección <a href="#Handling_of_metadata">Gestión de metadatos</a> anterior para ver cómo se asignan los metadatos a los campos de vídeo de Video Cloud.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">embed_code</samp></td>
+          <td>(Reservado). ID de contenido en Backlot del activo de vídeo.</td>
+          <td>reservado</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">id</samp></td>
+          <td>Se asigna a la propiedad de ID externo del activo creado: un identificador personalizado que se define que puede utilizar en lugar del identificador de contenido.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">subTitle</samp></td>
+          <td class="entry" id="ingestion_ftp_csv__subtitle" valign="top" width="71.42857142857143%" headers="d1039925e42 ">Especifica un archivo de subtítulos opcionales (sólo compatible con archivos DFXP). Una de las siguientes:
+            <ul>
+              <li>Nombre del archivo de subtítulos opcionales que ha subido. Ejemplo:<samp translate="No">&lt;media:subTitle href="caption-1.dfxp"/&gt;</samp></li>
+              <li>URL donde se encuentra el archivo de subtítulos opcionales. La URL puede incluir o.<samp translate="No">http://</samp><samp translate="No">https://</samp></li>
+            </ul>
+            <p>Consulte <a title="Puede ingerir archivos de subtítulos opcionales a través de Backlot o Ooyala Ingestión Service (OIS)." href="/ooyala/migrating-video-cloud-ingestion-adapter.html">Ingesta de archivos de subtítulos opcionales</a>.</p></td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">subTitle:lang</samp></td>
+          <td>(opcional) - Idioma del archivo de subtítulos opcionales. Código de idioma de dos letras./td &gt;</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">subTitle:frameRate</samp></td>
+          <td>(opcional) - Frecuencia de fotogramas del archivo de subtítulos opcionales. Las unidades están en fotogramas por segundo (FPS). El valor predeterminado es 30. Los archivos de subtítulos más antiguos podrían ser 24.</td>
+          <td>opcional</td>
+        </tr>
+        <tr>
+          <td><samp translate="No">profileguid</samp></td>
+          <td>ID del perfil de procesamiento, que es un grupo de codificaciones que definen los formatos a los que se debe convertir un vídeo maestro durante la transcodificación. Si no desea utilizar el perfil predeterminado de ingesta de Video Cloud, debe incluir el identificador del que desea utilizar. Consulte Gestión de perfiles de ingesta.<a href="https://studio.support.brightcove.com/admin/managing-ingest-profiles.html"></a></td>
+          <td>opcional</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="p"><strong class="ph b">Ejemplo de archivo de manifiesto CSV (OIS v2.5)</strong></p>
+    <pre class="line-numbers">
+  <code class="language-bash" translate="No">
+  video,title,description,labels,hosted_at,id,thumbnail,subTitle,flight_start_time,flight_end_time,profileguid
+  test.mp4,Test CSV,This is an example,"test,example,csv",http://www.ooyala.com,my_test_guid_csv,my_thumbnail.jpg,my_caption.dfxp,2016-01-01T15:15:00-07:00,2022-01-01T16:00:00-07:00,57d5a5a10f654fe79ef954dc8d29a108
+  </code></pre>
+    <div class="fig fignone"><img class="image" id="ingestion_ftp_csv__ingest_ftpvideo_csv" height="91" width="1135" src="/assets/images/ooyala/ingest_ftp_video_csv.png"/></div>
+    <p class="p"><strong class="ph b">Creación de un archivo de manifiesto CSV</strong></p>
+    <p class="p">Tenga en cuenta lo siguiente al generar un archivo de metadatos CSV:</p>
+    <ul>
+      <li>Si un valor de texto en un campo de datos tiene una coma (,), debe incluir el campo entre comillas dobles («).</li>
+      <li>Si un valor de texto en un campo de datos tiene una comilla doble («) en él, debe encerrar el campo entre comillas dobles y escapar del carácter de comilla doble en el campo de texto con una segunda comilla (por ejemplo, «Ella dijo, «" "Que tenga un buen día.""»)</li>
+    </ul>
+    <p class="p">Si va a crear el archivo de metadatos CSV desde Excel, maneja automáticamente el escape.</p>
+    <p class="p">Para crear un archivo de metadatos CSV:</p>
+    <ol class="bcls-tasklist">
+      <li>Sube uno o más vídeos.</li>
+      <li>Abra un programa de hoja de cálculo, como Microsoft Excel.</li>
+      <li>Agregue los encabezados de columna a la primera fila.</li>
+      <li>Agregue una fila para cada vídeo.</li>
+      <li>Guarde el archivo como CSV. Por ejemplo, puede seleccionar <strong>Guardar como</strong> en el menú <strong>Archivo</strong> . Cuando se le solicite, seleccione el tipo de archivo de valores separados por comas.</li>
+      <li><span>Con el método de subida de su elección, sube el archivo CSV mientras subiste los vídeos. Vea <a title="Puede usar FTPS (recomendado) o FTP (obsoleto) para cargar vídeos, miniaturas, subtítulos opcionales y archivos de manifiesto a Backlot." href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">FTP</a> o <a title="Puede utilizar el software de transferencia de archivos Aspera para cargar vídeos, miniaturas, subtítulos y archivos de manifiesto a Backlot." href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Aspera</a>.</span></li>
+    </ol>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Contenido de la página</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Asistencia técnica de Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            Estado del sistema<a href="https://status.brightcove.com"></a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">Documentación</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Formación</h2>
+
+        <ul class="menu">
+          <li>
+            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
+          </li>
+          <li>
+            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">BrightCove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  
+  <!-- <script src="/assets/js/toc.js"></script> -->
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
