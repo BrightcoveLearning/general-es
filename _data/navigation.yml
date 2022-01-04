@@ -1,0 +1,137 @@
+- section:
+  name: 'Casa'
+  url: '/index.html'
+- section:
+  name: 'Información general'
+  url: '/general/index.html'
+  icon: '<i data-feather="info"></i>'
+  docs:
+    - name: 'Descripción general del producto Brightcove'
+      url: '/general/brightcove-product-overview.html'
+    - name: 'Descripción general de Brightcove Continuum'
+      url: '/general/brightcove-continuum-overview.html'
+    - name: 'Vídeos de Brightcove en Roku Trick Play'
+      url: '/general/roku-trick-play.html'
+    - name: 'Proyectos de código abierto'
+      url: '/general/brightcove-open-source-projects.html'
+    - name: 'Vídeo MPEG-DASH'
+      url: '/general/mpeg-dash-video.html'
+    - name: 'Grupos de foros y listas de correo electrónico de Brightcove'
+      url: '/general/brightcove-forum-groups-and-email-lists.html'
+- section:
+  name: 'Desarrolladores'
+  url: '/developer/index.html'
+  icon: '<i data-feather="code"></i>'
+  docs:
+    - name: 'Entendiendo CORS'
+      url: '/developer/concepts-cors.html'
+    - name: 'Presentamos JSON'
+      url: '/developer/concepts-introducing-json.html'
+    - name: 'Conceptos básicos de depuración de JavaScript'
+      url: '/developer/concepts-javascript-debugging-basics.html'
+    - name: 'El patrón de diseño del módulo JavaScript'
+      url: '/developer/concepts-javascript-module-design-pattern.html'
+    - name: 'Configurar cURL'
+      url: '/developer/concepts-set-curl.html'
+    - name: 'Usar promesas de JavaScript'
+      url: '/developer/concepts-using-javascript-promises.html'
+    - name: 'Creación de un token web JSON (JWT)'
+      url: '/developer/create-json-web-token.html'
+    - name: 'Creación de un token web JSON (JWT) -Deprecated'
+      url: '/developer/create-jwt.html'
+    - name: 'Depuración en dispositivos móviles'
+      url: '/developer/debugging-mobile-devices.html'
+    - name: 'Usando MTR (mi traceroute)'
+      url: '/developer/using-mtr-to-look-at-network-traffic.html'
+    - name: 'Uso de Wireshark para rastrear el tráfico de la red'
+      url: '/developer/using-wireshark-track-network-traffic-debugging.html'
+- section:
+  name: 'Migrando desde Ooyala'
+  url: '/ooyala/index.html'
+  icon: '<i data-feather="truck"></i>'
+  docs:
+    - name: 'Documentos de migración para clientes de Ooyala'
+      url: '/ooyala/migration-docs-ooyala-customers.html'
+    - name: 'Migrar a la API de Brightcove Analytics'
+      url: '/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html'
+    - name: 'Migración a Video Cloud: Conjuntos de anuncios'
+      url: '/ooyala/migrating-video-cloud-ad-sets.html'
+    - name: 'Migración a Video Cloud: Adaptador de ingestión'
+      url: '/ooyala/migrating-video-cloud-ingestion-adapter.html'
+    - name: 'Adaptador de ingestión: Archivos de manifiesto CSV'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html'
+    - name: 'Adaptador de ingestión: Ingerir con Aspera'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html'
+    - name: 'Adaptador de ingestión: Ingerir con FTPS'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html'
+    - name: 'Adaptador de ingestión: Ingerir con OIS 2.5'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html'
+    - name: 'Adaptador de ingestión: Ingesta con la API de backlot'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html'
+    - name: 'Adaptador de ingestión: Ingesta de activos remotos a través de MRSS'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html'
+    - name: 'Adaptador de ingestión: Ingesta desde MRSS alojado'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html'
+    - name: 'Conector CMS Backlot / Video Cloud'
+      url: '/ooyala/backlot-video-cloud-cms-connector.html'
+    - name: 'Backlot y Video Cloud: Campos de video y lista de reproducción'
+      url: '/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html'
+    - name: 'Adaptador de ingestión: Formatos de archivo de manifiesto'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html'
+    - name: 'Adaptador de ingestión: Archivos de manifiesto XML'
+      url: '/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html'
+    - name: 'Adaptador de ingestión: Formatos de ingesta compatibles'
+      url: '/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html'
+    - name: 'Adición del servidor DNS de Brightcove para realizar pruebas'
+      url: '/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html'
+    - name: 'Autenticación para solicitudes de API de Brightcove'
+      url: '/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html'
+    - name: 'Referencia del informe Tendencias actuales'
+      url: '/ooyala/trending-now-report-reference.html'
+    - name: 'Uso de reproductores Ooyala para contenido de Video Cloud'
+      url: '/ooyala/using-ooyala-players-deliver-video-cloud-content.html'
+- section:
+  name: 'Utilidades'
+  url: '/utilities/index.html'
+  icon: '<i data-feather="tool"></i>'
+  docs:
+    - name: 'Herramienta de codificación Base 64'
+      url: '/utilities/base-64-encoding-tool.html'
+    - name: 'Convertidor de fecha'
+      url: '/utilities/date-converter.html'
+    - name: 'Codificador de cadena'
+      url: '/utilities/string-encoder.html'
+- section:
+  name: Capacitación
+  url: /training/index.html
+  icon: '<i data-feather="award"></i>'
+  docs:
+    - name: Todos los cursos de formación online
+      url: /training/online-training-courses.html
+    - name: Regístrese para la capacitación dirigida por un instructor
+      url: /training/register-training.html
+    - name: 'Capacitación: Introducción a Video Cloud'
+      url: /training/training-demand-introduction-video-cloud.html
+    - name: 'Capacitación: Introducción a Video Cloud Analytics'
+      url: /training/training-demand-introduction-video-cloud-analytics.html
+    - name: 'Capacitación: Conceptos básicos de Video Cloud'
+      url: /training/training-demand-video-cloud-basics.html
+    - name: Vídeos de formación de Video Cloud Studio
+      url: /training/video-cloud-studio-training-videos.html
+    - name: Cursos de formación de la Universidad de Brightcove
+      url: /training/brightcove-university.html
+- section:
+  name: 'Apoyo'
+  url: '/support/index.html'
+  icon: '<i data-feather="help-circle"></i>'
+  docs:
+    - name: 'Problemas conocidos'
+      url: '/support/known-issues-studio-brightcove-player-and-apis.html'
+    - name: 'Visualización de la página de estado del sistema Brightcove'
+      url: '/support/viewing-brightcove-system-status-page.html'
+    - name: 'Comuníquese con Ventas'
+      url: '/support/contact-sales.html'
+    - name: 'Abrir un caso de asistencia'
+      url: '/support/opening-case-with-brightcove-support.html'
+    - name: 'Restablecer la contraseña del portal de soporte'
+      url: '/support/reset-support-portal-password.html'

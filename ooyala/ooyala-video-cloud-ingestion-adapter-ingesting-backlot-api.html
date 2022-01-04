@@ -1,620 +1,186 @@
-﻿<!doctype html>
-<html lang="es-es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="En este tema se trata del uso de la API de backlot para ingerir contenido en Video Cloud. Nota: este tema sólo se aplica a los clientes de Ooyala migrados a Video Cloud.">
-  
-  <title>Adaptador de ingestión Ooyala-Video Cloud: Ingerir con la API de backlot</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
-
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item">Migrando desde Ooyala<a href="/ooyala/"></a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Adaptador de ingestión Ooyala-Video Cloud: Ingerir con la API de backlot</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
-          
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/brightcove-product-overview.html">Descripción general del producto Brightcove</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-continuum-overview.html">Descripción general de Brightcove Continuum</a></li>
-                  
-                
-                  
-                    <li>Proyectos de código abierto<a href="/general/brightcove-open-source-projects.html"></a></li>
-                  
-                
-                  
-                    <li>Vídeo MPEG-DASH<a href="/general/mpeg-dash-video.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">Grupos de foros y listas de correo electrónico de Brightcove</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer/index.html">Desarrolladores <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Comprensión de CORS<a href="/developer/concepts-cors.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-introducing-json.html">Presentamos a JSON</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-debugging-basics.html">Conceptos básicos de la depuración de JavaScript</a></li>
-                  
-                
-                  
-                    <li>El patrón de diseño del módulo JavaScript<a href="/developer/concepts-javascript-module-design-pattern.html"></a></li>
-                  
-                
-                  
-                    <li>Configuración de cURL<a href="/developer/concepts-set-curl.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de promesas JavaScript<a href="/developer/concepts-using-javascript-promises.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/developer/create-jwt.html">Creación de un token web JSON (JWT)</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/debugging-mobile-devices.html">Depuración en dispositivos móviles</a></li>
-                  
-                
-                  
-                    <li>Usando MTR (mi traceroute)<a href="/developer/using-mtr-to-look-at-network-traffic.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de Wireshark para rastrear el tráfico de red<a href="/developer/using-wireshark-track-network-traffic-debugging.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Migrando desde Ooyala +<a href="/ooyala/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Documentos de Migración para Clientes de Ooyala<a href="/ooyala/migration-docs-ooyala-customers.html"></a></li>
-                  
-                
-                  
-                    <li>Migración a la API de Brightcove Analytics<a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html"></a></li>
-                  
-                
-                  
-                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ad-sets.html"> Conjuntos de anuncios</a></li>
-                  
-                
-                  
-                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html"> Adaptador de ingestión</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto CSV</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Adaptador de ingestión: Ingerir con Aspera</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">Adaptador de ingestión: Ingerir con FTPS</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">Adaptador de ingestión: Ingerir con OIS 2.5</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">Adaptador de ingestión: Ingerir con la API de backlot</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">Adaptador de ingestión: Ingerir activos remotos a través de MRSS</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">Adaptador de ingestión: Ingerir desde MRSS alojado</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot/Conector CMS de Video Cloud</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">Backlot y Video Cloud: Campos de vídeo y lista de reproducción</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">Adaptador de ingestión: Formatos de archivo manifiesto</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto XML</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">Adaptador de ingestión: Formatos de ingesta admitidos</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">Agregar el servidor DNS de Brightcove para pruebas</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">Autenticación para solicitudes de API de Brightcove</a></li>
-                  
-                
-                  
-                    <li>Referencia del informe Tendencias ahora<a href="/ooyala/trending-now-report-reference.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de reproductores Ooyala para contenido de Video Cloud<a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Utilidades +<a href="/utilities/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/utilities/base-64-encoding-tool.html">Herramienta de codificación Base 64</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/date-converter.html">Conversor de fecha</a></li>
-                  
-                
-                  
-                    <li>Codificador de cadenas<a href="/utilities/string-encoder.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Entrenamiento +<a href="/training/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/online-training-courses.html">Todos los cursos de formación en línea</a></li>
-                  
-                
-                  
-                    <li>Regístrese para la formación impartida por instructor<a href="/training/register-training.html"></a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud.html"> Introducción a Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud-analytics.html"> Introducción a la analítica de Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-video-cloud-basics.html"> Conceptos básicos de Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Vídeos de formación de Video Cloud Studio<a href="/training/video-cloud-studio-training-videos.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">Cursos de formación de la Universidad de Brightcove</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Problemas conocidos<a href="/support/known-issues-studio-brightcove-player-and-apis.html"></a></li>
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-
-<h1>Adaptador de ingestión Ooyala-Video Cloud: Ingerir con la API de backlot</h1>
+---
+title: 'Adaptador de ingestión de Ooyala-Video Cloud: Ingesta con la API de backlot'
+description: '<p>Este tema cubre el uso de <span translate="No">API de backlot</span> para ingerir contenido en Video Cloud.</p>
+<aside class="bcls-aside bcls-aside--information">Nota: este tema <strong>solo se aplica</strong> a los clientes de Ooyala migrados a Video Cloud.</aside>'
+parent: Migrating from Ooyala
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary><p>En este tema se trata del uso <span translate="No">Backlot API</span> de para ingerir contenido en Video Cloud.</p> <aside class="bcls-aside bcls-aside--information language-editable">Nota: este tema sólo se aplica a los clientes de Ooyala migrados a Video Cloud.<strong></strong></aside></summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="introduction">Introducción</h2>
     
-    <p class="shortdesc">Utilice el <span translate="No">Backlot API</span> para cargar contenido mediante programación en Video Cloud. Este enfoque le permite integrar su sistema de gestión de contenido (CMS) o flujos de trabajo directamente con la plataforma Video Cloud.</p>
+    <p class="shortdesc">Utilizar el <span translate="No">API de backlot</span> para cargar contenido mediante programación en Video Cloud. Este enfoque le permite integrar su sistema de gestión de contenido (CMS) o flujos de trabajo directamente con la plataforma Video Cloud.</p>
     
-    <aside class="bcls-aside bcls-aside--tip language-editable">Tenga en cuenta que también puede migrar sus integraciones o aplicaciones a la API de <a href="https://apis.support.brightcove.com/cms/">CMS y a la API</a> de <a href="https://apis.support.brightcove.com/dynamic-ingest/">ingesta dinámica</a> en cualquier momento.</aside>
+    <aside class="bcls-aside bcls-aside--tip">Tenga en cuenta que también puede migrar sus integraciones o aplicaciones a la <a href="https://apis.support.brightcove.com/cms/">API de CMS</a> y <a href="https://apis.support.brightcove.com/dynamic-ingest/">API de ingesta dinámica</a> en cualquier momento.</aside>
     
-    <p>Puede utilizar el <span translate="No">Backlot API</span> para cargar y administrar vídeos, miniaturas y archivos de subtítulos opcionales mediante programación.</p>
+    <p>Puedes usar el <span translate="No">API de backlot</span> para cargar y administrar videos, miniaturas y archivos de subtítulos cerrados mediante programación.</p>
     
-    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ingestión a través de la API de backlot" src="/assets/images/ooyala/ingest_backlot_api.png"/>
-    <figcaption class="bcls-caption--image">Ingestión a través de la API de backlot</figcaption>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Ingestion via Backlot API" src="/assets/images/ooyala/ingest_backlot_api.png" />
+    <figcaption class="bcls-caption--image">Ingestión a través de la API de Backlot</figcaption>
     </figure>
     
-    <p>Si desea ingerir contenido usando la API de backlot, consulte:</p>
+    <p>Si desea ingerir contenido mediante la API de Backlot, consulte:</p>
     
     <ul>
-      <li><a title="Cuando subes un vídeo a Ooyala, Ooyala lo transcodifica automáticamente usando los ajustes especificados para tu cuenta y hace que los vídeos estén disponibles para su reproducción a través del reproductor." href="#video_request_fields">Activos de vídeo y audio</a> (para vídeos y miniaturas)</li>
-      <li><a title="Puede agregar subtítulos opcionales a vídeos o activos remotos." href="#asset_request_fields">Trabajar con subtítulos opcionales</a></li>
+      <li><a title="When you upload a video to Ooyala, Ooyala automatically transcodes it using the settings specified for your account and makes the videos available for playback through your player." href="#video_request_fields">Activos de video y audio</a> (para videos y miniaturas)</li>
+      <li><a title="You can add closed captions to videos, or remote assets." href="#asset_request_fields">Trabajar con subtítulos ocultos</a></li>
     </ul>
     
-    <p>La llamada principal utilizada para cargar archivos (denominada «activos») es la <samp translate="No">/v2/assets</samp> ruta.</p>
+    <p>La llamada principal que se utiliza para cargar archivos (denominada "activos") es la <samp translate="No">/v2/activos</samp> ruta.</p>
     
-    <p class="note note">Nota:<span class="notetitle"></span> No agregue un video con un valor nulo <samp translate="No">external_id</samp>, es decir, un <samp translate="No">external_id</samp> sin valor (<samp translate="No">""</samp>) o un valor de <samp translate="No">"null"</samp>. Dichos ID externos nulos no se pueden buscar más adelante.</p>
+    <p class="note note"><span class="notetitle">Nota:</span> No agregue un video con un nulo <samp translate="No">external_id</samp>, es decir, un <samp translate="No">external_id</samp> sin valor<samp translate="No">""</samp>) o un valor de <samp translate="No">"nulo"</samp>. Estos ID externos nulos no se pueden buscar más adelante.</p>
     </section>
     
     <section class="bcls-section">
-    <h2 id="video_request_fields">Activos de vídeo y audio</h2>
+    <h2 id="video_request_fields">Activos de video y audio</h2>
     
-    <p>Cuando subes un vídeo a <span>Ooyala</span>, <span>Ooyala</span> lo transcodifica automáticamente usando los ajustes especificados para tu cuenta y hace que los vídeos estén disponibles para su reproducción a través del reproductor.</p>
+    <p>Cuando subes un vídeo a <span>Ooyala</span>, <span>Ooyala lo transcodifica</span> automáticamente utilizando la configuración especificada para tu cuenta y pone los vídeos disponibles para su reproducción a través del reproductor.</p>
     
-    <aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que los activos de audio se almacenarán en Video Cloud como vídeos sin pista de vídeo.</aside>
+    <aside class="bcls-aside bcls-aside--information">Tenga en cuenta que los activos de audio se almacenarán en Video Cloud como videos sin pista de video.</aside>
     </section>
     
     <section class="bcls-section">
-    <p>Te recomendamos que subas vídeos a <span>Ooyala</span> en H.264, pero también apoyamos muchos códecs de uso común.</p>
+    <p>Le recomendamos que suba videos a <span>Ooyala</span> en H.264, pero también admitimos muchos códecs de uso común.</p>
     
-    <div>Para crear nuevos activos de vídeo o audio:
+    <div>Para crear nuevos activos de video o audio:
     <ol class="bcls-tasklist" id="assets_videos__ol_frj_plf_wj">
-      <li>Crear el activo con propiedades básicas</li>
-      <li>Recuperar las «URL de carga» del sistema</li>
-      <li>Para cada «URL de carga», coloque el fragmento de archivo apropiado en el sistema
-      <div>Nota:<span></span> Cuando cargue cada fragmento, no firme la solicitud, como lo haría con otras solicitudes.<em class="ph i"><strong class="ph b"></strong></em> Simplemente PON el contenido del fragmento a las URL exactas. Estas direcciones URL ya se han firmado por usted.</div>
+      <li>Crea el activo con propiedades básicas</li>
+      <li>Recuperar las "URL de carga" del sistema.</li>
+      <li>Para cada "URL de carga", coloque el fragmento de archivo correspondiente en el sistema
+      <div><span>Nota:</span> <em class="ph i"><strong class="ph b">Cuando cargue cada fragmento, no firme la solicitud</strong></em>, como lo haría con otras solicitudes. Simplemente COLOQUE el contenido del fragmento en las URL exactas. Estas URL ya se han firmado por ti.</div>
       </li>
     </ol>
     </div>
     </section>
     
     <section class="bcls-section" id="assets_videos__uploading_urls">
-    <h2 class="title sectiontitle">Obtener la carga de direcciones URL para el activo recién creado</h2>
+    <h2 class="title sectiontitle">Obtenga las URL de carga para los activos recién creados</h2>
     
     <pre class="line-numbers">
-    [GET] /v2/activos/ {asset_id} /uploading_urls</pre>
+    [GET] /v2/assets/{asset_id}/uploading_urls</pre>
     
-    <div>Nota:<span></span> Cuando cargue cada fragmento, no firme la solicitud, como lo haría con otras solicitudes.<em class="ph i"><strong class="ph b"></strong></em> Simplemente PON el contenido del fragmento a las URL exactas. Estas direcciones URL ya se han firmado por usted.</div>
+    <div><span>Nota:</span> <em class="ph i"><strong class="ph b">Cuando cargue cada fragmento, no firme la solicitud</strong></em>, como lo haría con otras solicitudes. Simplemente COLOQUE el contenido del fragmento en las URL exactas. Estas URL ya se han firmado por ti.</div>
     </section>
     
     <section class="bcls-section" id="assets_videos__set_upload_status">
     <h2 class="title sectiontitle">Establecer estado de carga</h2>
     
     <pre class="line-numbers">
-    [PUT] /v2/activos/ {asset_id} /upload_status
-    {
-       «estado» :"cargado»
-    }
+    [PUT] /v2/assets/{asset_id}/upload_status { "status":"uploaded" }
     </pre>
     </section>
     
     <section class="bcls-section" id="assets_videos__view_streams">
-    <h2 class="title sectiontitle">Ver transmisiones de un vídeo</h2>
+    <h2 class="title sectiontitle">Ver transmisiones de un video</h2>
     
-    <p>El término <dfn class="term">streams</dfn> en este contexto significa los procesos Internal-to-Ooyala iniciados por el sistema para transcodificar sus vídeos.</p>
+    <p>El término <dfn class="term">arroyos</dfn> en este contexto se refiere a los procesos internos de Ooyala que el sistema inicia para transcodificar sus videos.</p>
     
     <div>
-    <div>Nota:<span></span> No se pueden controlar ni manipular estas secuencias; están controladas por el sistema. Solo puede ver sus nombres, no cambiarlos.</div>
+    <div><span>Nota:</span> No puede controlar ni manipular estos flujos; están controlados por el sistema. Solo puede ver sus nombres, no cambiarlos.</div>
     </div>
     
     <pre class="line-numbers">
-    [GET] /v2/activos/ {asset_id} /streams              </pre>
+    [GET] /v2/assets/{asset_id}/streams              </pre>
     </section>
     
     <section class="bcls-section" id="assets_videos__view_source_files">
-    <h2 class="title sectiontitle">Ver los archivos de origen de un vídeo</h2>
+    <h2 class="title sectiontitle">Ver archivos fuente para un video</h2>
     
     <pre class="line-numbers">
-    [GET] /v2/activos/ {asset_id} /source_file_info           </pre>
+    [GET] /v2/assets/{asset_id}/source_file_info           </pre>
     </section>
     
     <section class="bcls-section" id="assets_videos__view_autogenerted_image_urls">
-    <h2 class="title sectiontitle">Obtener direcciones URL para imágenes de vista previa generadas automáticamente</h2>
+    <h2 class="title sectiontitle">Obtener URL para imágenes de vista previa generadas automáticamente</h2>
     
     <pre class="line-numbers">
-    [GET] /v2/activos/ {asset_id} /generated_preview_images           </pre>
+    [GET] /v2/assets/{asset_id}/generated_preview_images           </pre>
     </section>
     
     <section class="bcls-section" id="assets_videos__upload_custom_image">
     <h2 class="title sectiontitle">Cargar imagen de vista previa personalizada</h2>
     
     <pre class="line-numbers">
-    [POST] /v2/activos/ {asset_id} /preview_image_files
-    &lt;archivo_contenido &gt;                           </pre>
+    [POST] /v2/assets/{asset_id}/preview_image_files &lt;file_contents&gt;                           </pre>
     </section>
     
     <section class="bcls-section" id="assets_videos__set_primary_image">
-    <h2 class="title sectiontitle">Establecer configuración de imagen de vista previa principal</h2>
+    <h2 class="title sectiontitle">Establecer la configuración de la imagen de vista previa principal</h2>
     
-    <div>Establezca el tipo de imagen de vista previa principal de un activo en una de las siguientes opciones:
+    <div>Establezca el tipo de imagen de vista previa principal de un activo en uno de los siguientes:
     <ul class="ul">
-      <li><samp class="ph codeph" translate="No">generated</samp>: utilizar la imagen de vista previa generada automáticamente</li>
-      <li><samp class="ph codeph" translate="No">uploaded_file</samp>: utilice la imagen de vista previa personalizada cargada</li>
+      <li><samp class="ph codeph" translate="No">generado</samp>: use la imagen de vista previa generada automáticamente</li>
+      <li><samp class="ph codeph" translate="No">uploaded_file</samp>: use la imagen de vista previa personalizada cargada</li>
       <li><samp class="ph codeph" translate="No">remote_url</samp>: URL de la imagen de vista previa</li>
     </ul>
     </div>
     
     <pre class="line-numbers">
-    [PUT] /v2/activos/ {asset_id} /primary_preview_image
-    {
-       «tipo» :"generado» | «uploaded_file» | «remote_url»
-    }      </pre>
+    [PUT] /v2/assets/{asset_id}/primary_preview_image { "type":"generated" | "uploaded_file" | "remote_url" }      </pre>
     </section>
     
     <section class="bcls-section">
     <h2 class="title sectiontitle">Acerca de los metadatos</h2>
     
-    <p>Un activo puede tener hasta 100 pares de nombre/valor de metadatos personalizados. Un nombre está limitado a 128 caracteres y su valor está limitado a 2.048 caracteres.</p>
+    <p>Un activo puede tener hasta 100 pares de nombre / valor de metadatos personalizados. Un nombre está limitado a 128 caracteres y su valor está limitado a 2048 caracteres.</p>
     </section>
     
     <section class="bcls-section">
-    <h2 class="title sectiontitle">Ejemplos</h2>
-    En este ejemplo se crea un vídeo:
+    <h2 class="title sectiontitle">Ejemplos de</h2>
+    Este ejemplo crea un video:
     
     <pre class="line-numbers">
-    [POST] /v2/assets {
-       «nombre» :"Honey Badger»,
-       «nombre_archivo»:» honeybadger.avi «,
-       «asset_type» :"video»,
-       «file_size» :398422,
-       «chunk_size» :100000
-    }            </pre>
+    [POST] / v2 / assets{ "name":"Honey Badger", "file_name":"honeybadger.avi", "asset_type":"video", "file_size":398422, "chunk_size":100000 }            </pre>
     
-    <p>Video Cloud devuelve una respuesta similar a la siguiente:<span></span></p>
+    <p><span>Video Cloud</span> devuelve una respuesta similar a la siguiente:</p>
     
     <pre class="line-numbers">
-    {
-       «nombre» :"Honey Badger»,
-       «preview_image_url» :null,
-       «asset_type» :"video»,
-       «duración» :0,
-       «embed_code»: {embed_code},
-       "created_at":"2011-10-26T19:40:32+00:00",
-       «time_restrictions» :null,
-       "updated_at":"2011-10-26T19:40:32+00:00",
-       «external_id» :nulo,
-       «hosted_at» :null,
-       «original_file_name»:» honeybadger.avi «,
-       «descripción» :null,
-       «status» :"subir»
-    }</pre>
+    { "name":"Honey Badger", "preview_image_url":null, "asset_type":"video", "duration":0, "embed_code":{embed_code}, «created_at» :"2011-10-26T 19:40:32 + 00:00 «, «time_restrictions» :null, «updated_at» :"2011-10-26T 19:40:32 + 00:00 «, «external_id» :null, «hosted_at» :null, «original_file_name»:» honeybadger.avi «,» ; description» :null, «status» :"subida»}</pre>
     
-    <p>En este ejemplo se devuelven las URL de carga:</p>
+    <p>Este ejemplo devuelve las URL de carga:</p>
     
     <pre class="line-numbers">
-    [GET] /v2/activos/ {asset_id} /uploading_urls</pre>
+    [GET] /v2/assets/{asset_id}/uploading_urls</pre>
     
-    <p>Video Cloud devuelve una respuesta similar a la siguiente:<span></span></p>
-    
-    <pre class="line-numbers">
-    ["https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000000000-0000000099999&amp;filesize=100000&amp;expires=1314391791&amp;signature=Jliypj/Q0c5dVu4tDFUDIjIngyDu/LGng+rCG3KNSF4",
-       «https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000100000-0000000199999&amp;filesize=100000&amp;expires=1314391791&amp;signature=qOjdkomEUO7mgWDjqu9z01QrI39sxa9W0zzRXDhOR9Y «,
-       "https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000200000-0000000299999&amp;filesize=100000&amp;expires=1314391791&amp;signature=+bT8Jft9kvVdkYMND87BSs/VWu1r2imCNkl9v2++eTU",
-       «https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000300000-0000000398421&amp;filesize=98422&amp;expires=1314391791&amp;signature=cObAITdnMHeT6/wuNCAjYABgxqdlfPaLeATOmsKxmdg"]</pre>
-    
-    <p>En este ejemplo se marca el vídeo como cargado, lo que indica a <span>Video Cloud</span> que comience a procesar el archivo:</p>
+    <p><span>Video Cloud</span> devuelve una respuesta similar a la siguiente:</p>
     
     <pre class="line-numbers">
-    [PUT] /v2/activos/ {asset_id} /upload_status
-    {
-       «estado» :"cargado»
-    }</pre>
+    [» https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000000000-0000000099999&amp;filesize=100000&amp;expires=1314391791&amp;signature=Jliypj/Q0c5dVu4tDFUDIjIngyDu/LGng+rCG3KNSF4 «,» https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000100000-0000000199999&amp;filesize=100000&amp;expires=1314391791&amp;signature=qOjdkomEUO7mgWDjqu9z01QrI39sxa9W0zzRXDhOR9Y «,» https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000200000-0000000299999&amp;filesize=100000&amp;expires=1314391791&amp;signature=+bT8Jft9kvVdkYMND87BSs/VWu1r2imCNkl9v2++eTU «,» https://uploader-v2.ooyala.com/send?filename=EwZ2RyMjrulwSBrJMpFd7xQ6FoftMnaA/0000000300000-0000000398421&amp;filesize=98422&amp;expires=1314391791&amp;signature=cObAITdnMHeT6/wuNCAjYABgxqdlfPaLeATOmsKxmdg "]</pre>
     
-    <p>Video Cloud devuelve una respuesta similar a la siguiente:<span></span></p>
+    <p>Este ejemplo marca el video como subido, lo que dice <span>Video Cloud</span> para comenzar a procesar el archivo:</p>
     
     <pre class="line-numbers">
-    {
-       «status»: «subido»
-    }</pre>
+    [PUT] /v2/assets/{asset_id}/upload_status { "status":"uploaded" }</pre>
+    
+    <p><span>Video Cloud</span> devuelve una respuesta similar a la siguiente:</p>
+    
+    <pre class="line-numbers">
+    { "status": "uploaded" }</pre>
     <!-- <div><span>Note:</span> Try out the code samples using your account credentials in the Ooyala Scratchpad. To launch the Scratchpad, go to <span>Ooyala <a class="xref" target="_blank" href="https://api.ooyala.com/docs/api_scratchpad">API Scratchpad</a></span>. For information about using the Scratchpad, see <a class="xref" title="You can make practice requests on the scratchpad." href="../concepts/api_scratchpad.html">Practice Making Requests with the Scratchpad</a>.</div> -->
     
     <pre class="line-numbers">
-    [GET] /v2/activos/ {asset_id} /source_file_info</pre>
+    [GET] /v2/assets/{asset_id}/source_file_info</pre>
     
-    <p>Video Cloud devuelve una respuesta similar a la siguiente:<span></span></p>
+    <p><span>Video Cloud</span> devuelve una respuesta similar a la siguiente:</p>
     
     <pre class="line-numbers">
-    {
-       «original_file_name»: lakeside.wmv,
-       «source_file_url»: {source_url}»
-       «file_size»: 25227886
-    }</pre>
+    { "original_file_name": lakeside.wmv, "source_file_url":{source_url}" "tamaño del archivo": 25227886}</pre>
     
-    <div>Nota:<span></span> Las direcciones URL de los archivos de origen se firman y caducan en 24 horas.</div>
+    <div><span>Nota:</span> Las URL de los archivos de origen están firmadas y caducan en 24 horas.</div>
     </section>
     
     <section class="bcls-section">
-    <h2 id="asset_request_fields">Trabajar con subtítulos opcionales</h2>
+    <h2 id="asset_request_fields">Trabajar con subtítulos ocultos</h2>
     
-    <p>Puede agregar subtítulos opcionales a vídeos o vídeos de activos remotos a través de la API de Backlot.</p>
+    <p>Puede agregar subtítulos a videos o videos de activos remotos a través de la API de Backlot.</p>
     </section>
     
     <section class="bcls-section">
     <h2 id="Supported_Formats_for_Captions">Formatos admitidos para subtítulos</h2>
     
     <table class="bcls-table">
-      <caption>Formatos compatibles</caption>
+      <caption>Formatos admitidos</caption>
       <thead class="thead" align="left">
         <tr class="row">
           <th>Extensión de archivo</th>
@@ -623,204 +189,43 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </thead>
       <tbody class="tbody">
         <tr class="row">
-          <td><samp class="ph codeph" translate="No">.vtt</samp> (<samp translate="No">WebVTT/<samp translate="No">) - this is the format required for HTML5 video players</samp></samp></td>
-          <td>WebVTT se puede utilizar tanto para subtítulos incrustados como sidecar en formatos de streaming HTTP como HLS y DASH.</td>
+          <td><samp class="ph codeph" translate="No">.vtt</samp> (<samp translate="No">WebVTT /<samp translate="No">): este es el formato necesario para los reproductores de vídeo HTML5</samp></samp></td>
+          <td>WebVTT se puede utilizar para subtítulos integrados y secundarios en formatos de transmisión HTTP como HLS y DASH.</td>
         </tr>
         <tr class="row">
-          <td><samp class="ph codeph" translate="No">.TTML</samp> ( anteriormente <samp class="ph codeph" translate="No">DXFP</samp> ) - se convertirá a WebVTT</td>
-          <td>TTML (archivo de lenguaje de marcado de texto temporizado. Generalmente, un archivo de subtítulos opcionales de este tipo tendrá una extensión.dfxp (perfil de intercambio de formato de distribución).</td>
+          <td><samp class="ph codeph" translate="No">.TTML</samp> (antes <samp class="ph codeph" translate="No">DXFP</samp>) - se convertirá a WebVTT</td>
+          <td>TTML (archivo de lenguaje de marcado de texto cronometrado. En general, un archivo de subtítulos opcionales de este tipo tendrá una extensión.dfxp (perfil de intercambio de formato de distribución).</td>
         </tr>
       </tbody>
     </table>
     </section>
     
     <section class="bcls-section">
-    <h2 id="Upload_Closed_Captions">Subir subtítulos opcionales</h2>
+    <h2 id="Upload_Closed_Captions">Subir subtítulos ocultos</h2>
     
     <pre class="pre codeblock">
-    [PUT] /v2/activos/ {asset_id} /closed_captions/ {dfxp_file_content}</pre>
+    [PUT] / v2 / assets /{asset_id}/subtítulos/{dfxp_file_content}</pre>
     </section>
     
     <section class="bcls-section">
-    <h2 class="Get_Closed_Captions">Obtener subtítulos opcionales</h2>
+    <h2 class="Get_Closed_Captions">Obtener subtítulos ocultos</h2>
     
     <pre class="pre codeblock">
-    [GET] /v2/activos/ {asset_id} /closed_captions</pre>
+    [GET] / v2 / assets /{asset_id}/subtítulos</pre>
     </section>
     
     <section class="bcls-section">
-    <h2 class="Update_Closed_Captions">Actualizar subtítulos opcionales</h2>
+    <h2 class="Update_Closed_Captions">Actualizar subtítulos ocultos</h2>
     
     <pre class="pre codeblock">
-    [PUT] /v2/activos/ {asset_id} /closed_captions</pre>
+    [PUT] / v2 / assets /{asset_id}/subtítulos</pre>
     
     <section class="bcls-section">
-    <h2 class="Delete_Closed_Captions">Eliminar subtítulos opcionales</h2>
+    <h2 class="Delete_Closed_Captions">Eliminar subtítulos ocultos</h2>
     
     <pre class="pre codeblock">
-    [ELIMINAR] /v2/activos/ {asset_id} /closed_captions</pre>
+    [BORRAR] / v2 / assets /{asset_id}/subtítulos</pre>
     </section>
     </section>
     </article>
-    
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
-
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  
-  <!-- <script src="/assets/js/toc.js"></script> -->
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>
+ 

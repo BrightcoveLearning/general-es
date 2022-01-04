@@ -1,0 +1,18 @@
+---
+title: 'Vídeos de Brightcove en Roku Trick Play'
+description: 'Roku requiere que cualquier contenido VOD de más de 15 minutos esté acompañado de imágenes. En este tema aprenderás a generar esas imágenes para tus vídeos de Video Cloud.'
+parent: General Information
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="what_you_need_to_do">Qué necesitas hacer</h2>
+    <p>Para la compatibilidad con Trick Play en dispositivos Roku, Brightcove puede generar mosaicos en miniatura estándar DASH, según lo especificado por el <a href="https://developer.roku.com/en-gb/docs/developer-program/media-playback/trick-mode/hls-and-dash.md">Documentación de Roku</a>. Comuníquese con su administrador de cuenta para habilitarlo en su cuenta.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="how_it_works">Cómo funciona</h2>
+    <p>Una vez habilitado, el sistema Dynamic Delivery de Brightcove incluirá estas imágenes automáticamente en los manifiestos DASH, sin necesidad de configuración adicional en el lado de Brightcove. Las imágenes del juego de trucos se cargarán y mostrarán los controles predeterminados de Roku al buscar. Se necesita trabajo de desarrollo adicional para <a href="https://github.com/rokudev/trickplay-samples/tree/master/standard-HLS-DASH">controles personalizados</a>.</p>
+    <p>Para obtener información adicional sobre el canal <a href="https://developer.roku.com/en-gb/docs/developer-program/certification/certification.md">requisitos de certificación</a> y detalles de implementación, consulte la documentación para desarrolladores de Roku.</p>
+  </section>
+</article>

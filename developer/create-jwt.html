@@ -1,422 +1,26 @@
-﻿<!doctype html>
-<html lang="es-es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="En este tema, aprenderá cómo crear un token web JSON (JWT) que se puede utilizar al comunicarse con la API de reproducción de Brightcove.">
-  
-  <title>Creación de un token web JSON (JWT)</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
-
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/developer/">Desarrolladores</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Creación de un token web JSON (JWT)</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
-          
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/brightcove-product-overview.html">Descripción general del producto Brightcove</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-continuum-overview.html">Descripción general de Brightcove Continuum</a></li>
-                  
-                
-                  
-                    <li>Proyectos de código abierto<a href="/general/brightcove-open-source-projects.html"></a></li>
-                  
-                
-                  
-                    <li>Vídeo MPEG-DASH<a href="/general/mpeg-dash-video.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">Grupos de foros y listas de correo electrónico de Brightcove</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer/index.html">Desarrolladores <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Comprensión de CORS<a href="/developer/concepts-cors.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-introducing-json.html">Presentamos a JSON</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-debugging-basics.html">Conceptos básicos de la depuración de JavaScript</a></li>
-                  
-                
-                  
-                    <li>El patrón de diseño del módulo JavaScript<a href="/developer/concepts-javascript-module-design-pattern.html"></a></li>
-                  
-                
-                  
-                    <li>Configuración de cURL<a href="/developer/concepts-set-curl.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de promesas JavaScript<a href="/developer/concepts-using-javascript-promises.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/developer/create-jwt.html">Creación de un token web JSON (JWT)</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/debugging-mobile-devices.html">Depuración en dispositivos móviles</a></li>
-                  
-                
-                  
-                    <li>Usando MTR (mi traceroute)<a href="/developer/using-mtr-to-look-at-network-traffic.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de Wireshark para rastrear el tráfico de red<a href="/developer/using-wireshark-track-network-traffic-debugging.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Migrando desde Ooyala +<a href="/ooyala/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Documentos de Migración para Clientes de Ooyala<a href="/ooyala/migration-docs-ooyala-customers.html"></a></li>
-                  
-                
-                  
-                    <li>Migración a la API de Brightcove Analytics<a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html"></a></li>
-                  
-                
-                  
-                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ad-sets.html"> Conjuntos de anuncios</a></li>
-                  
-                
-                  
-                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html"> Adaptador de ingestión</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto CSV</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Adaptador de ingestión: Ingerir con Aspera</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">Adaptador de ingestión: Ingerir con FTPS</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">Adaptador de ingestión: Ingerir con OIS 2.5</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">Adaptador de ingestión: Ingerir con la API de backlot</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">Adaptador de ingestión: Ingerir activos remotos a través de MRSS</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">Adaptador de ingestión: Ingerir desde MRSS alojado</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot/Conector CMS de Video Cloud</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">Backlot y Video Cloud: Campos de vídeo y lista de reproducción</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">Adaptador de ingestión: Formatos de archivo manifiesto</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto XML</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">Adaptador de ingestión: Formatos de ingesta admitidos</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">Agregar el servidor DNS de Brightcove para pruebas</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">Autenticación para solicitudes de API de Brightcove</a></li>
-                  
-                
-                  
-                    <li>Referencia del informe Tendencias ahora<a href="/ooyala/trending-now-report-reference.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de reproductores Ooyala para contenido de Video Cloud<a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Utilidades +<a href="/utilities/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/utilities/base-64-encoding-tool.html">Herramienta de codificación Base 64</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/date-converter.html">Conversor de fecha</a></li>
-                  
-                
-                  
-                    <li>Codificador de cadenas<a href="/utilities/string-encoder.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Entrenamiento +<a href="/training/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/online-training-courses.html">Todos los cursos de formación en línea</a></li>
-                  
-                
-                  
-                    <li>Regístrese para la formación impartida por instructor<a href="/training/register-training.html"></a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud.html"> Introducción a Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud-analytics.html"> Introducción a la analítica de Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-video-cloud-basics.html"> Conceptos básicos de Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Vídeos de formación de Video Cloud Studio<a href="/training/video-cloud-studio-training-videos.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">Cursos de formación de la Universidad de Brightcove</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Problemas conocidos<a href="/support/known-issues-studio-brightcove-player-and-apis.html"></a></li>
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-
-<h1>Creación de un token web JSON (JWT)</h1>
+---
+title: 'Creación de un token web JSON (JWT)'
+description: 'En este tema, aprenderá a crear un <span translate="No">Token web JSON</span> (JWT) que se puede utilizar al comunicarse con Brightcove Playback API.'
+parent: Developers
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá cómo crear un <span translate="No">JSON Web Token</span> (JWT) que se puede utilizar al comunicarse con la API de reproducción de Brightcove.</summary>
+  <summary>{{ page.description }}</summary>
 
 <section class="bcls-section">
 <h2 id="Introduction">Introducción</h2>
 
-<p>Para agregar un nivel adicional de protección al acceder a la biblioteca de vídeos o aplicar restricciones a nivel de usuario para su contenido, puede pasar un (JWT) con su llamada a la API de reproducción de Brightcove.<span translate="No">JSON Web Token</span> Para crear el token, siga estos pasos:</p>
+<p>Para agregar un nivel adicional de protección al acceder a su biblioteca de videos, o para aplicar restricciones de nivel de usuario para su contenido, puede pasar un <span translate="No">Token web JSON</span> (JWT) con su llamada a Brightcove Playback API. Para crear el token, siga estos pasos:</p>
 <ol class="bcls-tasklist">
 	<li><a href="#Generate_public_private_key_pair">Generar par de claves público-privadas</a></li>
   <li>
-    Registrar clave pública con Brightcove<a href="#Register_public_key"></a>
+    <a href="#Register_public_key">Registre la clave pública con Brightcove</a>
   </li>
   <li>
-    <a href="#Create_a_JSON_Web_Token">Crear un <span translate="No">JSON Web Token</span></a>
+    <a href="#Create_a_JSON_Web_Token">Crear un <span translate="No">Token web JSON</span></a>
   </li>
   <li>
-    Probar la reproducción<a href="#Test_playback"></a>
+    <a href="#Test_playback">Prueba de reproducción</a>
   </li>
 </ol>
 
@@ -426,17 +30,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <section class="bcls-section">
 <h2 id="Generate_public_private_key_pair">Generar par de claves público-privadas</h2>
 
-<p>El editor generará un par de claves público-privadas y proporcionará la clave pública a Brightcove. El editor utiliza la clave privada para firmar tokens y no se comparte con Brightcove.</p>
+<p>El editor generará un par de claves pública-privada y proporcionará la clave pública a Brightcove. El editor utiliza la clave privada para firmar tokens y no se comparte con Brightcove.</p>
 
 <p>
-  Hay muchas maneras de generar el par de claves público-privadas. Aquí hay algunos ejemplos:
+  Hay muchas formas de generar el par de claves pública-privada. Aquí hay unos ejemplos:
 </p>
 <h3>
-  Ejemplo de script bash:
+  Ejemplo de script de bash:
 </h3>
-<aside class="bcls-aside bcls-aside--information language-editable">Tenga en cuenta que el siguiente script utiliza el paquete jq para analizar JSON.<strong></strong> Si no tiene jq instalado, consulte las instrucciones de instalación.<a href="https://github.com/stedolan/jq/wiki/Installation"></a></aside>
+<aside class="bcls-aside bcls-aside--information">Tenga en cuenta que el siguiente script utiliza la <strong>jq</strong> paquete para analizar JSON. Si no tiene jq instalado, consulte las instrucciones <a href="https://github.com/stedolan/jq/wiki/Installation">de instalación</a>.</aside>
 <p>
-  Ejemplo de secuencia de comandos para generar el par de claves:
+  Script de ejemplo para generar el par de claves:
 </p>
 <pre class="line-numbers"><code class="language-bash" translate="No">#!/bin/bash
 set -euo pipefail
@@ -464,11 +68,11 @@ echo "Public key to saved in $PUBLIC_TXT"
 </code></pre>
 
 <details id="Example_using_Go">
-  <summary>Ejemplo usando <span translate="No">Go</span></summary>
+  <summary>Ejemplo usando <span translate="No">Ir</span></summary>
   <p>
-    Ejemplo usando el lenguaje de <span translate="No">Go</span> programación para generar el par de claves:
+    Ejemplo usando el <span translate="No">Ir</span> lenguaje de programación para generar el par de claves:
   </p>
-  <aside class="bcls-aside bcls-aside--tip">Si es nuevo en <span translate="No">Go</span>, consulte la página principal <a href="https://golang.org/">El lenguaje de <span translate="No">Go</span> programación</a>. </aside>
+  <aside class="bcls-aside bcls-aside--tip">Si eres nuevo en <span translate="No">Ir</span> , mira el <a href="https://golang.org/">los <span translate="No">Ir</span> Lenguaje de programación</a> página principal.</aside>
   <pre class="line-numbers"><code class="language-bash" translate="No">package main
   
   import (
@@ -542,11 +146,11 @@ echo "Public key to saved in $PUBLIC_TXT"
   </code></pre>
 </details>
 <details id="Example_using_node_js">
-  <summary>Ejemplo de uso de node.js</summary>
+  <summary>Ejemplo usando node.js</summary>
   <p>
     Ejemplo usando node.js para generar el par de claves:
   </p>
-  <aside class="bcls-aside bcls-aside--tip">Este ejemplo de script requiere la versión 11 o posterior del nodo.</aside>
+  <aside class="bcls-aside bcls-aside--tip">Este ejemplo de secuencia de comandos requiere la versión de nodo 11 o posterior.</aside>
   <pre class="line-numbers"><code class="language-javascript" translate="No">var crypto = require("crypto");
   var fs = require("fs");
   
@@ -599,28 +203,28 @@ echo "Public key to saved in $PUBLIC_TXT"
 
 <h3>URL base</h3>
 <p>
-  La URL base para la API es:
+  La URL base de la API es:
 </p>
 <pre><code class="language-http" translate="No">https://playback-auth.api.brightcove.com</code></pre>
 
 <h3>Ruta de la cuenta</h3>
 <p>
-  En todos los casos, se solicitarán una cuenta de Video Cloud específica. Por lo tanto, siempre agregará las cuentas de término seguidas de su ID de cuenta a la URL base:
+  En todos los casos, se realizarán solicitudes para una cuenta de Video Cloud específica. Por lo tanto, siempre agregará el término cuentas seguido de la identificación de su cuenta a la URL base:
 </p>
 <pre><code class="language-http" translate="No">https://playback-auth.api.brightcove.com/v1/accounts/{accountID}</code></pre>
 
 <h3>Autorización</h3>
 <p>
-  Se requiere un token de acceso para solicitudes y debe estar presente en el encabezado Autorización።
+  Se requiere un token de acceso para las solicitudes y debe estar presente en el encabezado de Autorización:
 </p>
 <pre><code class="language-http" translate="No">Authorization: Bearer {access_token}</code></pre>
 <p>
-  El token de acceso es un token de acceso temporal de OAuth2 que debe obtenerse del servicio OAuth de Brightcove. Para obtener información detallada sobre cómo obtener credenciales de cliente y usarlas para recuperar tokens de acceso, consulte la <a href="https://support.brightcove.com/overview-oauth-api-v4">descripción general de OAuth de Brightcove</a>.
+  El token de acceso es un token de acceso OAuth2 temporal que debe obtenerse del servicio Brightcove OAuth. Para obtener detalles sobre cómo obtener credenciales de cliente y usarlas para recuperar tokens de acceso, consulte la <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">Descripción general de Brightcove OAuth</a>.
 </p>
 
 <h3>Permisos</h3>
 <p>
-  Las solicitudes a la API de clave deben realizarse desde credenciales de cliente con los siguientes permisos:<a href="https://support.brightcove.com/oauth-api"></a>
+  Las solicitudes a la API clave deben realizarse desde <a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html#Get_Client_Credentials">credenciales del cliente</a> con los siguientes permisos:
 </p>
 <ul>
   <li>
@@ -644,28 +248,23 @@ echo "Public key to saved in $PUBLIC_TXT"
       No es posible editar una clave existente, pero puede eliminar y crear una nueva.
     </li>
     <li>
-      Se pueden registrar un máximo de 3 claves a la vez y las claves se pueden eliminar, para admitir la rotación de claves. En la práctica, lo mejor es tener solo 1 clave.
+      Se pueden registrar un máximo de 3 claves a la vez y las claves se pueden eliminar para admitir la rotación de claves. En la práctica, es mejor tener solo 1 clave.
     </li>
   </ul>
 </aside>
 
-<h4>Registrar una nueva clave:</h4>
+<h4>Registre una nueva clave:</h4>
 <p>
-  Coloque el valor de su clave pública en el cuerpo de la solicitud de API. Puede encontrar la clave en el archivo public_key.txt.<strong></strong>
+  Pon el valor de tu clave pública en el cuerpo de la solicitud de API. Puede encontrar la clave en el <strong>public_key.txt</strong> expediente.
 </p>
-<h5>Solicitud</h5>
+<h5>Pedido</h5>
 <pre class="line-numbers"><code class="language-http" translate="No">POST /v1/accounts/{accountID}/keys
     Content-Type: application/json
     Body: {"value": "MFkwEwYHKoZIzj0CAQYIKoZIzj...MyeQviqploA=="}
 </code></pre>
-<h5 id="Using_Curl" class="bcls-expander-head">Uso de Curl</h5>
+<h5 id="Using_Curl" class="bcls-expander-head">Usando Curl</h5>
 <div class="bcls-expander-content">
-  <pre class="line-numbers"><code class="language-curl">curl -X POST \
-  -H «Tipo de contenido: aplicación/json»\
-  -H «Autorización: Portador {access_token}»\
-  -d '{"value»: «{your_public_key_value}"}'\
-https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
-</code></pre>
+  <pre class="line-numbers"><code class="language-curl">curl -X POST \\ -H "Tipo de contenido: aplicación / json" \\ -H "Autorización: Portador {access_token} "\ -d '{"value": "{your_public_key_value}«}' \ https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys </code></pre>
 </div>
 <h5>Respuesta</h5>
 <pre class="line-numbers"><code class="language-json" translate="No">{
@@ -677,15 +276,15 @@ https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
 }</code></pre>
 
 
-<h4>Claves de lista:</h4>
+<h4>Lista de claves:</h4>
 <p>
-  Obtén una lista de claves públicas en tu cuenta.
+  Obtenga una lista de claves públicas en su cuenta.
 </p>
 <pre><code class="language-http" translate="No">GET /v1/accounts/{accountID}/keys</code></pre>
 
-<h4>Obtener una clave:</h4>
+<h4>Obtenga una clave:</h4>
 <p>
-  Obtén los detalles de una clave pública en tu cuenta.
+  Obtenga los detalles de una clave pública en su cuenta.
 </p>
 <pre><code class="language-http" translate="No">GET /v1/accounts/{accountID}/keys/{key_Id}</code></pre>
 
@@ -698,80 +297,84 @@ https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
 </section>
 
 <section class="bcls-section">
-<h2 id="Create_a_JSON_Web_Token">Crear un <span translate="No">JSON Web Token</span></h2>
+<h2 id="Create_a_JSON_Web_Token">Crear un <span translate="No">Token web JSON</span></h2>
 
-<p>Los editores crean un (JWT).<a href="https://jwt.io/introduction/" translate="No">JSON Web Token</a> El token está firmado con el algoritmo RSA utilizando el algoritmo hash SHA-256 (identificado en la especificación JWT como «RS256") No se admitirán otros algoritmos JWT.<a href="https://ldapwiki.com/wiki/RS256"></a></p>
+<p>Los editores crean un <a href="https://jwt.io/introduction/" translate="No">Token web JSON</a> (JWT). El token está firmado con el algoritmo RSA utilizando el algoritmo hash SHA-256 (identificado en la especificación JWT como "<a href="https://ldapwiki.com/wiki/RS256">RS256</a>") No se admitirán otros algoritmos JWT.</p>
 <p>
-  Se <a href="https://auth0.com/docs/tokens/jwt-claims" translate="No">JSON Web Token claims</a> utilizará un subconjunto del estándar, junto con algunas afirmaciones privadas definidas por Brightcove. Creará un firmado con su clave privada.<span translate="No">JSON Web Token</span>
+  Un subconjunto del estándar <a href="https://auth0.com/docs/tokens/jwt-claims" translate="No">Reclamaciones de JSON Web Token</a> se utilizará, junto con algunas reclamaciones privadas definidas por Brightcove. Crearás un <span translate="No">Token web JSON</span> firmado con su clave privada.
 </p>
 
-<h3>Reclamaciones de entrega de URL estática</h3>
+<h3>Reclamaciones de entrega de URL estáticas</h3>
 <p>
-  Las siguientes afirmaciones se pueden utilizar con la Entrega de URL estática de Brightcove.
+  Las siguientes afirmaciones se pueden utilizar con la entrega de URL estática de Brightcove.
 </p>
-<aside class="bcls-aside bcls-aside--tip">Tenga en cuenta que ninguna de las reclamaciones es necesaria para la entrega de URL estática.</aside>
+<aside class="bcls-aside bcls-aside--tip">Tenga en cuenta que ninguna de las reclamaciones es necesaria para la entrega de URL estáticas.</aside>
 
 <table class="bcls-table">
   <thead class="bcls-table__head">
     <tr>
       <th>Campo</th>
       <th>Tipo</th>
-      <th>Obligatorio</th>
+      <th>Necesario</th>
       <th>Descripción</th>
     </tr>
   </thead>
   <tbody class="bcls-table__body">
     <tr>
       <td><code translate="No">accid</code></td>
-      <td>Cadena</td>
+      <td>Cuerda</td>
       <td></td>
-      <td>El ID de cuenta que posee el contenido que se está reproduciendo</td>
+      <td>La identificación de la cuenta que posee el contenido que se está reproduciendo.</td>
     </tr>
     <tr>
       <td><code translate="No">drules</code></td>
-      <td>Cadena []</td>
+      <td>Cuerda[]</td>
       <td></td>
-      <td>Lista de identificadores de acciones de regla de entrega que se deben aplicar, consulte Implementación de reglas de entrega para obtener más detalles<a href="/delivery-rules/implementing-delivery-rules.html"></a> Si también se establece el parámetro de consulta config_id, se ignorará, ya que esta afirmación lo anula.</td>
+      <td>Lista de ID de acción de regla de entrega para aplicar, consulte <a href="https://apis.support.brightcove.com/delivery-rules/getting-started/implementing-delivery-rules.html">Implementación de reglas de entrega</a> para detalles. Si el parámetro de consulta config_id también se establece, se ignorará, ya que esta reclamación lo anula.</td>
     </tr>
     <tr>
       <td><code translate="No">exp</code></td>
       <td>Entero</td>
       <td></td>
-      <td>Tiempo que este token ya no será válido, en segundos desde la Época. No debe ser superior a 30 días desde<code translate="No">iat</code></td>
+      <td>Hora en que esta ficha ya no será válida, en segundos desde la Época. No debe ser más de 30 días desde <code translate="No">iat</code></td>
     </tr>
     <tr>
       <td><code translate="No">iat</code></td>
       <td>Entero</td>
       <td></td>
-      <td>Tiempo en que se emitió este token, en segundos desde la Época</td>
+      <td>Hora en que se emitió esta ficha, en segundos desde la Época</td>
     </tr>
     <tr>
       <td><code translate="No">conid</code></td>
-      <td>Cadena</td>
+      <td>Cuerda</td>
       <td></td>
-      <td>Si está presente, este token sólo autorizará la obtención de licencias para un identificador de vídeo de Video Cloud específico. <br/><br/> Debe ser un ID de vídeo válido.
+      <td>Si está presente, este token solo autorizará la obtención de licencias para un ID de video específico de Video Cloud.
+        <br /><br />
+        Debe ser una identificación de video válida. Tenga en cuenta que no se admite el ID de referencia.
       </td>
     </tr>
     <tr>
       <td><code translate="No">pro</code></td>
-      <td>Cadena</td>
+      <td>Cuerda</td>
       <td></td>
-      <td>Especifica un tipo de protección en el caso en que haya varios disponibles para un solo vídeo. <br/><br/> Valores:
+      <td>Especifica un tipo de protección en el caso de que haya varios disponibles para un solo video.
+        <br /><br />
+        Valores:
         <ul>
           <li>
-            «» (valor predeterminado para el contenido claro)
+            "" (predeterminado para contenido claro)
           </li>
           <li>
-            «aes128"
+            "aes128"
           </li>
           <li>
-            «widevine»
+            "widevine"
           </li>
           <li>
-            «playready»
+            "listo para jugar"
           </li>
           <li>
-            «Fairplay»
+            "juego limpio"
           </li>
         </ul>
       </td>
@@ -780,19 +383,19 @@ https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
       <td><code translate="No">vod</code></td>
       <td>Objeto</td>
       <td></td>
-      <td>Contiene opciones de configuración específicas para Vídeo bajo demanda.</td>
+      <td>Contiene opciones de configuración específicas para Video-On-Demand.</td>
     </tr>
     <tr>
-      <td><code translate="No">ssai</code></td>
-      <td>Cadena</td>
+      <td><code translate="No">vod.ssai</code></td>
+      <td>Cuerda</td>
       <td></td>
-      <td>Su ID de configuración de inserción de anuncios en el lado del servidor (SSAI). Esta afirmación es necesaria para recuperar un HLS o un VMAP de DASH.<strong></strong></td>
+      <td>Su ID de configuración de inserción de anuncios del lado del servidor (SSAI). Esta afirmación es <strong>requerido</strong> para recuperar un HLS o un DASH VMAP.</td>
     </tr>
   </tbody>
 </table>
-<br/>
+<br />
 <p>
-  Aquí hay un ejemplo de las afirmaciones <span translate="No">JSON Web Token</span> (JWT) que podría usar:
+  A continuación se muestra un ejemplo de <span translate="No">Token web JSON</span> (JWT) afirma que podría usar:
 </p>
 <pre class="line-numbers"><code class="language-json" translate="No">{
 // account id: JWT is only valid for this accounts
@@ -803,7 +406,7 @@ https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
 "exp":1577989732,
 // issued at: timestamp when the JWT was created
 "iat":1575484132,
-// content id: JWT is only valid for video id or reference id
+// content id: JWT is only valid for video ID
 "conid":"5805807122222",
 // protection: specify a protection type in the case where multiple are available for a single video
 "pro":"aes128",
@@ -813,263 +416,284 @@ https://playback-auth.api.brightcove.com/v1/accounts/{accountID}/keys
 "ssai":"efcc566-b44b-5a77-a0e2-d33333333333"
 }
 }</code></pre>
+</section>
+    <!-- <section class="bcls-section">
+      <h2 id="Claims_for_Playback_Authorization">Claims for Playback Authorization</h2>
+      <p>
+        The following claims can be used with <a href="https://apis.support.brightcove.com/playback-authorization/getting-started/overview-playback-authorization-service.html">Brightcove's Playback Authorization Service</a>.
+      </p>
 
-<!-- <h3>Claims for Playback Authorization</h3>
-<p>
-  The following claims can be used with <a href="https://apis.support.brightcove.com/playback-authorization/getting-started/overview-playback-authorization-service.html">Brightcove's Playback Authorization Service</a>.
-</p>
-
-<table class="bcls-table">
-      <thead class="bcls-table__head">
-        <tr>
-          <th>Field</th>
-          <th>Type</th>
-          <th>Required</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody class="bcls-table__body">
-        <tr>
-          <td><code translate="No">accid</code></td>
-          <td>String</td>
-          <td>Yes</td>
-          <td>The account id that owns the content being played</td>
-        </tr>
-        <tr>
-          <td><code translate="No">exp</code></td>
-          <td>Integer</td>
-          <td>Yes</td>
-          <td>Time this token will no longer be valid, in seconds since the Epoch. Must be no more than 30 days from <code translate="No">iat</code></td>
-        </tr>
-        <tr>
-          <td><code translate="No">iat</code></td>
-          <td>Integer</td>
-          <td>Yes</td>
-          <td>Time this token was issued, in seconds since the Epoch</td>
-        </tr>
-        <tr>
-          <td><code translate="No">ua</code></td>
-          <td>String</td>
-          <td></td>
-          <td>If present, this token will only be valid for requests from this User-Agent.
-            <br /><br />
-            This field is not validated.
-          </td>
-        </tr>
-        <tr>
-          <td><code translate="No">conid</code></td>
-          <td>String</td>
-          <td></td>
-          <td>If present, this token will only authorize license fetching for a specific Video Cloud video id.
-            <br /><br />
-            Must be a valid video id.
-          </td>
-        </tr>
-        <tr>
-          <td><code translate="No">maxip</code></td>
-          <td>Integer</td>
-          <td></td>
-          <td>If present, this token will only be able to be used by this many different IP addresses. (DRM & AES-128)
-            <br /><br />
-            Required for session tracking.
-          </td>
-        </tr>
-        <tr>
-          <td><code translate="No">maxu</code></td>
-          <td>Integer</td>
-          <td></td>
-          <td>
-              If present, this token will only be valid for this many license requests. (DRM & AES-128)
-            <br><br>
-            <ul>
-              <li>
-                For HLSe, players will make multiple requests when playing a video, typically one per rendition. The <code translate="No">maxu</code> must be set high enough to account for these additional requests.
-              </li>
-              <li>
-                For DRM, one license request is made per playback
-              </li>
-            </ul>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">accid</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>The account id that owns the content being played</td>
+          </tr>
+          <tr>
+            <td><code translate="No">exp</code></td>
+            <td>Integer</td>
+            <td>Yes</td>
+            <td>Time this token will no longer be valid, in seconds since the Epoch. Must be no more than 30 days from <code translate="No">iat</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">iat</code></td>
+            <td>Integer</td>
+            <td>Yes</td>
+            <td>Time this token was issued, in seconds since the Epoch</td>
+          </tr>
+          <tr>
+            <td><code translate="No">ua</code></td>
+            <td>String</td>
+            <td></td>
+            <td>If present, this token will only be valid for requests from this User-Agent.
+              <br><br>
+              This field does not have to follow any particular format.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">conid</code></td>
+            <td>String</td>
+            <td></td>
+            <td>If present, this token will only authorize license fetching for a specific Video Cloud video id.
+              <br><br>
+              Must be a valid video id.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">maxip</code></td>
+            <td>Integer</td>
+            <td></td>
+            <td>If present, this token will only be able to be used by this many different IP addresses. (DRM & AES-128)
+              <br><br>
               Required for session tracking.
-          </td>
-        </tr>
-      </tbody>
-    </table> -->
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">maxu</code></td>
+            <td>Integer</td>
+            <td></td>
+            <td>
+              If present, this token will only be valid for this many license requests. (DRM & AES-128)
+              <br><br>
+              <ul>
+                <li>
+                  For HLSe, players will make multiple requests when playing a video, typically one per rendition. The <code translate="No">maxu</code> must be set high enough to account for these additional requests.
+                </li>
+                <li>
+                  For DRM, one license request is made per playback
+                </li>
+              </ul>
+              Required for session tracking.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="bcls-section">
+      <h2 id="Claims_for_Playback_Rights">Claims for Playback Rights</h2>
+      <p>
+        The following claims can be used with <a href="https://apis.support.brightcove.com/playback-rights/getting-started/overview-epa.html">Brightcove's Playback Rights Management Service</a>.
+      </p>
+      <aside class="bcls-aside bcls-aside--information">When using Playback Rights with DRM, you can not use AES-128.</aside>
 
-    <!-- <h3>Claims for Playback Rights</h3>
-    <p>
-      The following claims can be used with <a href="https://apis.support.brightcove.com/playback-rights/getting-started/overview-epa.html">Brightcove's Playback Rights Management Service</a>.
-    </p>
-    <aside class="bcls-aside bcls-aside--information">When using Playback Rights with DRM, you can not use AES-128.</aside>
+      <table class="bcls-table">
+        <thead class="bcls-table__head">
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Required for Concurrency</th>
+            <th>DRM only</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody class="bcls-table__body">
+          <tr>
+            <td><code translate="No">accid</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td></td>
+            <td></td>
+            <td>The account id that owns the content being played</td>
+          </tr>
+          <tr>
+            <td><code translate="No">exp</code></td>
+            <td>Integer</td>
+            <td>Yes</td>
+            <td></td>
+            <td></td>
+            <td>Time this token will no longer be valid, in seconds since the Epoch. Must be no more than 30 days from <code translate="No">iat</code></td>
+          </tr>
+          <tr>
+            <td><code translate="No">iat</code></td>
+            <td>Integer</td>
+            <td>Yes</td>
+            <td></td>
+            <td></td>
+            <td>Time this token was issued, in seconds since the Epoch</td>
+          </tr>
+          <tr>
+            <td><code translate="No">pkid</code></td>
+            <td>String</td>
+            <td>No</td>
+            <td></td>
+            <td></td>
+            <td>The public key id used to verify this token.
+              <br><br>
+              The public key registered with Brightcove's Playback Authorization Service must use the RSA key format. Previously created EC keys will not work.
+              <br><br>
+              This field is not validated.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">nbf</code></td>
+            <td>Integer</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Time this token will begin being valid, in seconds since the Epoch</td>
+          </tr>
+          <tr>
+            <td><code translate="No">prid</code></td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>A <code translate="No">playback_rights_id</code>. Used to override the id set in the catalog for this video
+              <br><br>
+              This field is not validated.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">tags</code></td>
+            <td>Array &lt;Strings&gt;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>if present, this token is valid only for the videos that have the listed tags authorized to playback.</td>
+          </tr>
+          <tr>
+            <td><code translate="No">vids</code></td>
+            <td>Array &lt;Strings&gt;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>If present, this token will only authorize license fetching for a set of video ids.</td>
+          </tr>
+          <tr>
+            <td><code translate="No">uid</code></td>
+            <td>String</td>
+            <td></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>The user id of the end viewer. This field is used to correlate multiple sessions to enforce Stream Concurrency.
+              <br><br>
+              Required for device registration.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">cbeh</code></td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+            <td>Yes</td>
+            <td>Set the value to <code translate="No">BLOCK_NEW</code> to enable concurrent stream limits to block any new request, even from the same user, when the maximum number of streams is reached.
+              <br><br>
+              Set the value to <code translate="No">BLOCK_NEW_USER</code> to block any new request only from a new user when the maximum number of streams is reached.
+              <br><br>
+              The default blocks the oldest stream when the maximum number of streams is reached.
+              <br><br>
+        Concurrent stream limits: Optional
+            </td>
+          </tr>          
+          <tr>
+            <td><code translate="No">cexp</code></td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+            <td>Yes</td>
+            <td>Concurrency expiration of session - Defaults to 2 times the content duration.
+              <br><br>
+              This defines how long the session is valid, after which time the end viewer has to start a new session to continue playback. Example: <code translate="No">2h</code> or <code translate="No">42m</code>
+              <br><br>
+              Required for session concurrency.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">climit</code></td>
+            <td>Integer</td>
+            <td></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>When this field is included, it enables Stream Concurrency checking along with license renewal requests. This value indicates the number of concurrent watchers allowed.
+              <br><br>
+              Required for session concurrency.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">dlimit</code></td>
+            <td>Integer</td>
+            <td></td>
+            <td></td>
+            <td>Yes</td>
+            <td>When this field is included, it controls how many devices can be associated with the specified user (<code translate="No">uid</code>). Value must be &gt; <code translate="No">0</code>.
+              <br><br>
+              Previously allowed devices will continue to operate if the <code translate="No">dlimit</code> value is dropped in later requests.
+              <br><br>
+              Example: if value is set to <code translate="No">3</code>, the user can play on devices A, B, & C (all would be allowed). Trying to play on device D would be denied.
+              <br><br>
+              If value is changed to <code translate="No">1</code>, the user can still play on all 3 devices A, B, & C, unless the devices are manually revoked by managing devices with the <a href="https://apis.support.brightcove.com/playback-rights/references/devices-api/reference.htmlc/#operation/GetDevices">Playback Rights API</a>.
+              <br><br>
+              Required for device registration.
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">sid</code></td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+            <td>Yes</td>
+            <td>Specifying the Session ID of the current stream allows you to control how a session is defined. By default, a session is defined as User-Agent (browser) + IP address + video id.
+              <br><br>
+                For example, you can loosen the definition of session to IP address + video id.
+                <br><br>
+          Concurrent stream limits: Optional
+            </td>
+          </tr>
+          <tr>
+            <td><code translate="No">uid</code></td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+            <td>Yes</td>
+            <td>The user id of the end viewer. This field is used to correlate multiple sessions to enforce concurrent stream limits.
+              <br><br>
+          Device registration: Required
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section> -->
 
-    <table class="bcls-table">
-          <thead class="bcls-table__head">
-            <tr>
-              <th>Field</th>
-              <th>Type</th>
-              <th>Required</th>
-              <th>Required for Concurrency</th>
-              <th>DRM only</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody class="bcls-table__body">
-            <tr>
-              <td><code translate="No">accid</code></td>
-              <td>String</td>
-              <td>Yes</td>
-              <td></td>
-              <td></td>
-              <td>The account id that owns the content being played</td>
-            </tr>
-            <tr>
-              <td><code translate="No">exp</code></td>
-              <td>Integer</td>
-              <td>Yes</td>
-              <td></td>
-              <td></td>
-              <td>Time this token will no longer be valid, in seconds since the Epoch. Must be no more than 30 days from <code translate="No">iat</code></td>
-            </tr>
-            <tr>
-              <td><code translate="No">iat</code></td>
-              <td>Integer</td>
-              <td>Yes</td>
-              <td></td>
-              <td></td>
-              <td>Time this token was issued, in seconds since the Epoch</td>
-            </tr>
-            <tr>
-              <td><code translate="No">pkid</code></td>
-              <td>String</td>
-              <td>Yes</td>
-              <td></td>
-              <td></td>
-              <td>The public key id used to verify this token.
-                <br /><br />
-                The public key registered with Brightcove's Playback Authorization Service must use the RSA key format. Previously created EC keys will not work.
-                <br /><br />
-                This field is not validated.
-              </td>
-            </tr>
-            <tr>
-              <td><code translate="No">nbf</code></td>
-              <td>Integer</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Time this token will begin being valid, in seconds since the Epoch</td>
-            </tr>
-            <tr>
-              <td><code translate="No">prid</code></td>
-              <td>String</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>A <code translate="No">playback_rights_id</code>. Used to override the id set in the catalog for this video
-                <br /><br />
-                This field is not validated.
-              </td>
-            </tr>
-            <tr>
-              <td><code translate="No">tags</code></td>
-              <td>Array &lt;Strings&gt;</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>if present, this token is valid only for the listed tags authorized to playback.</td>
-            </tr>
-            <tr>
-              <td><code translate="No">offers</code></td>
-              <td>Array &lt;Strings&gt;</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>if present, this token is valid only for the listed offers authorized to playback.</td>
-            </tr>
-            <tr>
-              <td><code translate="No">vids</code></td>
-              <td>Array &lt;Strings&gt;</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>If present, this token will only authorize license fetching for a set of video ids.</td>
-            </tr>
-            <tr>
-              <td><code translate="No">uid</code></td>
-              <td>String</td>
-              <td></td>
-              <td>Yes</td>
-              <td>Yes</td>
-              <td>The user id of the end viewer. This field is used to correlate multiple sessions to enforce Stream Concurrency.
-                <br /><br />
-            Required for device registration.
-              </td>
-            </tr>
-            <tr>
-              <td><code translate="No">sid</code></td>
-              <td>String</td>
-              <td></td>
-              <td></td>
-              <td>Yes</td>
-              <td>Specifying the Session ID of the current stream allows for custom control over what defines a session.
-                <br /><br />
-                  When not specified, the default is a combination of User-Agent, IP address, & video id.
-                  <br /><br />
-            Required for session concurrency.
-              </td>
-            </tr>
-            <tr>
-              <td><code translate="No">cexp</code></td>
-              <td>String</td>
-              <td></td>
-              <td></td>
-              <td>Yes</td>
-              <td>Concurrency expiration of session - Defaults to 2 times the content duration.
-                <br /><br />
-                This defines how long the session is valid, after which time the end viewer has to start a new session to continue playback. Example: <code translate="No">2h</code> or <code translate="No">42m</code>
-                <br /><br />
-          Required for session concurrency.
-              </td>
-            </tr>
-            <tr>
-              <td><code translate="No">climit</code></td>
-              <td>Integer</td>
-              <td></td>
-              <td>Yes</td>
-              <td>Yes</td>
-              <td>When this field is included, it enables Stream Concurrency checking along with license renewal requests. This value indicates the number of concurrent watchers allowed.
-                <br /><br />
-          Required for session concurrency.
-        </td>
-            </tr>
-            <tr>
-              <td><code translate="No">dlimit</code></td>
-              <td>Integer</td>
-              <td></td>
-              <td></td>
-              <td>Yes</td>
-              <td>When this field is included, it controls how many devices can be associated with the specified user (<code translate="No">uid</code>). Value must be &gt; <code translate="No">0</code>.
-                <br /><br />
-                Previously allowed devices will continue to operate if the <code translate="No">dlimit</code> value is dropped in later requests.
-                <br /><br />
-                Example: if value is set to <code translate="No">3</code>, the user can play on devices A, B, & C (all would be allowed). Trying to play on device D would be denied.
-                <br /><br />
-                If value is changed to <code translate="No">1</code>, the user can still play on all 3 devices A, B, & C, unless the devices are manually revoked by managing devices with the <a href="https://apis.support.brightcove.com/playback-rights/references/devices-api/reference.htmlc/#operation/GetDevices">Playback Rights API</a>.
-                <br /><br />
-            Required for device registration.
-              </td>
-            </tr>
-          </tbody>
-        </table> -->
-
-<h3>Generar un token</h3>
+<h3>Genera un token</h3>
 <p>
-  Las bibliotecas suelen estar disponibles para generar tokens JWT. Para obtener más información, consulte el <a href="https://jwt.io/" translate="No">JSON Web Tokens</a> sitio.
+  Las bibliotecas están comúnmente disponibles para generar tokens JWT. Para obtener más detalles, consulte la <a href="https://jwt.io/" translate="No">Tokens web JSON</a> sitio.
 </p>
 <h4>
-  Ejemplo de script bash:
+  Ejemplo de script de bash:
 </h4>
 <p>
-  Ejemplo de secuencia de comandos para generar el token JWT:
+  Script de ejemplo para generar el token JWT:
 </p>
 <pre class="line-numbers"><code class="language-bash" translate="No">#! /usr/bin/env bash
 # Static header fields.
@@ -1079,7 +703,6 @@ HEADER='{
 }'
 
 payload='{
-	"pkid": "{your_public_key_id}",
 	"accid": "{your_account_id}"
 }'
 
@@ -1114,12 +737,12 @@ echo "$UNSIGNED_JWT.$SIGNATURE"
 <p>
 
 </p>
-<h4 id="Example_using_Go_token" class="bcls-expander-head">Ejemplo usando <span translate="No">Go</span></h4>
+<h4 id="Example_using_Go_token" class="bcls-expander-head">Ejemplo usando <span translate="No">Ir</span></h4>
 <div class="bcls-expander-content">
 <p>
-  Aquí hay un ejemplo de una <span translate="No">Go</span> implementación de referencia (como una herramienta cli) para generar tokens sin el uso de ninguna biblioteca de terceros:
+  Aquí hay un ejemplo de una referencia. <span translate="No">Ir</span> implementación (como una herramienta cli) para generar tokens sin el uso de ninguna biblioteca de terceros:
 </p>
-<aside class="bcls-aside bcls-aside--tip">Si es nuevo en <span translate="No">Go</span>, consulte la página principal <a href="https://golang.org/">El lenguaje de <span translate="No">Go</span> programación</a>. </aside>
+<aside class="bcls-aside bcls-aside--tip">Si eres nuevo en <span translate="No">Ir</span> , mira el <a href="https://golang.org/">los <span translate="No">Ir</span> Lenguaje de programación</a> página principal.</aside>
 <pre class="line-numbers"><code class="language-bash" translate="No">package main
 
 import (
@@ -1306,7 +929,7 @@ func processEC256(kbs, bs []byte) {
   Aquí hay un ejemplo de un token decodificado usando <a href="https://jwt.io/">https://JWT.io</a> especificando el conjunto completo de reclamaciones:
 </p>
 <p>
-  ENCABEZADO:
+  ENCABEZAMIENTO:
 </p>
 <pre class="line-numbers"><code class="language-json" translate="No">{
   "alg": "RS256",
@@ -1330,9 +953,9 @@ func processEC256(kbs, bs []byte) {
 </section>
 
 <section class="bcls-section">
-<h2 id="Test_playback">Probar la reproducción</h2>
+<h2 id="Test_playback">Prueba de reproducción</h2>
 
-<p>Aunque no es necesario, es posible que desee probar la reproducción de vídeo antes de configurar un reproductor.</p>
+<p>Aunque no es obligatorio, es posible que desee probar la reproducción de video antes de configurar un reproductor.</p>
 <p>
   Solicitar reproducción:
 </p>
@@ -1341,164 +964,7 @@ func processEC256(kbs, bs []byte) {
  https://edge-auth.api.brightcove.com/playback/v1/accounts/{your_account_id}/videos/{your_video_id}
 </code></pre>
 </section>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
+</article>
 <script>
-
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-
-
+  var h1 = document.querySelector ('h1'), path = location.pathname, new_location = 'https://general.support.brightcove.com/developer/create-json-web-token.html', message = '<h3>Esta página se ha movido a <a href="' + new_location + '">' + new_location + '</a>. ¡Actualiza tu marcador! Serás redirigido en 5 segundos.<h3>'; console.log ('nueva_ubicación', nueva_ubicación); h1.insertAdjectedHTML ('post-tendencia', mensaje); redireccionar (); función redireccionar () { var t = window.setTimeout(go_to_new_location, 5000); } función go_to_new_location () { window.location.href = new_location; }
 </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  
-  <!-- <script src="/assets/js/toc.js"></script> -->
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>
