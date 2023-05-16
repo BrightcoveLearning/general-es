@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="es"> 
     <head>
-        <title>Abrir un maletín con Brightcove Support</title>
+        <title>Incorporación de experiencias in-page en un CMS</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.">
+        <meta name="description" content="Este tema proporciona pautas para integrar Brightcove In-Page Experiences en su CMS.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1273,7 +1273,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/develop/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias in-page en un CMS</a></li>
+              <li class="nav-item"><a class="nav-link" href="/develop/embedding-brightcove-page-experiences-cms.html" aria-current="page">Incorporación de experiencias in-page en un CMS</a></li>
               
               
               
@@ -1355,7 +1355,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html" aria-current="page">Abrir un caso de soporte</a></li>
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
               
               
               
@@ -1393,11 +1393,11 @@
             <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
             
             
-            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Soporte</a></li>
+            <li class="breadcrumb-item"><a class="theme-link" href="/develop/">Desarrollar</a></li>
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Abrir un maletín con Brightcove Support</li>
+            <li class="breadcrumb-item active" aria-current="page">Incorporación de experiencias in-page en un CMS</li>
             
             
           </ol>
@@ -1418,118 +1418,279 @@
       <br/>
       
       
-<h1>Abrir un maletín con Brightcove Support</h1>
-<article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.</summary>
-  <section class="bcls-section">
-    <p>Brightcove ofrece una variedad de programas de soporte para satisfacer las necesidades de nuestros clientes. Para obtener información sobre estos programas, consulte la sección Soporte de <a href="https://www.brightcove.com/en/services/customer-support">Brightcove</a> de nuestro sitio web.</p>
-    <p>Una opción de soporte es el portal de soporte que se puede utilizar para abrir un caso con Brightcove Support.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="create-account">Creación de una nueva cuenta de soporte</h2>
-    <p>Antes de crear casos mediante el Portal de soporte, debe crear una cuenta. Para crear una nueva cuenta, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Acceda al portal de soporte mediante uno de estos métodos:
-        <ul>
-          <li>En el encabezado de la aplicación, haga clic en <strong>SOPORTE &gt; Contactar con el soporte</strong></li>
-          <li>Vaya a <a href="https://supportportal.brightcove.com/">https://supportportal.brightcove.com</a></li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-login.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Registrarse</strong>.</li>
-      <li>Introduzca su <strong>nombre</strong>, <strong>apellido</strong>,<strong> correo electrónico</strong> y <strong>contraseña</strong>. Haz clic en <strong>Enviar</strong>.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-account.png"/></figure>
-      </li>
-      <li>Confirma que te redirigen a la página principal del Portal de soporte de Brightcove.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-home.png"/></figure>
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="open-case">Abrir un caso de soporte</h2>
-    <p>Para abrir un caso con Brightcove Support mediante el Portal de soporte, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Haz clic en <strong>ENVIAR UN CASO</strong> en el encabezado de la página.</li>
-      <li>Introduzca la información del caso:
-        <ul>
-          <li><strong>Asunto</strong> - Título del caso</li>
-          <li><strong>Descripción</strong> - Descripción del problema, pregunta o problema</li>
-          <li><strong>Prioridad</strong>
-            <ul>
-              <li><strong>P1</strong> - Crítico: pérdida de un servicio Brightcove o pérdida crítica de una importante disponibilidad de publicación para un reproductor de producción en directo</li>
-              <li><strong>P2</strong> - Importante - El servicio Brightcove está operativo, pero existen problemas de bloqueo en relación con las capacidades de publicación esperadas específicas de un reproductor de producción en directo (es decir, relacionadas con las cargas, la actividad de la consola, reproductores específicos).</li>
-              <li><strong>P3</strong> - Normal - Solicitudes que no se definen como Críticas o Importantes (incluidas las solicitudes de modificación de cuenta/usuario)</li>
-            </ul>
-          </li>
-          <li><strong>Producto</strong>: la aplicación Brightcove a la que se refiere la solicitud de soporte</li>
-          <li><strong>Cuenta de Brightcove</strong>: nombre de la cuenta en la que se refiere la solicitud de soporte</li>
-          <li><strong>URL</strong>: URL de página en la que se puede observar el problema (si está disponible)</li>
-          <li><strong>CC adicional</strong>: además de la lista CC predeterminada, puede decidir agregar direcciones de correo electrónico adicionales de los colaboradores que deben estar informados del progreso del caso</li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-case.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Enviar</strong>. Se mostrarán los detalles del caso.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-details.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Escribir un nuevo comentario...</strong> para añadir comentarios adicionales o cargar una captura de pantalla. Los pasos detallados para reproducir el problema y las capturas de pantalla del comportamiento/problema siempre son útiles para el soporte de Brightcove y pueden acelerar el tiempo necesario para resolver el caso.</li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="view-cases">Visualización de los casos de soporte</h2>
-		<aside class="bcls-aside bcls-aside--information">Nota: si tu perfil del Portal de soporte es <strong>administrador</strong>, verás todos los casos de la cuenta (no recibirás notificaciones cuando otros usuarios de la cuenta creen casos). Si es un usuario <strong>estándar</strong> o autorregistrado, solo verá los casos que haya abierto.</aside
-                                <p>Todos los casos de soporte se pueden ver fácilmente en el portal de soporte. El ESTADO DEL <strong>CASO</strong> será uno de los siguientes:</p>
-    <ul>
-      <li><strong>Nuevo</strong>: se acaba de crear el caso y está a la espera de revisión de Brightcove</li>
-      <li><strong>Abierto</strong>: el caso está en curso</li>
-      <li><strong>En espera de su respuesta</strong>: Brightcove Support requiere información adicional o se ha proporcionado una solución y Brightcove está esperando una respuesta</li>
-      <li><strong>Cerrado</strong>: el caso se ha resuelto</li>
-      <li><strong>Cerrado en espera</strong>: el caso se cerró debido a que no había respuesta del editor; el caso se volverá a abrir si el editor se pone en contacto con Brightcove</li>
-    </ul>
-    		<aside class="bcls-aside bcls-aside--information">Tenga en cuenta que los casos que Support ha eliminado como duplicados no aparecerán en el Portal de soporte.</aside>
-    <p>Para ver sus casos con Brightcove Support, siga estos pasos:</p>
+<!-- 
+  This content appears on:
+  
+  https://integrations.support.brightcove.com/general/embedding-brightcove-page-experiences-cms.html
 
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Hacer clic <strong>CASOS DE APOYO</strong> en el encabezado de la página. Una lista de <strong>Casos abiertos</strong> mostrará.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-listing.png"/></figure>
-      </li>
-      <li>Haga clic en el <strong>Historia del caso</strong> enlace para ver una lista de casos cerrados.</li>
-      <li>Haga clic en un número de <strong>caso</strong> para ver los detalles del caso, incluidos los comentarios de Brightcove Support.</li>
-    </ol>
-    <p>Al hacer clic en un encabezado de columna, se ordenará la lista por esa columna.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="updating">Actualización de un caso de soporte</h2>
-    <p>Una vez creado el caso, tres son algunas de las acciones que puedes llevar a cabo para mantener actualizados los casos: </p>
-    <ul>
-      <li>Añade nuevos comentarios para comunicarte con nuestro equipo de soporte</li>
-      <li>Sube o elimina archivos adjuntos con más información para ayudarnos a identificar el problema lo más rápido posible</li>
-      <li>Actualiza la prioridad del caso en caso de que necesites más atención en un caso o se vuelve más urgente de lo esperado inicialmente</li>
-      <li>Actualiza la lista CC para añadir más observadores al estuche</li>
-      <li>Solicitar el cierre del caso después de que se haya resuelto el problema</li>
-    </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="update-cc-list">Actualización de la lista de CC predeterminada</h2>
-    <p>La lista de CC predeterminada es una lista de correo electrónico por cuenta a la que se le notifica toda la actividad de casos de la cuenta. Para actualizar la lista, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Ve a la esquina superior derecha y haz clic en el icono del usuario.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-account.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Mi cuenta</strong>.</li>
-      <li>Introduzca las nuevas direcciones de correo electrónico o elimine las direcciones existentes en la lista CC predeterminada de la <strong>cuenta</strong>.</li>
-      <li>Haga clic en <strong>Actualizar lista CC predeterminada</strong> para guardar los cambios.</li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="view-system-status">Visualización de la página Estado del sistema Brightcove</h2>
-    <p>Brightcove supervisa continuamente el estado de todos los servicios de Brightcove. Si se produce alguna interrupción en el servicio, se publicará una nota en la página Estado del sistema. También se publicarán todos los avisos de mantenimiento programados.</p>
-    <p>Para acceder a la página Estado del sistema, inicie sesión en el portal de soporte técnico y haga clic en ESTADO DEL SISTEMA en el encabezado de la página o vaya a <a href="https://status.brightcove.com/">status.brightcove.com</a>.</p>
-    <p>Para obtener más información sobre la página Estado del sistema, consulte <a href="/support/viewing-brightcove-system-status-page.html">Visualización de la página Estado del sistema de Brightcove</a>.</p>
-  </section>
-</article>
+  https://gallery.support.brightcove.com/develop/embedding-brightcove-players-cms.html
 
+  If you update in one place, you MUST update it in all!
+ -->
+
+ <h1>Incorporación de experiencias in-page en un CMS</h1>
+ <article class="bcls-article">
+  <summary>Este tema proporciona pautas para integrar Brightcove In-Page Experiences en su CMS.</summary>
+  <section class="bcls-section">
+    <h2 id="introduction">Introducción</h2>
+    
+    <p>Además de los reproductores básicos de un solo video y los reproductores de listas de reproducción, Brightcove ofrece un tipo de reproductor de múltiples videos, llamado In-Page Experiences. Desea permitir que los usuarios integren fácilmente una experiencia y brinden la mayor flexibilidad posible en la generación del código de inserción de Brightcove Experience para que puedan controlar la apariencia sin ser expertos en HTML o JavaScript.</p>
+    
+    <p>Tenga en cuenta que las experiencias en la página son parte de la galería, que se incluye en <a href="https://www.brightcove.com/en/video-marketing-suite">Suite de video marketing</a> y <a href="https://www.brightcove.com/en/enterprise-video-suite">Suite de video empresarial</a> y también se puede comprar como un paquete adicional para Video Cloud. Póngase en contacto con su administrador de cuentas para obtener más</p>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="In_page_Experience_selection_dialog">Cuadro de diálogo de selección de experiencia en la página</h2>
+    
+    <p>Debe haber un cuadro de diálogo que permita al usuario elegir una experiencia en la página. Este cuadro de diálogo debe permitir al usuario configurar los campos que se enumeran a continuación:</p>
+    
+    <ol>
+      <li><strong>Cuenta de Brightcove:</strong> El usuario debe poder elegir una cuenta de Brightcove si aún no ha seleccionado ninguna.</li>
+      <li><strong>Filtro de búsqueda:</strong> El usuario debe poder ingresar una cadena de búsqueda para filtrar la lista de Experiencias mostradas. Si utiliza la API de búsqueda de Brightcove, la cadena de búsqueda debe estar codificada en URI.</li>
+      <li><strong>Pedido:</strong> La lista de Experiencias mostradas debe estar ordenada por nombre. El usuario debe poder seleccionar un orden de clasificación ascendente o descendente. El valor predeterminado debería ser ascendente.</li>
+    </ol>
+    
+    <p>El diálogo debería tener el siguiente comportamiento:</p>
+    
+    <ol>
+      <li>Muestre una lista de experiencias según la selección de usuario anterior. Permita que el usuario seleccione una experiencia.</li>
+      <li>Para la lista mostrada de Experiencias:
+      <ol type="a">
+        <li>Solo se deben mostrar las Experiencias publicadas</li>
+        <li>Se deben mostrar el nombre, la plantilla y el ID de la experiencia.</li>
+      </ol>
+      </li>
+      <li>Muestre un enlace en el que se puede hacer clic que abrirá el reproductor de experiencias en una nueva pestaña del navegador.</li>
+    </ol>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="related_brightcove_documentation">Documentación relacionada de Brightcove</h3>
+    
+    <ul>
+      <li><a href="https://integrations.support.brightcove.com/general/integrating-your-cms-video-cloud.html">Integración de su CMS con Video Cloud</a></li>
+      <li><a href="https://apis.support.brightcove.com/ipx/references/reference.html#operation/GetExperiences">Obtener lista de experiencias</a>
+      <ul>
+        <li>Ordenar por nombre en orden ascendente: <code translate="No">?sort=name</code></li>
+        <li>Ordenar por nombre en orden descendente: <code translate="No">?sort=-name</code></li>
+        <li>Buscar: <code translate="No">?q={searchstring}</code></li>
+      </ul>
+      </li>
+      <li><a href="https://apis.support.brightcove.com/ipx/references/reference.html#operation/GetExperience">Obtenga detalles para una experiencia in-page</a></li>
+    </ul>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="example_dialog">Implementación de diálogo de ejemplo</h3>
+    
+    <figure class="bcls-figure"><img class="bcls-image" alt="Cuadro de diálogo de selección de experiencia de muestra" src="https://general.support.brightcove.com/assets/images/shared-content/integrations/18645-sample-experience-select-dialog.png"/>
+    <figcaption class="bcls-caption--image">Cuadro de diálogo de selección de experiencia de muestra</figcaption>
+    </figure>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="in_page_experience_embed_dialog">Cuadro de diálogo de inserción de experiencia en la página</h2>
+    
+    <p>Debe haber un cuadro de diálogo que permita al usuario controlar el formato de la experiencia en la página en la página web. Este cuadro de diálogo debe permitir al usuario configurar los campos que se enumeran a continuación:</p>
+    
+    <ol>
+      <li><strong>Tipo de incrustación:</strong> El usuario debe poder elegir entre iFrame y código de incrustación JavaScript. El valor predeterminado debería ser JavaScript.</li>
+      <li><strong>Dimensionamiento:</strong> El usuario debe poder seleccionar entre tamaño adaptable o fijo.<sup><strong><a href="#note1-1">[1-1]</a></strong></sup>
+      <ol type="a">
+        <li>Si es iFrame, el valor predeterminado debe ser Fijo y Responsive debe deshabilitarse.</li>
+        <li>Si es Javascript, el valor predeterminado debería ser Responsive.</li>
+      </ol>
+      </li>
+      <li><strong>Ancho, Alto:</strong> El usuario debe poder ingresar Ancho y Alto.<sup><strong><a href="#note1-1">[1-1]</a></strong></sup>
+      <ol type="a">
+        <li>Si es iFrame, el valor predeterminado debe ser Fijo y Responsive debe deshabilitarse.</li>
+        <li>Si responde, el ancho y el alto deben estar desactivados.</li>
+      </ol>
+      </li>
+      <li><strong>Videos de experiencia de anulación:</strong> El usuario debería poder anular los videos predeterminados en una experiencia con una lista de videos o con una lista de reproducción. Si el usuario selecciona anular los videos de la experiencia, permita que el usuario elija videos o una lista de reproducción según la sección "Videos de la experiencia invalidante" a continuación.</li>
+    </ol>
+    
+    <p>El cuadro de diálogo debería tener el siguiente comportamiento adicional:</p>
+    
+    <ol>
+      <li>El código de incrustación de Brightcove generado se debe mostrar al usuario en el cuadro de diálogo.</li>
+      <li>El usuario debería poder editar el código de inserción. Aunque estamos tratando de darle al usuario la mayor flexibilidad posible para configurar el código de inserción, puede haber casos en los que necesite anular lo que se genera automáticamente.</li>
+      <li>Si el usuario modifica una de las selecciones anteriores en el cuadro de diálogo, las ediciones del usuario se sobrescribirán con el código recién generado.</li>
+    </ol>
+    
+    <h4>Notas</h4>
+    
+    <ul>
+      <li id="note1-1"><sup><strong>[1-1]</strong></sup> Si el CMS proporciona un contenedor nativo para incrustar código que permite al usuario especificar Responsive vs Fixed y Width / Height, podría tener más sentido usar el contenedor para dimensionar y hacer que el código de incrustación de Brightcove siempre responda.</li>
+    </ul>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="Overriding_Experience_videos">Vídeos de Overriding Experience</h2>
+    
+    <p>Si el usuario elige anular los videos de la experiencia, el cuadro de diálogo debería permitirle establecer los campos que se enumeran a continuación:</p>
+    
+    <ol>
+      <li><strong>Filtro de búsqueda:</strong> El usuario debe poder ingresar una cadena de búsqueda para filtrar la lista de videos o listas de reproducción mostrados. Si utiliza la API de búsqueda de Brightcove, la cadena de búsqueda debe estar codificada en URI.</li>
+      <li><strong>Carpeta:</strong> El usuario debería poder seleccionar un nombre de carpeta de la cuenta de Brightcove para filtrar la lista de videos mostrados. La API de Brightcove no proporciona un filtro integrado para carpetas, por lo que el código del cliente deberá recuperar todos los videos y luego filtrar por carpeta. (No se aplica a las listas de reproducción)</li>
+      <li><strong>Límite:</strong> El usuario debe poder limitar la cantidad de videos devueltos, principalmente para mejorar el rendimiento de la búsqueda. Cuando se utiliza la búsqueda de Brightcove, el límite máximo que se puede especificar es 100. Para devolver más de 100 videos, se debe implementar un mecanismo de paginación. Además, si el usuario ha seleccionado una Carpeta para filtrar, el cliente debe solicitar todos los videos en la cuenta usando el mecanismo de paginación y luego filtrar localmente esa lista por Carpeta y devolver la cantidad de videos especificada por el límite de usuarios. (No se aplica a las listas de reproducción)</li>
+      <li><strong>Ordenar por:</strong> El usuario debería poder seleccionar un campo de clasificación.
+      <ol type="a">
+        <li>Para los videos, el usuario debe poder elegir el nombre del video, la fecha de actualización, la fecha de creación, la fecha de inicio y el total de reproducciones. El valor predeterminado debe ser la fecha de actualización.</li>
+        <li>Para las listas de reproducción, el usuario elige el nombre y la fecha de modificación. El valor predeterminado debe ser la fecha de modificación.</li>
+      </ol>
+      </li>
+      <li><strong>Orden de clasificación:</strong> El usuario debe poder seleccionar un orden de clasificación ascendente o descendente. El valor predeterminado debería ser descendente.</li>
+    </ol>
+    
+    <p>El diálogo debería tener el siguiente comportamiento:</p>
+    
+    <ol>
+      <li>Muestra una lista de videos o listas de reproducción según la selección de usuario anterior. Permita que el usuario seleccione varios videos o una lista de reproducción.</li>
+      <li>Al mostrar una lista de videos:
+      <ol type="a">
+        <li>Solo deben aparecer los videos activos.</li>
+        <li>Se deben mostrar la imagen en miniatura, el nombre del video y la identificación.</li>
+        <li>Se pueden seleccionar uno o más videos.</li>
+      </ol>
+      </li>
+      <li>Al mostrar una lista de listas de reproducción:
+      <ol type="a">
+        <li>Si la lista de reproducción es una lista de reproducción manual, muestre el nombre de la lista de reproducción, el ID y la cantidad de videos en la lista de reproducción.</li>
+        <li>Si la lista de reproducción es una lista de reproducción inteligente, muestre el nombre de la lista de reproducción, el ID y --- en lugar del número de videos.</li>
+        <li>Solo se puede seleccionar una lista de reproducción.</li>
+      </ol>
+      </li>
+      <li>Muestre un enlace en el que se puede hacer clic que abrirá el reproductor de video o lista de reproducción en una nueva pestaña del navegador.</li>
+    </ol>
+    
+    <section class="bcls-subsection">
+    <h3 id="Example_video_override_dialog_implementation">Ejemplo de implementación de diálogo de anulación de video</h3>
+    
+    <figure class="bcls-figure"><img class="bcls-image" alt="Ejemplo de diálogo de anulación de video" src="https://general.support.brightcove.com/assets/images/shared-content/integrations/18645-sample-video-override-dialog.png"/>
+    <figcaption class="bcls-caption--image">Ejemplo de diálogo de anulación de video</figcaption>
+    </figure>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="Example_playlist_override_dialog_implementation">Ejemplo de implementación de diálogo de anulación de lista de reproducción</h3>
+    
+    <figure class="bcls-figure"><img class="bcls-image" alt="Ejemplo de diálogo de anulación de video" src="https://general.support.brightcove.com/assets/images/shared-content/integrations/18645-sample-playlist-override-dialog.png"/>
+    <figcaption class="bcls-caption--image">Ejemplo de diálogo de anulación de video</figcaption>
+    </figure>
+    </section>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="Embed_parameters_and_code">Insertar parámetros y código</h2>
+    
+    <p>La sección describe cómo generar el código de inserción de Experience en función de las selecciones del usuario. La <code translate="No">%XYZ%</code> los valores se sustituyen en el código de inserción como se describe a continuación.</p>
+    
+    <section class="bcls-subsection">
+    <h3 id="commong_parameters">Parámetros comunes</h3>
+    
+    <ul>
+      <li><code translate="No">%ACCOUNTID%</code> = ID de cuenta Brightcove seleccionada por el usuario</li>
+      <li><code translate="No">%VIDEOIDLIST%</code> = ID de video seleccionados por el usuario, delimitados por comas y sin espacios</li>
+      <li><code translate="No">%PLAYLISTID%</code> = ID de lista de reproducción seleccionada por el usuario</li>
+      <li><code translate="No">%EXPERIENCEID%</code> = ID de reproductor de vídeo o ID de reproductor de lista de reproducción seleccionado por el usuario</li>
+      <li><code translate="No">%CMS%</code> = Nombre de CMS</li>
+      <li><code translate="No">%CMSVERSION%</code> = Versión de CMS</li>
+      <li><code translate="No">%CONNECTORVERSION%</code> = Versión de conector</li>
+    </ul>
+    </section>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="iframe_experience_player_embed">Insertar reproductor iFrame Experience</h2>
+    
+    <section class="bcls-subsection">
+    <h3 id="Parameters_for_responsive_sizing">Parámetros para dimensionamiento receptivo</h3>
+    
+    <p>N / A: opción de respuesta no seleccionable</p>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="Parameters_for_fixed_sizing">Parámetros para dimensionamiento fijo</h3>
+    
+    <pre>
+    <code translate="No">%MAXWIDTH% = ‘’
+    %MINWIDTH% = ‘’
+    %WIDTH% = Width . ‘px’
+    %HEIGHT% = Height . ‘px’</code></pre>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="iframe_video_experience_embed">Código incrustado Brightcove</h3>
+    
+    <pre>
+    <code translate="No">&lt;div style="display:block;position:relative;width:%WIDTH%;height:%HEIGHT%"&gt;
+      &lt;iframe src="https://players.brightcove.net/%ACCOUNTID%/experience_%EXPERIENCEID%/index.html?videoIds=%VIDEOIDLIST%
+        &amp;playlistId=%PLAYLISTID%
+        &amp;usage=cms:%CMS%:%CMSVERSION%:%CONNECTORVERSION%:experienceiframe" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" style="width:100%;height:100%;top:0px;bottom:0px;right:0px;left:0px;border:none;margin-left:auto;margin-right:auto;position:absolute"&gt;
+      &lt;/iframe&gt;
+    &lt;/div&gt;</code></pre>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="example_iframe_video_experience">Ejemplo de implementación</h3>
+    
+    <figure class="bcls-figure"><img class="bcls-image" alt="Implementación de ejemplo" src="https://general.support.brightcove.com/assets/images/shared-content/integrations/18645-sample-iframe-video-embed-dialog.png"/>
+    <figcaption class="bcls-caption--image">Implementación de ejemplo</figcaption>
+    </figure>
+    </section>
+    </section>
+    
+    <section class="bcls-section">
+    <h2 id="inpage_experience_player_embed">JavaScript (in-page) Insertar reproductor de experiencia</h2>
+    
+    <section class="bcls-subsection">
+    <h3 id="Parameters_for_responsive_sizing">Parámetros para dimensionamiento receptivo</h3>
+    
+    <pre>
+    <code translate="No">
+      %WIDTH% = ‘’<sup><strong><a href="#note2-1">[2-1]</a></strong></sup>
+      %HEIGHT% = ‘’<sup><strong><a href="#note2-1">[2-1]</a></strong></sup>
+    </code></pre>
+    
+    <h4>Notas</h4>
+    
+    <ul>
+      <li id="note2-1"><sup><strong>[2-1]</strong></sup> Ancho y Alto no seleccionables por el usuario</li>
+    </ul>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="Parameters_for_fixed_sizing">Parámetros para dimensionamiento fijo</h3>
+    
+    <pre>
+    <code translate="No">
+      %WIDTH% = Width . ‘px’
+      %HEIGHT% = Height . ‘px’
+    </code></pre>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="iframe_video_experience_embed">Código incrustado Brightcove</h3>
+    
+    <pre>
+    <code translate="No">&lt;div style="display:block;position:relative;width:%WIDTH%;height:%HEIGHT" data-experience="%EXPERIENCEID%" data-video-ids=”%VIDEOIDLIST% "
+      data-playlist-id=”%PLAYLISTID%" data-usage="cms:%CMS%:%CMSVERSION%:%CONNECTORVERSION%:experiencejavascript" style="
+      display: block;
+      position: relative; "&gt;
+    &lt;/div&gt;
+    &lt;script src="//players.brightcove.net/%ACCOUNTID%/experience_%EXPERIENCEID%/live.js "&gt;&lt;/script&gt;</code></pre>
+    </section>
+    
+    <section class="bcls-subsection">
+    <h3 id="example_inpage_video_experience">Ejemplo de implementación</h3>
+    
+    <figure class="bcls-figure"><img class="bcls-image" alt="Implementación de ejemplo" src="https://general.support.brightcove.com/assets/images/shared-content/integrations/18645-sample-inpage-video-embed-dialog.png"/>
+    <figcaption class="bcls-caption--image">Implementación de ejemplo</figcaption>
+    </figure>
+    </section>
+    </section>
+ </article>
 <!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
   
   <nav class="right-side-nav" id="right_side_nav">

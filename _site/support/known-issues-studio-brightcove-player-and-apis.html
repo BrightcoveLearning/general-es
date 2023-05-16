@@ -1,424 +1,1446 @@
-﻿<!doctype html>
-<html lang="es-es">
+﻿<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <title>Problemas conocidos: Studio, Brightcove Player y API</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Este tema enumera los problemas conocidos con Studio, Brightcove Player y las API.">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>Problemas conocidos: Studio, reproductor de Brightcove y API</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="logotipo del producto" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Seleccionar idioma</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
 
 
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="soporte"/> Contactar con Soporte</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/">Estado<img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="estado del sistema"/> del sistema</a></span> <br/>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/support/">Información general</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Problemas conocidos: Studio, reproductor de Brightcove y API</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Otros documentos de Brightcove</option>
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="logo" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
           
-            
-              <option value="https://support.brightcove.com">Documentación Inicio</option>
-            
           
-            
-              <option value="https://audience.support.brightcove.com">Audiencia de Brightcove</option>
-            
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
           
-            
-              <option value="https://beacon.support.brightcove.com">Baliza Brightcove</option>
-            
           
-            
-              <option value="https://campaign.support.brightcove.com">Campaña de Brightcove</option>
-            
           
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
           
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
           
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
           
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
           
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
           
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
           
-            
-              <option value="https://player.support.brightcove.com">Desarrollo de jugadores de Brightcove</option>
-            
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
           
-            
-              <option value="https://apis.support.brightcove.com">API para la plataforma de Video Cloud</option>
-            
           
-            
-              <option value="https://sdks.support.brightcove.com">SDK de dispositivos de Video Cloud</option>
-            
           
-            
-              <option value="https://integrations.support.brightcove.com">Integraciones y conectores CMS</option>
-            
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
           
-            
-              <option value="https://general.support.brightcove.com">Información general de Video Cloud</option>
-            
           
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
           
         </select>
 
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Inicio</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">Información general <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/brightcove-product-overview.html">Descripción general del producto Brightcove</a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-continuum-overview.html">Descripción general de Brightcove Continuum</a></li>
-                  
-                
-                  
-                    <li>Proyectos de código abierto<a href="/general/brightcove-open-source-projects.html"></a></li>
-                  
-                
-                  
-                    <li>Vídeo MPEG-DASH<a href="/general/mpeg-dash-video.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/general/brightcove-forum-groups-and-email-lists.html">Grupos de foros y listas de correo electrónico de Brightcove</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer/index.html">Desarrolladores <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Comprensión de CORS<a href="/developer/concepts-cors.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-introducing-json.html">Presentamos a JSON</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/concepts-javascript-debugging-basics.html">Conceptos básicos de la depuración de JavaScript</a></li>
-                  
-                
-                  
-                    <li>El patrón de diseño del módulo JavaScript<a href="/developer/concepts-javascript-module-design-pattern.html"></a></li>
-                  
-                
-                  
-                    <li>Configuración de cURL<a href="/developer/concepts-set-curl.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de promesas JavaScript<a href="/developer/concepts-using-javascript-promises.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/developer/create-jwt.html">Creación de un token web JSON (JWT)</a></li>
-                  
-                
-                  
-                    <li><a href="/developer/debugging-mobile-devices.html">Depuración en dispositivos móviles</a></li>
-                  
-                
-                  
-                    <li>Usando MTR (mi traceroute)<a href="/developer/using-mtr-to-look-at-network-traffic.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de Wireshark para rastrear el tráfico de red<a href="/developer/using-wireshark-track-network-traffic-debugging.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Migrando desde Ooyala +<a href="/ooyala/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Documentos de Migración para Clientes de Ooyala<a href="/ooyala/migration-docs-ooyala-customers.html"></a></li>
-                  
-                
-                  
-                    <li>Migración a la API de Brightcove Analytics<a href="/ooyala/migrating-analytics-rest-api-brightcove-analytics-api.html"></a></li>
-                  
-                
-                  
-                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ad-sets.html"> Conjuntos de anuncios</a></li>
-                  
-                
-                  
-                    <li>Migración a Video Cloud:<a href="/ooyala/migrating-video-cloud-ingestion-adapter.html"> Adaptador de ingestión</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-csv-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto CSV</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-aspera.html">Adaptador de ingestión: Ingerir con Aspera</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ftps.html">Adaptador de ingestión: Ingerir con FTPS</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-ois-25.html">Adaptador de ingestión: Ingerir con OIS 2.5</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-backlot-api.html">Adaptador de ingestión: Ingerir con la API de backlot</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remote-assets-mrss.html">Adaptador de ingestión: Ingerir activos remotos a través de MRSS</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-ingesting-remotely-hosted-mrss-feed.html">Adaptador de ingestión: Ingerir desde MRSS alojado</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-video-cloud-cms-connector.html">Backlot/Conector CMS de Video Cloud</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/backlot-and-video-cloud-video-and-playlist-fields.html">Backlot y Video Cloud: Campos de vídeo y lista de reproducción</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-manifest-file-formats.html">Adaptador de ingestión: Formatos de archivo manifiesto</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-adapter-xml-manifest-files.html">Adaptador de ingestión: Archivos de manifiesto XML</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-ingestion-supported-ingest-formats.html">Adaptador de ingestión: Formatos de ingesta admitidos</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-adding-brightcove-dns-server-testing.html">Agregar el servidor DNS de Brightcove para pruebas</a></li>
-                  
-                
-                  
-                    <li><a href="/ooyala/ooyala-video-cloud-migration-authentication-brightcove-api-requests.html">Autenticación para solicitudes de API de Brightcove</a></li>
-                  
-                
-                  
-                    <li>Referencia del informe Tendencias ahora<a href="/ooyala/trending-now-report-reference.html"></a></li>
-                  
-                
-                  
-                    <li>Uso de reproductores Ooyala para contenido de Video Cloud<a href="/ooyala/using-ooyala-players-deliver-video-cloud-content.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Utilidades +<a href="/utilities/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/utilities/base-64-encoding-tool.html">Herramienta de codificación Base 64</a></li>
-                  
-                
-                  
-                    <li><a href="/utilities/date-converter.html">Conversor de fecha</a></li>
-                  
-                
-                  
-                    <li>Codificador de cadenas<a href="/utilities/string-encoder.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Entrenamiento +<a href="/training/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/training/online-training-courses.html">Todos los cursos de formación en línea</a></li>
-                  
-                
-                  
-                    <li>Regístrese para la formación impartida por instructor<a href="/training/register-training.html"></a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud.html"> Introducción a Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-introduction-video-cloud-analytics.html"> Introducción a la analítica de Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Capacitación:<a href="/training/training-demand-video-cloud-basics.html"> Conceptos básicos de Video Cloud</a></li>
-                  
-                
-                  
-                    <li>Vídeos de formación de Video Cloud Studio<a href="/training/video-cloud-studio-training-videos.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/training/brightcove-university.html">Cursos de formación de la Universidad de Brightcove</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header">Soporte +<a href="/support/index.html"><strong></strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li>Problemas conocidos<a href="/support/known-issues-studio-brightcove-player-and-apis.html"></a></li>
-                  
-                
-                  
-                    
-                  
-                
-                  
-                    <li>Visualización de la página Estado del Sistema de Brightcove<a href="/support/viewing-brightcove-system-status-page.html"></a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Contacto con Ventas</a></li>
-                  
-                
-                  
-                    <li>Apertura de un caso de soporte<a href="/support/opening-case-with-brightcove-support.html"></a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
     </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
+  </div>
+</header><!--//header-->
 
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menú de navegación"/></p>
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">Inicio</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/get-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Empezando</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/step-step-creating-and-publishing-portal-experience.html">Crear una experiencia de portal</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/step-step-creating-and-publishing-page-experience.html">Crear una experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/creating-and-managing-gallery-experiences.html">Creación y gestión de experiencias</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/getting-started-brightcove-gallery.html">Introducción a Brightcove Gallery</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/overview-gallery-experiences.html">Descripción general de las experiencias de la galería</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/get-started/training/index.html">Capacitación</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/experiences/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Experiencias</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
 
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Contenido de la página</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="abrir en una nueva pestaña" style="margin-top:4em;width: 1.5em;"/></a>
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/portal/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Portal</a>
+                
 
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
 
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Empezando</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/getting-started/overview-creating-editing-and-publishing-portal-experiences.html">Crear, editar y publicar</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-introduction-gallery.html">Formación: introducción a la galería</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-building-portal-experiences-using-gallery.html">Capacitación: creación de experiencias en el portal</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/step-step-creating-and-publishing-portal-experience.html">Paso a paso: Creación y publicación</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
 
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/templates/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Plantillas</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/overview-gallery-portal-templates.html">Descripción general de las plantillas del portal</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">Actualización de plantillas de galería</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/working-with-immersion-template.html">Trabajar con la plantilla del portal de inmersión</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-catalogue-template-settings.html">Personalización de la configuración de la plantilla de catálogo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-chronicle-template-settings.html">Personalización de la configuración de la plantilla de crónica</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-immersion-template-settings.html">Personalización de la configuración de la plantilla de inmersión</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/customizing-marquee-template-settings.html">Personalización de la configuración de la plantilla de marquesina</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
 
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/videos/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Adición de vídeos</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-videos-portal-experience.html">Añadiendo Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-video-cloud-videos-portal-experience.html">Adición de vídeos en la nube de vídeo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/adding-youtube-videos-portal-experience.html">Agregar videos de YouTube</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/videos/downloading-videos-portal-experience.html">Descarga de videos</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/customizing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;personalización</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-site-editor-customize-portal-experience.html">Usando el Editor del sitio</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-appearance-and-behavior-portal-experience.html">Personalización de la apariencia y el comportamiento</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-content-portal-experience-pages.html">Personalización del contenido de las páginas</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-player-and-lead-form-settings-portal-experience.html">Personalización de la configuración del formulario de jugador y cliente potencial</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-configuration-portal-experience.html">Personalización de la configuración del sitio</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">Personalización de las funciones del sitio</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-social-settings-portal-experience.html">Personalización de la configuración social</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-style-portal-experience.html">Personalizar el estilo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">Personalización de la configuración de reproducción y video</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-settings-portal-experience.html">Personalización de la configuración de video</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-custom-fonts-portal-experience.html">Usar fuentes personalizadas</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/changing-player-layout-portal-experience.html">Cambiar la distribución del reproductor</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/configuring-details-portal-experience.html">Configurar los detalles</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-multi-lingual-metadata.html">Uso de metadatos multilingües</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/other/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Otras características</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-calls-action-portal-experience.html">Configurar llamadas a la acción</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/indexing-gallery-portal-experience.html">Indexación de una experiencia del portal</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/using-lead-form-portal-experience.html">Usar un formulario de cliente potencial</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/exporting-gallery-lead-data.html">Exportación de datos de clientes potenciales de la galería</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-search-engine-optimization-settings-portal-experience.html">Configuración de ajustes de SEO</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-third-party-tracking-portal-experience.html">Configurar el seguimiento de terceros</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/portal/publishing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Publicación</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">Vista previa y publicación</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Asignar un dominio personalizado</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/controlling-access-portal-experience.html">Control de acceso</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/inpage/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;En pagina</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Empezando</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/getting-started/overview-creating-editing-and-publishing-page-experiences.html">Descripción general: Creación y publicación de experiencias en la página</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-introduction-gallery.html">Formación: introducción a la galería</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/training/training-demand-building-page-experiences-using-gallery.html">Capacitación - Creación de experiencias en la página</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/get-started/step-step-creating-and-publishing-page-experience.html">Paso a paso: Crear y publicar una experiencia en la página</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/templates/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Plantillas</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/templates/overview-gallery-page-experience-templates.html">Descripción general de las plantillas</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">Actualización de plantillas de galería</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/customizing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;personalización</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/customizing-page-experience.html">Personalización de una experiencia</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-components-page-experience.html">Agregar componentes</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-videos-page-experience.html">Añadiendo Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/customizing-style-page-experience.html">Personalizar el estilo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/adding-interactions-page-experience.html">Agregar interacciones</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-companion-components-page-experience.html">Configuración de componentes complementarios</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-details-page-experience.html">Configurar los detalles</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/customizing/configuring-settings-page-experience.html">Configurar los ajustes</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/other/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Otras características</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/using-dynamic-video-overrides-page-experience.html">Uso de anulaciones dinámicas de video</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/configuring-video-downloads-page-experience.html">Configuración de descargas de video</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/other/creating-custom-themes-page-experiences.html">Creación de temas personalizados</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/publishing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Publicación</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/publishing/previewing-and-publishing-page-experience.html">Vista previa y publicación</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/templates/updating-gallery-templates.html">Actualización de plantillas de galería</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/inpage/analytics/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Analítica</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-analytics.html">Revisión de Analytics</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-analytics-dashboard.html">Revisión del panel de análisis</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-video-analytics.html">Revisión de análisis de vídeo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/analytics/reviewing-page-experience-calls-action-analytics.html">Revisión de análisis de llamadas a la acción</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/live/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento en vivo</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/live/portal/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Portal</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-live-event-portal-experience.html">Creación de un portal de eventos en vivo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-pre-event-state-portal-event-experience.html">Creación del estado previo al evento</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-live-event-state-portal-event-experience.html">Crear el estado del evento en vivo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/creating-post-event-state-portal-event-experience.html">Creación del estado posterior al evento</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/customizing-live-event-portal-settings.html">Personalización de la configuración</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">Vista previa y publicación</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Asignar un dominio personalizado</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/publishing/controlling-access-portal-experience.html">Control de acceso</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/portal/adding-pigeonhole-live-event-portal-experience.html">Agregar casillero a un portal en vivo</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/live/in-page/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;En pagina</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/in-page/creating-live-event-page-experience.html">Crear un evento en vivo en la página</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/live/in-page/adding-pigeonhole-live-event-page-experience.html">Agregar casillero</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/inpage/publishing/previewing-and-publishing-page-experience.html">Vista previa y publicación</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento virtual</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/getting-started/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Empezando</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/creating-virtual-event-experience.html">Crear una experiencia de evento virtual</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/getting-started-agenda-module.html">Introducción al módulo Agenda</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/overview-virtual-event-template.html">Descripción general de la plantilla de evento virtual</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/getting-started/using-site-editor-customize-virtual-event-experience.html">Usando el Editor del sitio</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/videos/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Administrar videos</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/videos/adding-videos-virtual-event-experience.html">Añadiendo Videos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/videos/using-simulated-live-videos.html">Uso de videos en vivo simulados</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Orden del día y Ponentes</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/creating-agenda-virtual-event-experience.html">Creación de un archivo de agenda de eventos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/creating-speakers-virtual-event-experience.html">Creación de un archivo de altavoces de eventos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/managing-agenda-virtual-event-experience.html">Gestión de la agenda del evento</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/agenda-speakers/managing-event-speakers.html">Gestión de oradores de eventos</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/customizing/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;personalización</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/other/configuring-calls-action-portal-experience.html">Configurar llamadas a la acción</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/configuring-details-portal-experience.html">Configurar los detalles</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-appearance-and-behavior-virtual-event-experience.html">Personalización de la apariencia y el comportamiento</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-content-virtual-event-experience-pages.html">Personalización del contenido de las páginas</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-configuration-portal-experience.html">Personalización de la configuración del sitio</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-site-features-portal-experience.html">Personalización de las funciones del sitio</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/customizing-style-virtual-event-experience.html">Personalizar el estilo</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/customizing-video-and-playback-settings-portal-experience.html">Personalización de la configuración de reproducción y video</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/integrating-pigeonhole-virtual-event-experience.html">Casillero integrador</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/customizing/managing-event-sponsors.html">Gestión de patrocinadores de eventos</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/portal/customizing/using-multi-lingual-metadata.html">Uso de metadatos multilingües</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                  
+
+                  <li class="nav-item section-title">
+                    
+                    <a class="nav-link" href="/experiences/virtual-event/other/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-minus"></i><span>&nbsp;Otras características</a>
+                    
+                    
+                    <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/other/using-role-based-access-control.html">Uso del control de acceso basado en roles</a>
+                      </li>
+                      
+                      
+                      
+                      <li class="nav-item subsection-doc">
+                        <a class="nav-link" href="/experiences/virtual-event/other/getting-analytics.html">Exportación de datos del visor de eventos virtuales</a>
+                      </li>
+                      
+                      
+                    </ul>
+                  </li>
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/experiences/landing/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Página de destino</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/publishing/assigning-custom-domain-portal-experience.html">Asignar un dominio personalizado</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/landing/creating-landing-page-experience.html">Creación de una experiencia de página de destino</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/other/exporting-gallery-lead-data.html">Exportación de datos de clientes potenciales de la galería</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/publishing/previewing-and-publishing-portal-experience.html">Vista previa y publicación</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/other/using-lead-form-portal-experience.html">Usar un formulario de cliente potencial</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/experiences/portal/customizing/using-site-editor-customize-portal-experience.html">Uso del Editor del sitio para personalizar una experiencia</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/general/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Información general</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/gallery-system-requirements.html">Requisitos del sistema de la galería</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/troubleshooting-brightcove-gallery-issues.html">Solución de problemas de Brightcove Gallery</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/general/brightcove-gallery-cookies.html">Galletas de Brightcove Gallery</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/settings/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Configuración de la galería</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-gallery-settings.html">Configurar los ajustes de la galería</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-youtube-settings.html">Configurar los ajustes de YouTube</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-access-control-profiles.html">Configuración de perfiles de control de acceso</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-custom-domains-and-ssl.html">Configuración de dominios personalizados y SSL</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-auth0.html">Asegurar una experiencia de portal con Auth0</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-okta.html">Asegurar una experiencia de portal con Okta</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-ssl.html">Asegurar una experiencia de portal con SSL</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-single-sign-active-directory-federation-services.html">Configurar el inicio de sesión único con ADFS</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/develop/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Desarrolladores</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-code-snippets.html">Fragmentos de código de experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experiences-custom-css-reference.html">Referencia CSS personalizada de la experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/embedding-brightcove-page-experiences-cms.html">Incorporación de experiencias in-page en un CMS</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/overview-page-experience-api.html">Descripción general: API de experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/overview-page-experience-client-api.html">Descripción general: API de cliente de experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-api-error-reference.html">Referencia de errores de la API de experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experience-client-api-sample.html">Ejemplo de API de cliente de experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/quick-start-page-experience-platform-rest-api.html">Inicio rápido: API de plataforma de experiencia en la página (REST)</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/develop/reference.html">Referencia de la API de la plataforma de experiencia en la página</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="https://apis.support.brightcove.com/in-page-exerience-client-api/ClientApi.html">Referencia de la API de cliente de experiencia en la página</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/release-notes/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Notas de lanzamiento</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/gallery-release-notes.html">Notas de la versión de la galería</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/release-notes/gallery-template-release-notes.html">Notas de la versión de la plantilla de la galería</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"> <i class="fa-solid fa-plus"></i></span>&nbsp;Apoyo</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">Visualización de la página de estado del sistema Brightcove</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">Restablecer la contraseña del portal de soporte</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">Contactar con ventas</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Soporte</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">Problemas conocidos: Studio, Brightcove Player y API</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
 <article class="bcls-article">
-  <h1>Problemas conocidos: Studio y reproductor de Brightcove</h1>
-  <summary>En este tema se enumeran los problemas conocidos con Studio, Brightcove Player y API.</summary>
+  <h1>Problemas conocidos: Studio, Brightcove Player y API</h1>
+  <summary></summary>
   <section class="bcls-section">
-    <p><strong>Entre los problemas conocidos identificados se incluyen:</strong></p>
+    <p><strong>Los problemas conocidos identificados incluyen:</strong></p>
     <ul>
-      <li>Estudio<a href="#studio"></a>
+      <li><a href="#studio">Estudio</a>
         <ul>
-          <li>Módulo multimedia<a href="#media"></a></li>
-          <li>Módulo de<a href="#players"></a></li>
-          <li>Vídeo en directo<a href="#live"></a></li>
-          <li><a href="#analytics">módulo Analytics</a></li>
-          <li><a href="#audience">Módulo público</a></li>
-          <li>Módulo social<a href="#social"></a></li>
-          <li>Subir módulo/Ingestión dinámica<a href="#di"></a></li>
+          <li><a href="#media">Módulo de medios</a></li>
+          <li><a href="#players">Módulo de jugadores</a></li>
+          <li><a href="#live">Video en vivo</a></li>
+          <li><a href="#analytics">Módulo de analítica</a></li>
+          <li><a href="#audience">Módulo de audiencia</a></li>
+          <li><a href="#social">Módulo social</a></li>
+          <li><a href="#di">Módulo de carga / Ingestión dinámica</a></li>
         </ul>
       </li>
-      <li><a href="#player">Reproductor de Brightcove</a></li>
+      <li><a href="#player">Jugador de Brightcove</a></li>
       <li><a href="#player_plugins">Complementos de Brightcove Player</a></li>
-      <li><a href="#brightcoveLive">Brightcove Live</a></li>
+      <li><a href="#brightcoveLive">Brightcove En directo</a></li>
+      <li><a href="#audience_insights">Información de la audiencia de Brightcove</a></li>
+    </ul>
+    <ul>
     </ul>
     <ul>
       <li><a href="#analytics_api">API de análisis</a></li>
@@ -427,178 +1449,226 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="studio">Studio</h2>
+    <h2 id="studio">Estudio</h2>
     <dl>
-      <dt>El uso de la función Traducción de Chrome rompe algunas funciones de Studio </dt>
-      <dd>El uso de la función de traducción de Chrome para traducir módulos de Studio hará que algunas funcionalidades se rompa.</dd>
+      <dt>El uso de la función de traducción de Chrome rompe algunas funciones de Studio </dt>
+      <dd>El uso de la función de traducción de Chrome para traducir módulos de Studio provocará que algunas funciones se interrumpan.</dd>
     </dl>
   </section>
   <section class="bcls-section">
-    <h2 id="media">Módulo Media</h2>
+    <h2 id="media">Módulo de medios</h2>
     <dl>
-      <dt>Captura de imagen con IE 11</dt>
-      <dd>La captura de imágenes con IE 11 no funcionará cuando la relación de aspecto del vídeo es 1:1 o 4:3.</dd>
+      <dt>Captura de imágenes con IE 11</dt>
+      <dd>La captura de imágenes con IE 11 no funcionará cuando la relación de aspecto del video sea 1: 1 o 4: 3.</dd>
       <dt>Nombre del archivo de origen que contiene caracteres de doble byte</dt>
-      <dd>El nombre del archivo de origen que contiene caracteres de doble byte se desconfía después de la retranscodificación en el módulo de medios.</dd>
-      <dt>Compartir medios</dt>
+      <dd>El nombre del archivo de origen que contiene caracteres de doble byte se distorsiona después de la retranscodificación en el módulo de medios.</dd>
+      <dt>Uso compartido de medios</dt>
       <dd>
-        <p>A la hora de compartir grandes cantidades de vídeos, Brightcove recomienda hacerlo como máximo en dos páginas de vídeo cada vez. Compartir muchos vídeos de forma simultánea puede provocar un error de tiempo de espera.</p>
-        <p>No se admite la adición de subtítulos a un vídeo compartido que ya contenga subtítulos.</p>
-        <p>El uso compartido de medios fallará en los vídeos creados al recortar transmisiones en vivo.</p>
+        <p>Al compartir una gran cantidad de videos, Brightcove recomienda compartir como máximo dos páginas de videos a la vez. Compartir una gran cantidad de videos a la vez puede provocar un error de tiempo de espera.</p>
+        <p>No se admite agregar subtítulos a un video que se compartió y que ya contiene subtítulos.</p>
+        <p>El uso compartido de medios fallará para los videos creados mediante el recorte de transmisiones en vivo.</p>
       </dd>
       <dt>Videos programados</dt>
-      <dd>Dado que la API de reproducción y los vídeos en caché del catálogo durante un máximo de 10-15 minutos, es posible que un reproductor que solicite un vídeo programado para estar disponible durante los próximos minutos (hasta 20) no pueda obtener un vídeo reproducible hasta que se actualice la caché.</dd>
+      <dd>Debido a que la API de reproducción y el catálogo almacenan videos en caché durante un máximo de 10 a 15 minutos, es posible que un jugador que solicite un video programado para estar disponible durante los próximos minutos (hasta 20) no pueda obtener un video reproducible hasta que se actualice la memoria caché.</dd>
     </dl>
   </section>
   <section class="bcls-section">
-    <h2 id="players">Módulo Players</h2>
+    <h2 id="players">Módulo de jugadores</h2>
     <dl>
       <dt>Configuración de precarga</dt>
       <dd>Debido a un error en Internet Explorer, la configuración de precarga puede ignorarse al usar IE.</dd>
-      <dt>Configuración Acceder a orígenes de datos entre dominios</dt>
-      <dd>Si esta <a href="https://www.windows-security.org/0d1b99f52cba398c3ce4d1cdd80d7441/access-data-sources-across-domains">configuración de directiva de Internet Explorer</a> está habilitada para un reproductor de Brightcove restringido por dominio, el reproductor no se cargará en Internet Explorer 11. Esto parece ser un error en IE, y no hay una solución alternativa conocida. Desactiva esta opción si quieres que los jugadores con dominio restringido funcionen en IE 11.</dd>
+      <dt>Configuración de acceso a fuentes de datos en todos los dominios</dt>
+      <dd>Si esto <a href="https://www.windows-security.org/0d1b99f52cba398c3ce4d1cdd80d7441/access-data-sources-across-domains">Configuración de políticas de Internet Explorer</a> está habilitado para un reproductor Brightcove de dominio restringido, el reproductor no se cargará en Internet Explorer 11. Esto parece ser un error en IE y no se conoce ninguna solución alternativa. Desactive esta configuración si desea que los reproductores con restricción de dominio funcionen en IE 11.</dd>
     </dl>
   </section>
   <section class="bcls-section">
     <h2 id="live">Vídeo en directo</h2>
-    <dt>El reproductor de Brightcove sigue contando visionados incluso cuando el evento en directo ha terminado</dt>
-    <dd>El reproductor de Brightcove aumenta el contador video_view cada vez que se carga un activo de vídeo remoto, incluso aunque se trate de un evento en directo ya terminado con una lista de reproducción HLS vacía o ya no consultable. Solución alternativa: desactivar, anular la programación o eliminar el vídeo.<strong></strong></dd>
+    <dl>
+      <dt>Los eventos recurrentes aún publicados cuando están inactivos muestran los últimos 3 segmentos de reproducción</dt>
+      <dd>
+        Si todavía se publica un evento recurrente de SEP en una página y el cliente no está transmitiendo actualmente, el resultado es que los últimos 3 segmentos (alrededor de 18 segundos) se almacenan en caché y se reproducirán.
+        <p style="font-weight: bold;">Solución alterna</p>
+        <p>Una forma de evitar esto es implementar un <a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-live-custom-error-message.html">mensaje de error personalizado de Live en el reproductor</a> agregando un complemento que incluya un código como el siguiente:</p>
+        <pre class="line-numbers"><code class="language-javascript" translate="No">// Listen for a change on the durationmyPlayer.on("durationchange", ()=>{
+// Save the duration to a local variable
+var duration = myPlayer.duration();
+
+// Check if the duration is a finite number (VOD)
+// or if it's infinite (Live).
+// If it's a VOD it would mean that the recurrent stream is over
+// and the custom image would be displayed.
+var isLive = !Number.isFinite(myPlayer.duration())
+
+if(!isLive && duration !== 0){myPlayer.pause();myModal.open();</code></pre>
+      </dd>
+      <dt>Brightcove Player cuenta las visualizaciones de video para eventos en vivo terminados</dt>
+      <dd>El reproductor de Brightcove cuenta para video_view cada vez que se carga un activo remoto, incluso si se trata de un evento en vivo terminado con una lista de reproducción HLS vacía o que ya no se puede recuperar. <strong>Solución alterna:</strong> desactivar, cancelar la programación o eliminar el video.</dd>
+    </dl>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audience_insights">Perspectivas de la audiencia</h2>
+    <dl>
+      <dt>Inserción de anuncios del lado del servidor (SSAI): anuncios pre-roll</dt>
+      <dd>
+        <h3>Asunto</h3>
+
+        <p>Al buscar la reproducción al principio de un video con un anuncio pre-roll, el <code translate="No">ads-ad-ended</code> y <code translate="No">ads-pod-ended</code> los eventos dispararán.</p>
+
+        <h3>Solución alterna</h3>
+
+        <p>Una posible solución alternativa sería utilizar</p>
+
+<pre>
+<code class="language-javascript" translate="No">player.currentTime(0.1)</code></pre>
+
+        <p>en lugar de esto</p>
+
+<pre>
+<code class="language-javascript" translate="No">player.currentTime(0)</code></pre>
+      </dd>
+    </dl>
   </section>
   <section class="bcls-section">&nbsp;</section>
   <section class="bcls-section">
-    <h2 id="analytics">Analytics</h2>
+    <h2 id="analytics">Analítica</h2>
     <dl>
-      <dt><strong>El informe de ancho de banda total sólo está disponible para vídeos de ingesta heredados</strong></dt>
+      <dt><strong>El informe de ancho de banda total está disponible solo para videos de ingesta heredados</strong></dt>
       <dd>El campo de datos Ancho de banda total no está disponible actualmente para Entrega dinámica, por lo que esta opción para informes personalizados no estará disponible.</dd>
-      <dt><strong>Es posible que los datos de análisis no sean precisos debido a bloqueadores de anuncios</strong></dt>
-      <dd>Los datos de análisis (obtenidos tanto a través de la interfaz de usuario como de la API) pueden ser inexactos debido a que los bloqueadores de anuncios, como uBlock, bloquean el envío de datos analíticos en los equipos cliente.</dd>
-      <dt><strong>Informes personalizados Visualización de 0 bytes_entregado para algunos vídeos</strong></dt>
-      <dd>Los vídeos que se ingieren con un perfil de ingesta de entrega dinámica mostrarán 0 bytes_delivery en informes personalizados.</dd>
-      <dt><strong>Informes personalizados con varios filtros</strong></dt>
-      <dd>Se aplicará la operación AND cuando se utilicen múltiples (dos o más) filtros. Por ejemplo, si se añaden los dos filtros <strong>etiqueta de vídeo</strong> y <strong>reproductor</strong>, solo se obtendrán aquellos vídeos que contengan las etiquetas especificadas <strong>y</strong> que se reproduzcan en el reproductor especificado.</dd>
-      <dt><strong>Informes personalizados mediante la funcionalidad Filtrar por etiqueta de vídeo</strong></dt>
-      <dd>A la hora de crear informes personalizados, existe un límite para el uso de la función Filtrar por etiqueta de vídeo. El número de vídeos que pueden asociarse a una etiqueta específica en su biblioteca se limita a 2.000. Si el número de vídeos asociados a una etiqueta es mayor, recomendamos generar un informe no filtrado (es decir, que incluya todas las etiquetas) y que el filtrado se ejecute a nivel local en una hoja de cálculo.</dd>
-      <dt><strong>"Otro/Ajeno"</strong> aparece en el informe de rendimiento</dt>
-      <dd>Si se reproduce en un reproductor de Video Cloud un vídeo que no se encuentra en su biblioteca de Video Cloud (por ejemplo, un activo remoto), en pantalla aparecerá <strong>Otro/Ajeno</strong> sin ningún identificador de referencia asociado.</dd>
-      <dt>Los nombres actualizados de los vídeos no se reflejan en los análisis</dt>
-      <dd>La única vez que el módulo Analytics "conoce" el título de un vídeo es cuando el reproductor se lo envía para comunicarle el comienzo de la reproducción. Si se cambia el título de un vídeo, el módulo Analytics no obtendrá el nuevo título hasta que el vídeo se reproduzca por primera vez. Por este motivo, si no se registra ninguna reproducción de un vídeo, puede ocurrir que en los informes del módulo Analytics siga figurando el nombre antiguo aunque el vídeo ya tenga uno nuevo. Los datos correspondientes a los periodos anteriores a marzo de 2013 a menudo tienen este problema, y mostrarán metadatos solo numéricos. Por ejemplo, un título de vídeo puede aparecer como 1230123012. Esto se debe a que los datos de este periodo fueron capturados en el sistema de análisis antiguo.</dd>
-      <dt>En la interfaz de usuario del módulo Analytics aparecen los nombres de los vídeos y de los reproductores con ???????</dt>
-      <dd>Los metadatos (nombres de vídeos y de reproductores) correspondientes al mes de octubre de 2013 pueden contener una serie de interrogaciones ?????. Este problema puede afectar a los editores que utilicen metadatos con caracteres de dos bytes y cuyos vídeos hayan sido visionados durante el mes de octubre de 2013. Este problema estaba relacionado con la forma en que capturábamos los metadatos para presentarlos en la interfaz de usuario del módulo Analytics. Desde noviembre de 2013, el módulo Analytics dispone de mecanismos adicionales para evitar la corrupción de los metadatos enviados con las métricas de los eventos.</dd>
-      <dt>Zona horaria de los informes</dt>
-      <dd>La zona horaria de generación de informes se utiliza para calcular los comienzos de los días reflejados en los informes. La modificación del ajuste de zona horaria para informes solo afecta a los datos desde el momento de efectuarse ese cambio, es decir, que no se aplica con carácter retroactivo. Si modifica este ajuste, puede que en los datos resultantes aparezca un tramo plano o un pico en los límites del día en que se efectuó esa modificación. Puede que la modificación de este ajuste no entre en vigor inmediatamente y que, por tanto, los datos de análisis sigan correspondiendo al ajuste anterior hasta que el sistema procese los cambios.</dd>
-      <dt>Los datos de interés despertado se registran con una periodicidad diaria</dt>
-      <dd>Los datos de interés despertado se registran con una periodicidad diaria, con las horas expresadas en UTC. En ocasiones, estos datos pueden incluir 2 días completos en la tabla "Audiencia al x%" en el informe de interés despertado.</dd>
+      <dt><strong>Es posible que los datos de análisis no sean precisos debido a los bloqueadores de anuncios</strong></dt>
+      <dd>Los datos analíticos (obtenidos tanto a través de la interfaz de usuario como de la API) pueden ser inexactos debido a que los bloqueadores de anuncios como UBlock bloquean el envío de datos analíticos en las máquinas cliente.</dd>
+      <dt><strong>Informes personalizados que muestran 0 bytes_delivered para algunos videos</strong></dt>
+      <dd>Los videos que fueron ingeridos usando un perfil de ingesta de Entrega dinámica mostrarán 0 bytes_delivered en informes personalizados.</dd>
+      <dt><strong>Informes personalizados que utilizan varios filtros</strong></dt>
+      <dd>Cuando se utilizan varios filtros, se utilizará una operación AND. Por ejemplo, si agrega dos filtros, etiqueta de <strong>vídeo</strong> y <strong>reproductor</strong>, solo los vídeos con las etiquetas especificadas <strong>y que se</strong> vean en el reproductor especificado serán devuelto.</dd>
+      <dt><strong>Informes personalizados que utilizan la función Filtrar por etiqueta de vídeo</strong></dt>
+      <dd>Al crear un informe personalizado, existe una limitación al utilizar la función Filtrar por etiqueta de video. Solo toma en consideración hasta 2,000 videos en su biblioteca con esa etiqueta específica. Si la cantidad de videos con una etiqueta específica es mayor que eso, recomendamos obtener un informe sin filtrar que incluya las etiquetas y realizar el filtrado localmente con su software de hoja de cálculo.</dd>
+      <dt><strong>"Otro / Tercero"</strong> Aparece en el informe de rendimiento</dt>
+      <dd>Cuando se reproduce un video que no es su biblioteca de Video Cloud en un reproductor de Video Cloud (por ejemplo, un activo remoto), <strong>Otro / Tercero</strong> se mostrará sin identificación de video asociada.</dd>
+      <dt>Nombres de video actualizados no reflejados en Analytics</dt>
+      <dd>La única vez que Analytics aprende sobre el título de un video es cuando el reproductor lo envía a Analytics como parte de la baliza de reproducción. Si se cambia el título de un video, Analytics no tendrá el nuevo título del video hasta que se haya reproducido. Esto puede dar como resultado un escenario en el que se actualice el nombre de un video y si no hay reproducciones grabadas, el nombre del video anterior se reflejará en los informes de Analytics. Los datos de períodos anteriores a marzo de 2013 sufren este problema a menudo y mostrarán metadatos que son solo un número. Por ejemplo, el título de un video puede mostrarse como 1230123012. Esto se debe a que los datos de este período se capturaron en el antiguo sistema de análisis.</dd>
+      <dt>Nombres de vídeo y nombres de reproductores que muestran????? en la interfaz de usuario de</dt>
+      <dd>Para el mes de octubre de 2013, los metadatos (nombres de vídeo y nombres de los jugadores) pueden parecer un montón de????? s. Este problema afecta a los editores cuyos metadatos tienen caracteres de doble byte y vieron videos en octubre de 2013. Este problema estaba relacionado con la forma en que estábamos capturando los metadatos para mostrarlos en la interfaz de usuario de Analytics. A partir de noviembre de 2013, el sistema de Analytics cuenta con medidas de seguridad adicionales para evitar que se dañen los metadatos enviados con las métricas de eventos.</dd>
+      <dt>Zona horaria de informes</dt>
+      <dd>La zona horaria de informes se utiliza para calcular los límites diurnos de los datos de informes. Cambiar la configuración de zona horaria de informes solo afecta a los datos en el futuro y los cambios no se aplican de forma retroactiva. Si cambia esta configuración, es posible que vea un punto plano o un aumento en los datos al examinar los límites del día en los que se aplicó el cambio. Es posible que las actualizaciones de esta configuración no surtan efecto inmediatamente y los datos de análisis pueden seguir haciendo referencia a la configuración anterior hasta que el sistema procese los cambios.</dd>
+      <dt>Los datos de participación se almacenan con granularidad diaria</dt>
+      <dd>Los datos de participación se almacenan en granularidad diaria utilizando la hora UTC y, a veces, pueden incluir 2 días completos de datos en la tabla "Audiencia al x%" en el Informe de participación.</dd>
       <dt>Soporte de Internet Explorer</dt>
-      <dd>El módulo Analytics requiere Internet Explorer 11 o posterior.</dd>
-      <dt>Alto número de resultados «otros» para el fabricante de dispositivos</dt>
-      <dd>En algunos casos, es posible que vea un gran número de resultados «otros» para el fabricante del dispositivo. Esto ocurre cuando el recopilador de datos no reconoce el que se le ha <code translate="No">user_agent</code> entregado con datos de análisis. La causa más común que hemos identificado para esto es una cadena user_agent personalizada creada por Instagram, pero probablemente haya otras.</dd>
+      <dd>El módulo de análisis requiere Internet Explorer 11 o posterior.</dd>
+      <dt>Gran número de "otros" resultados para el fabricante del dispositivo</dt>
+      <dd>En algunos casos, es posible que vea una gran cantidad de "otros" resultados para el fabricante del dispositivo. Esto ocurre cuando el recopilador de datos no reconoce el <code translate="No">user_agent</code> entregado con datos analíticos. La causa más común que hemos identificado para esto es una cadena user_agent personalizada creada por Instagram, pero probablemente haya otras.</dd>
     </dl>
   </section>
   <section class="bcls-section">
-    <h2 id="audience">Audience</h2>
+    <h2 id="audience">Audiencia</h2>
     <dl>
-      <dt>La actividad de la audiencia muestra Porcentaje observado:0 y Tiempo observado:0</dt>
-      <dd>A veces, los eventos de interactividad se activan sin que se reproduzca un vídeo o antes de que un vídeo haya enviado su primer baliza. Esto puede dar lugar a que se graben eventos de visualización que tienen interactividad pero sin actividad de vídeo (0% visto, 0 segundos).</dd>
+      <dt>La actividad de la audiencia muestra el porcentaje de visualización: 0 y el tiempo de visualización: 0</dt>
+      <dd>A veces, los eventos de interactividad se activan sin que se reproduzca un video o antes de que un video haya enviado su primera baliza. Esto puede dar como resultado que se graben eventos de visualización que tengan interactividad pero no actividad de vídeo (0% de visualización, 0 segundos de visualización).</dd>
       <dt>Soporte de Internet Explorer</dt>
-      <dd>Los formularios de clientes potenciales de audiencia requieren Internet Explorer 11 o posterior.</dd>
+      <dd>Los formularios de clientes potenciales requieren Internet Explorer 11 o más reciente.</dd>
     </dl>
   </section>
   <section class="bcls-section">
-    <h2 id="social">Red social</h2>
+    <h2 id="social">Social</h2>
     <dl>
-      <dt>El plugin del navegador Ghostery puede interferir con el módulo Social</dt>
+      <dt>El complemento del navegador Ghostery puede interferir con el módulo Social</dt>
       <dd>
-        <p>El plugin del navegador Ghostery puede interferir con el módulo Social evitando que se cargue correctamente.</p>
-        <p><strong>Solución:</strong> Añade Studio a la lista blanca de Ghostery.</p>
+        <p>El complemento del navegador Ghostery puede interferir con el módulo Social impidiendo que se cargue correctamente.</p>
+        <p><strong>Solución alterna:</strong> Agregue Studio a la lista blanca de Ghostery.</p>
       </dd>
     </dl>
   </section>
   <section class="bcls-section">
-    <h2 id="di">Módulo Upload / Ingestión dinámica</h2>
+    <h2 id="di">Subir módulo / ingesta dinámica</h2>
     <dl>
       <dt>Las cargas a través del módulo de carga fallan si el reloj del dispositivo no coincide con la hora real</dt>
-      <dd>Las cargas están autorizadas durante un cierto período de tiempo. Si la hora del reloj varía de la hora real en más de 15 minutos, recibirá errores al cargar.</dd>
-      <dt>La retranscodificación mediante ingestión dinámica actualiza la fecha de activación del vídeo</dt>
-      <dd>Al retranscodificar un vídeo mediante ingestión dinámica, la fecha de activación del vídeo se actualiza con la fecha actual. El uso de listas de reproducción inteligentes ordenadas por fecha de activación afecta al orden de aparición de los vídeos en la lista de reproducción.</dd>
+      <dd>Las cargas están autorizadas por un período de tiempo determinado. Si la hora de su reloj varía de la hora real en más de 15 minutos, recibirá errores al cargar.</dd>
+      <dt>La retranscodificación a través de Dynamic Ingestion actualiza la fecha de activación del video</dt>
+      <dd>Cuando retranscodifica un video mediante la ingestión dinámica, la fecha de activación del video se actualiza a la fecha actual. Si usa listas de reproducción inteligentes ordenadas por fecha de activación, esto afectará el orden de los videos en la lista de reproducción.</dd>
       <dt>Nombres de archivo</dt>
-      <dd>Los nombres de archivos de vídeo (incluida la extensión) no deben superar los 120 caracteres de un solo byte (60 bytes de doble byte). Si lo hace, el video se ingerirá con éxito, pero no podrá retranscodificarlo más tarde.</dd>
+      <dd>Los nombres de los archivos de vídeo (incluida la extensión) no deben superar los 120 caracteres de un solo byte (60 de doble byte). Si lo hace, el vídeo se ingerirá correctamente, pero no podrá volver a transcodificarlo más adelante.</dd>
     </dl>
   </section>
   <section class="bcls-section">
-    <h2 id="player">Reproductor Brightcove Player</h2>
-    <p>Consulte las <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html">Notas de lanzamiento de Brightcove Player</a> para saber si los problemas que presentaba el reproductor en el pasado se han corregido en una versión reciente.</p>
+    <h2 id="player">Jugador Brightcove</h2>
+    <p>Comprobar el <a href="https://player.support.brightcove.com/release-notes/brightcove-player-release-notes.html">Notas de la versión de Brightcove Player</a> para ver si un problema pasado conocido ha sido corregido por una versión reciente.</p>
     <dl>
-      <dt>Elementos con <code translate="No">id</code> Establecer en <code translate="No">default</code></dt>
-      <dd>Brightcove Player es conocido por comportarse mal si hay un elemento con <code translate="No">id="default"</code> en la página. La entrada del blog DOM: los ID de elemento son variables globales explica por qué se trata de un problema.<a href="https://2ality.com/2012/08/ids-are-global.html"></a></dd>
-      <dt>Anuncios bloqueados en Safari y/o iOS</dt>
+      <dt>El botón de velocidad de reproducción se agregó a Safari 15</dt>
+      <dd>Brightcove no anula las preferencias del usuario y, más allá de eso, Apple afirma <strong>que esta propiedad no se puede configurar para elementos de audio/video HTML5 en iOS</strong> .</dd>
+      <dt>El uso de identificadores de elementos que comienzan con un número causa problemas con CSS y JavaScript (<code translate="No">document.querySelector</code>)</dt>
+      <dd>Reglas CSS basadas en un ID de elemento o JavaScript que intentan obtener una referencia a un elemento usando el documento <code translate="No">querySelector()</code> o <code translate="No">querySelectorAll()</code> los métodos fallarán si el ID del elemento comienza con un número. Hay una <a href="https://mathiasbynens.be/notes/css-escapes">solución</a> dolorosa, pero la mejor solución es evitar hacer esto.</dd>
+      <dt>La barra de control del reproductor no desaparece en una PC táctil con Windows 10 en modo de pantalla completa</dt>
+      <dd>No hay soluciones conocidas.</dd>
+      <dt>Elementos con <code translate="No">id</code> Ajustado a <code translate="No">default</code></dt>
+      <dd>Se sabe que Brightcove Player se comporta mal si hay un elemento con <code translate="No">id="default"</code> en la pagina. La publicación del blog <a href="https://2ality.com/2012/08/ids-are-global.html">DOM: los ID de los elementos son variables globales</a> explica por qué esto es un problema. Un síntoma común de este problema es la <code translate="No">MEDIA_ERR_UNKNOWN</code> error.</dd>
+      <dt>Anuncios bloqueados en Safari y / o iOS</dt>
       <dd>
-        Los cambios realizados por Apple en las políticas de origen cruzado para Safari e iOS pueden provocar que los anuncios no se reproduzcan.
-        <p><strong>Solución</strong></p>
-        <p>Hemos resuelto este problema para SSAI agregando encabezados CORs adicionales. Si utiliza anuncios del lado del cliente, esto no solucionará el problema, ya que los encabezados CORs deben enviarse desde su servidor o servicio de alojamiento. Los encabezados que hemos añadido son:</p>
+        Los cambios realizados por Apple a las políticas de origen cruzado para Safari e iOS pueden provocar que los anuncios no se reproduzcan.
+        <p><strong>Solución alterna</strong></p>
+        <p>Hemos resuelto este problema para SSAI agregando encabezados COR adicionales. Si está utilizando anuncios del lado del cliente, esto no solucionará el problema, ya que los encabezados COR deben enviarse desde su servidor o servicio de alojamiento. Los encabezados que agregamos son:</p>
         <pre><code translate="No">access-control-allow-headers: Server,Range,Content-Length,Content-Range
           access-control-allow-headers: X-Requested-With,Origin,Range,Accept-Encoding,Referer
           access-control-allow-methods: GET,HEAD,OPTIONS
-          access-control-allow-origin: *
-          </code></pre>
+          access-control-allow-origin: *</code></pre>
       </dd>
-      <dt>Advertencias de consola</dt>
+      <dt>Advertencias de la consola</dt>
       <p>Brightcove Player puede generar <strong>advertencias</strong> que aparecen en la consola del navegador. Las advertencias, a diferencia de los mensajes de error, son inofensivas y no afectan la reproducción. Aquí se muestra un ejemplo de advertencia:</p>
-      <figure class="bcls-figure"><img class="bcls-image" alt="advertencia de consola" src="/assets/images/general/console-warning.png"/></figure>
+      <figure class="bcls-figure"><img class="bcls-image" alt="advertencia de la consola" src="/assets/images/general/console-warning.png"/></figure>
       <dt>Vídeos sin póster o imágenes en miniatura</dt>
-      <dd>Los vídeos sin miniaturas o imágenes de póster pueden provocar un error en el reproductor cuando se carga. Esto afecta a los reproductores de SDK móviles de una manera que puede bloquearlo.</dd>
-      <dt>Internet Explorer siempre restablece su velocidad de reproducción a 1.0 siempre que se pausa la reproducción.</dt>
+      <dd>Los videos sin imágenes en miniatura / póster pueden causar que aparezca un error en el reproductor cuando se carga. Esto afecta a los reproductores SDK móviles de una manera que puede bloquear el reproductor.</dd>
+      <dt>Internet Explorer siempre restablece su velocidad de reproducción a 1,0 cada vez que se pausa la reproducción.</dt>
       <dd>Esto ya no será un problema en Safari 14 (versión Big Sur).</dd>
-      <dt>Imágenes IE11 para contenido solo de audio que no se muestra</dt>
-      <dd>Cuando se reproduce solo contenido de audio en IE11, la imagen fija de vídeo no se mostrará, solo se verá una pantalla negra. La imagen se puede conservar con el siguiente código:
-      <pre>
+      <dt>Imágenes IE11 para contenido solo de audio que no se muestran</dt>
+      <dd>Al reproducir solo contenido de audio en IE11, la imagen fija de video no se mostrará, solo se verá una pantalla negra. La imagen se puede conservar con el siguiente código:
+        <pre>
   <code class="language-css" translate="No">.vjs-has-started .vjs-poster {
   display: block;
-  }
-  </code>
+  }</code>
   </pre>
       </dd>
-      <dt>Auto-Avance de la lista de reproducción en Safari</dt>
-      <dd>En Safari, si la lista de reproducción está visible y el reproductor tiene la configuración de precarga establecida en <code>ninguno</code>, la reproducción automática del siguiente vídeo fallará silenciosamente.</dd>
-      <dt>Menú contextual</dt>
-      <dd>Al hacer clic con el botón derecho en un vídeo cerca de los bordes derecho o inferior de un reproductor, el menú contextual del reproductor se muestra fuera de la pantalla.</dd>
-      <dt>Usar varios jugadores de diferentes tamaños con el mismo player_id en una página</dt>
+      <dt>Lista de reproducción de avance automático en Safari</dt>
+      <dd>Para Safari, si la lista de reproducción está visible y el reproductor tiene la configuración de precarga establecida en <code translate="no">none</code> , la reproducción automática del siguiente video fallará silenciosamente.</dd>
+      <dt>La configuración de usuario de Apple impide que el reproductor de Brightcove muestre automáticamente los subtítulos</dt>
+      <dd>Los subtítulos automáticos para iOS se pueden hacer haciendo cambios en <strong>las Preferencias del Sistema &gt; accesibilidad &gt; subtítulos &gt;</strong> luego seleccione la casilla de verificación <strong>Preferir subtítulos y SDH</strong> .</dd>
+      <dt>Menú de contexto</dt>
+      <dd>Al hacer clic derecho en un video cerca de los bordes derecho o inferior de un reproductor, el menú contextual del reproductor se muestra fuera de la pantalla.</dd>
+      <dt>Usar varios reproductores de diferentes tamaños con el mismo player_id en una página</dt>
       <dd>
         <p>
-          Si varios jugadores tienen el mismo id en una página y especifican diferentes tamaños dentro de la <code translate="No">&lt;video&gt;</code> etiqueta usando <code translate="No">width</code> y <code translate="No">height</code> atributos, se aplica el CSS del reproductor del último jugador a todos los jugadores.
+          Si varios jugadores tienen la misma identificación en una página y especifican un tamaño diferente en el interior <code translate="No">&lt;video&gt;</code> etiqueta usando <code translate="No">width</code> y <code translate="No">height</code> atributos, el CSS del jugador del último jugador se aplica a todos los jugadores.
         </p>
-        <p>Soluciones provisionales<strong></strong></p>
+        <p><strong>Soluciones alternativas</strong></p>
         <ul>
-          <li>Utiliza jugadores con diferentes identificadores de jugador si quieres que tengan diferentes tamaños o estilos/li&gt;</li>
-          <li>Defina clases para los reproductores que proporcionen el tamaño del reproductor mediante CSS, y agregue las clases a las etiquetas de vídeo para los diferentes reproductores</li>
+          <li>Use reproductores con diferentes ID de jugador si desea que tengan diferentes tamaños o estilos / li&gt;</li>
+          <li>Defina clases para los jugadores que proporcionen el tamaño del jugador usando CSS y agregue las clases a las etiquetas de video para los diferentes jugadores.</li>
         </ul>
       </dd>
-      <dt>FastClick.js provoca un manejo de eventos incorrecto</dt>
-      <dd>FastClick.js provoca un manejo de eventos incorrecto en nuestra barra de control personalizada, lo que puede imposibilitar el uso de dicha barra en dispositivos móviles.</dd>
-      <dt>Los vídeos muestran un tono grisáceo en Chrome y Firefox</dt>
+      <dt>FastClick.js da como resultado un manejo incorrecto de eventos</dt>
+      <dd>El uso de FastClick.js da como resultado un manejo incorrecto de eventos dentro de nuestra barra de control personalizada. Esto puede resultar en que no pueda usar nuestra barra de control en dispositivos móviles.</dd>
+      <dt>Los videos se muestran grisáceos en Chrome y Firefox</dt>
       <dd>
-        <p>En ocasiones, los vídeos del reproductor de Brightcove ejecutados en Chrome y Firefox muestran un tono grisáceo. Esto puede deberse a la aceleración de hardware o a la configuración de los controladores de NVIDIA.</p>
-        <p><strong>Solución:</strong> Abra el panel de control de NVIDIA. En <strong>Vídeo</strong>, seleccione <strong>Ajustes de color del vídeo</strong>. En <strong>Cómo realizar los ajustes de color</strong>, seleccione <strong>Con los ajustes de NVIDIA</strong>. En <strong>Avanzado</strong>, asegúrese de que el <strong>Rango dinámico</strong> sea <strong>Completo (0-255)</strong> y no <strong>Limitado (16-235)</strong>. La <strong>Mejora de contraste dinámica</strong> debe estar desactivada. Este problema se ha mencionado en el <a href="https://productforums.google.com/forum/#!topic/chrome/wsDhGzP73bI;context-place=forum/chrome">Foro de ayuda de Google Chrome</a>.</p>
+        <p>Al usar Chrome y Firefox, los videos en Brightcove Player pueden mostrarse con un color grisáceo. Esto puede deberse a la aceleración del hardware y / o la configuración del controlador NVIDIA.</p>
+        <p><strong>Solución alterna:</strong> Abra el Panel de control de NVIDIA. Debajo <strong>Video</strong> Seleccione <strong>Ajustar la configuración del color del video</strong>. Debajo <strong>¿Cómo se hacen los ajustes de color?</strong> Seleccione <strong>Con la configuración de NVIDIA</strong>. Debajo <strong>Avanzado</strong> asegurarse <strong>Gama dinámica</strong> es <strong>Completo (0-255)</strong> no <strong>Limitado (16-235)</strong>. <strong>Mejora dinámica del contraste</strong> debe estar desmarcado. Este problema se ha informado en el <a href="https://productforums.google.com/forum/#!topic/chrome/wsDhGzP73bI;context-place=forum/chrome">Foro de ayuda de Google Chrome</a>.</p>
       </dd>
-      <dt>Uso de emuladores</dt>
+      <dt>Usando emuladores</dt>
       <dd>
-        <p>Si utiliza el modo dispositivo de Chrome u otros emuladores para la reproducción de sus vídeos de prueba, ha de tener en cuenta que los emuladores no representan de forma fidedigna el rendimiento real de un dispositivo. Aunque se pueden usar para realizar pruebas iniciales durante el desarrollo, lo más indicado para obtener resultados precisos es emplear dispositivos reales.</p>
-        <p>Al poner a prueba la reproducción en el modo dispositivo de Chrome, puede aparecer el siguiente mensaje: "El uso de Chrome en modo dispositivo solo ofrece una representación del viewport y la cadena del agente de usuario de dicho dispositivo en Chrome, por lo que no representa de manera precisa el rendimiento real del dispositivo".</p>
+        <p>Ya sea que esté utilizando el modo de dispositivo Chrome u otros emuladores para probar la reproducción de video, tenga en cuenta que los emuladores no representan con precisión cómo funcionará un dispositivo real. Si bien puede usar emuladores para las pruebas iniciales durante el desarrollo, es una buena práctica usar dispositivos reales para obtener resultados precisos.</p>
+        <p>Al probar la reproducción con el modo de dispositivo Chrome, es posible que vea este mensaje: "El uso de Chrome en el modo de dispositivo simplemente muestra la ventana gráfica y la cadena de agente de usuario de ese dispositivo en Chrome, lo que no es una representación precisa de cómo funcionará el dispositivo real".</p>
       </dd>
-      <dt>Uso de <code translate="No">data-setup </code></dt>
-      <dd>Debe evitar el uso de <code translate="No">data-setup </code> con el reproductor de Brightcove. En ocasiones, el uso de <code translate="No">data-setup </code> aparece recogido en la documentación de la API, pero esto se debe a que la documentación se genera directamente a partir del código fuente Video.js del reproductor, y ese atributo se PUEDE utilizar con la etiqueta <code translate="No">video </code> en Video.js puro. El atributo envía información de la confirmación al reproductor, pero el reproductor de Brightcove emplea un método diferente para hacerlo, por lo que <code translate="No">data-setup </code> resulta poco fiable.</dd>
-      <dt>Selección de una fuente con reconocimiento de protocolo y DASH</dt>
-      <dd>La selección de una fuente con reconocimiento de protocolo no está disponible cuando se utiliza contenido DASH. Solo se puede utilizar con contenidos HLS y MP4.</dd>
-      <dt>Error en la consola cuando se utiliza la implementación de reproductores iframe en Safari</dt>
-      <dd>Cuando se utiliza la implementación de iframe del reproductor de Brightcove en Safari, aparece el siguiente mensaje de error en la consola: <strong>Se ha impedido que un fotograma con origen "http://players.brightcove.net" accediese a un fotograma con origen "#DOMAIN NAME#". Los protocolos, los dominios y los puertos deben coincidir.</strong> Esta notificación no afecta a la reproducción.</dd>
-      <dt>En el menú de subtítulos de Safari aparecerá el mensaje "Desconocido"</dt>
-      <dd>Esta es una limitación de Safari/Apple. Las últimas versiones del reproductor de Brightcove utilizan una función de subtitulación nativa integrada en Safari, y este es el comportamiento estándar. Apple lo documenta aquí: <a href="https://developer.apple.com/library/ios/qa/qa1801/_index.html">https://developer.apple.com/library/ios/qa/qa1801/_index.html</a></dd>
-      <dt>Pantalla completa en entornos no de Flash</dt>
+      <dt>Utilizando <code translate="No">data-setup </code></dt>
+      <dd>NO deberías usar <code translate="No">data-setup </code> con Brightcove Player. Puede ver el uso de <code translate="No">data-setup </code> en la documentación de la API, pero esto se debe a que la documentación se genera directamente desde el código fuente del reproductor Video.js, y PUEDE usar ese atributo con el <code translate="No">video </code> etiqueta con Video.js puro. El atributo envía información de configuración al reproductor, pero Brightcove Player utiliza un método diferente para realizar esta tarea, lo que hace <code translate="No">data-setup </code> no fidedigno.</dd>
+      <dt>Selección de fuente con reconocimiento de protocolo y DASH</dt>
+      <dd>La selección de fuente con reconocimiento de protocolo no está disponible cuando se usa contenido DASH. Solo está disponible para contenido HLS y MP4</dd>
+      <dt>Se produce un error de consola al usar la implementación del reproductor iframe en Safari</dt>
+      <dd>Cuando utilice la implementación de iframe de Brightcove Player en Safari, verá el siguiente mensaje de error en la consola: <strong>Bloqueó un marco con origen "https://players.brightcove.net" para que no acceda a un marco con origen "#NOMBRE DE DOMINIO#". Los protocolos, dominios y puertos deben coincidir.</strong> El error informado no afecta la reproducción.</dd>
+      <dt>"Desconocido" se muestra en el menú de subtítulos en Safari.</dt>
+      <dd>Esta es una limitación de Safari / Apple. Las versiones más recientes de Brightcove Player utilizan capacidades de subtítulos nativos integradas en Safari y este es el comportamiento estándar. Esto está documentado por Apple: <a href="https://developer.apple.com/library/ios/qa/qa1801/_index.html">https://developer.apple.com/library/ios/qa/qa1801/_index.html</a></dd>
+      <dt>Pantalla completa en entornos sin Flash</dt>
       <dd>
         <p>
-          En entornos en los que Flash o HLS basado en Flash esté desactivado para la reproducción y el reproductor tenga explícitamente asignado un tamaño por medio del atributo <code translate="No">style </code> de la etiqueta <code translate="No">video </code>, en algunos navegadores puede no funcionar la visualización a pantalla completa.
+          En entornos donde Flash está deshabilitado o HLS basado en Flash está deshabilitado para el reproductor, y el reproductor se dimensiona explícitamente usando un <code translate="No">style </code> atributo en el <code translate="No">video </code> etiqueta, es posible que la visualización en pantalla completa no funcione en algunos navegadores.
         </p>
-      <p>Solución alternativa: elimine el atributo de la etiqueta y, en su lugar, cree una regla en la hoja de estilo de página como esta:<code translate="No">style </code><code translate="No">video </code></p>
-      <pre>
+        <p>Solución alternativa: elimine el <code translate="No">style </code> atributo del <code translate="No">video </code> etiqueta y, en su lugar, cree una regla en la hoja de estilo de la página como esta:</p>
+        <pre>
   <code class="language-css" translate="No">.video-js{
   width:640px;
   height:360px;
@@ -606,29 +1676,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </code>
   </pre>
       </dd>
-      <dt>Compartición en redes sociales</dt>
-      <dd>En equipos de escritorio, el botón para compartir en redes sociales no será visible durante la reproducción de anuncios.</dd>
+      <dt>Compartiendo socialmente</dt>
+      <dd>En los equipos de escritorio, el botón para compartir en redes sociales no estará visible durante los anuncios.</dd>
       <dt>HTTPS</dt>
       <dd>
-        <p>En la mayoría de navegadores de escritorio, el reproductor de Brightcove solo reproducirá HLS en sitios web HTTPS cuando tanto el manifiesto como los segmentos de vídeo se transmitan a través de conexiones HTTPS. Esto se debe a las recientes modificaciones incorporadas a diversos navegadores, que restringen más severamente los contenidos no protegidos mediante SSL. El problema afecta a los usuarios de Chrome, Firefox e Internet Explorer en ordenadores de escritorio. No afecta a los usuarios de Safari ni a los navegadores de dispositivos móviles, como tampoco a la reproducción de variantes de representación MP4.</p>
-        <p>Estamos trabajando en corregir esta limitación para recursos gestionados a través de Video Cloud. Si usted gestiona su propia CDN y su transcodificación (activos remotos), deberá configurar su CDN para que soporte entregas a través de HTTPS tanto del manifiesto como del contenido en vídeo.</p>
+        <p>En la mayoría de los navegadores de escritorio, Brightcove Player solo reproducirá HLS en sitios web HTTPS cuando tanto el manifiesto como los segmentos de video se brinden a través de conexiones HTTPS. Esto se debe a cambios recientes en varios navegadores que restringen más severamente el contenido que no es SSL. Esto afecta a los usuarios de Chrome, Firefox e Internet Explorer en computadoras de escritorio. No afecta a los usuarios de Safari ni a los navegadores móviles y no afecta a la reproducción de copias MP4.</p>
+        <p>Estamos en el proceso de abordar esta limitación para los activos administrados por Video Cloud; Si administra su propia CDN y transcodificación (activos remotos), debe configurar su CDN para admitir la entrega HTTPS de contenido de manifiesto y video.</p>
       </dd>
-      <dt>Visualización a pantalla completa</dt>
+      <dt>Visualización de pantalla completa</dt>
       <dd>
-        <p>En los navegadores más recientes compatibles con la API de pantalla completa, es preciso aplicar reglas CSS incrustadas en páginas para asegurarse de que el reproductor se escale al 100 % al activar la pantalla completa. De lo contrario, el reproductor aparecerá con el tamaño original dentro de la visualización a pantalla completa. Para obtener más información, consulte el artículo <a href="https://player.support.brightcove.com/styling/sizing-player.html#fullscreen">Visualización a pantalla completa</a> del documento <strong>Dimensionar el reproductor</strong>.</p>
-        <p>En el caso de IE10 y versiones anteriores, incompatibles con la API de pantalla completa, se abrirá una nueva ventana, pero el reproductor no se redimensionará para ocupar toda la ventana. Esto se debe a que no se han aplicado estilos para cambiar el tamaño del reproductor. Debido a que la imagen no se puede desplazar dentro de la ventana, puede que solo se vea una parte de la página web y que en ella no aparezca ningún reproductor en absoluto.</p>
+        <p>En los navegadores más nuevos que admiten la API de pantalla completa, es necesario aplicar reglas CSS en la página para garantizar que el reproductor se escala al 100% cuando se cambia a pantalla completa. De lo contrario, el reproductor aparecerá en el tamaño original dentro de la pantalla completa. Para obtener más detalles, consulte la <a href="https://player.support.brightcove.com/styling/sizing-player.html#fullscreen">Visualización de pantalla completa</a> tema en el <strong>Tamaño del jugador</strong> documento.</p>
+        <p>Para IE10 y versiones anteriores, sin soporte de API de pantalla completa, se abrirá una nueva ventana, pero el reproductor no tendrá el tamaño para llenar la ventana. Esto se debe a que no se han aplicado estilos para cambiar el tamaño del reproductor. Dado que la ventana no se puede desplazar, es posible que solo vea una sección del sitio web, sin ningún reproductor.</p>
       </dd>
-      <dt>Varios vídeos se publican en una sola página con capítulos de HapyAK</dt>
+      <dt>Se publican varios videos en una sola página con capítulos de HapYak</dt>
       <dd>
-        <p>Cuando se publican varios vídeos en una sola página con capítulos de HapyAK, podría aparecer un capítulo incorrecto.</p>
-        <p><strong>Solución</strong></p>
-        <p>Utilice esta secuencia de comandos: https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js.<a href="https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js"></a> Sin embargo, la reproducción Flash (IE11/Win7) no puede evitar este problema, por lo que la reserva HTML5 debe implementarse en caso de IE11/Win7.</p>
+        <p>Cuando se publican varios videos en una sola página con capítulos de HapYak, es posible que se muestre un capítulo incorrecto.</p>
+        <p><strong>Solución alterna</strong></p>
+        <p>Utilice este script: <a href="https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js">https://github.com/brightcove/gallery-in-page-snippets/blob/master/snippets/hapyakFix.js</a>. Sin embargo, la reproducción de Flash (IE11 / Win7) no puede evitar este problema, por lo que es necesario implementar el respaldo de HTML5 en el caso de IE11 / Win7.</p>
       </dd>
       <dt>Akamai HD y HDS</dt>
-      <dd>Brightcove Player no permite entregar vídeo con los métodos HD ni HDS de Akamai.</dd>
+      <dd>Brightcove Player no admite la entrega de video a través de los métodos de entrega Akamai HD o HDS.</dd>
       <dt>Error: <strong>d.off no es una función</strong></dt>
       <dd>
-        <p>Este error, causado por un error conocido, puede producirse al cambiar en un reproductor entre diferentes formatos, por ejemplo entre MP4 y HLS. Mientras se soluciona el problema, simplemente intente volver a ejecutar el código que está causando el problema. El código siguiente es un ejemplo que corrige el error en una aplicación:</p>
+        <p>Este error, causado por un error conocido, puede ocurrir al cambiar entre diferentes formatos, por ejemplo, MP4 y HLS, en un reproductor. Hasta que se solucione el error, simplemente puede volver a intentar el código que está causando el problema. El siguiente código es un ejemplo que corrigió el error en una aplicación:</p>
         <pre>
   <code class="language-javascript" translate="No">try {
   myPlayer.catalog.load(video);
@@ -639,109 +1709,109 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   </code>
   </pre>
       </dd>
-      <dt>Duración de los vídeos HLS</dt>
-      <dd>La duración que aparece en la barra de control puede ser distinta de la que se muestra inicialmente. La duración puede actualizarse cuando se hayan cargado todos los segmentos en formato HLS.</dd>
+      <dt>Duraciones de video HLS</dt>
+      <dd>Es posible que la duración que se muestra en la barra de control cambie con respecto a la pantalla inicial. Una vez que se cargan todos los segmentos de HLS, la duración puede actualizarse.</dd>
       <dt>RequireJS</dt>
-      <dd>Si utiliza RequireJS, PUEDE que tenga que utilizar el método <code translate="No">bc() </code> para generar instancias del reproductor. La necesidad de utilizar el método vendrá determinada por cómo y cuándo se carguen los activos del reproductor. Para obtener más información, consulte el documento <a href="https://player.support.brightcove.com/coding-topics/requirejs-and-brightcove-player.html">RequireJS y el reproductor de Brightcove</a>.</dd>
+      <dd>Si está usando RequireJS, PUEDE tener que usar el <code translate="No">bc() </code> método para crear una instancia del reproductor. La necesidad de utilizar el método estará determinada por cómo / cuándo se carguen los activos del jugador. Ver el <a href="https://player.support.brightcove.com/coding-topics/requirejs-and-brightcove-player.html">RequireJS y Brightcove Player</a> documento para obtener más información.</dd>
       <dt>referrer_url frente a description_url</dt>
-      <dd>El valor puede tener diferentes valores entre dispositivos iOS y Android.<code translate="No">referrer_url </code> Por ello, se recomienda usar en su lugar el valor <code translate="No">description_url </code>, que se mantiene constante en todos los dispositivos y plataformas.</dd>
+      <dd>La <code translate="No">referrer_url </code> El valor puede tener valores diferentes entre dispositivos iOS y Android. Por ello, se recomienda utilizar el <code translate="No">description_url </code> valor en su lugar. Este valor es consistente en todas las plataformas y dispositivos.</dd>
       <dt>atributo de bucle en Safari</dt>
-      <dd>El atributo loop no funciona correctamente en Safari.<strong></strong> Puede utilizar la solución detallada en el ejemplo del reproductor de BrightCove:&nbsp;<a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-creating-video-loop.html"> Creación de un documento de bucle de vídeo</a> .</dd>
+      <dd>La <strong>círculo</strong> El atributo no funciona correctamente en Safari. Puede utilizar la solución detallada en el&nbsp;<a href="https://player.support.brightcove.com/code-samples/brightcove-player-sample-creating-video-loop.html">Muestra de jugador de Brightcove: Creación de un bucle de video</a> documento.</dd>
 
       <dt>Subtítulos en Safari</dt>
-      <dd>Debido a que Safari utiliza las capacidades nativas para aplicar estilos a los <strong>subtítulos, la opción de menú Configuración</strong> de subtítulos no está disponible en el menú <strong>CC</strong> en los navegadores Safari (tanto iOS como macOS).</dd>
+      <dd>Debido a que Safari usa las capacidades nativas para diseñar subtítulos, el <strong>Configuración de subtítulos</strong> La opción de menú no está disponible en el <strong>CC</strong> en los navegadores Safari (iOS y macOS).</dd>
 
-      <dt>Usar un identificador de elemento HTML denominado global</dt>
-      <dd>No debe anidar su código de implementación de reproductor avanzado (incrustar en página) en una etiqueta principal con un valor asignado.<code translate="No">&lt;div&gt; </code><code translate="No">id </code><code translate="No">global </code> Esto provoca problemas con Brightcove Player.</dd>
-      <dt>Problema del icono de la versión 5</dt>
-      <dd>Brightcove Player versión 5 utiliza el mismo icono para capítulos y subtítulos. Dado que la versión 5 está en modo de mantenimiento, y esto es un problema cosmético, es dudoso que el problema se solucionará.</dd>
+      <dt>Usando un ID de elemento HTML llamado global</dt>
+      <dd>No debe anidar el código de implementación del reproductor avanzado (incrustación en la página) en un <code translate="No">&lt;div&gt; </code> etiqueta con un <code translate="No">id </code> asignado el valor <code translate="No">global </code>. Esto causa problemas con Brightcove Player.</dd>
+      <dt>Problema con el icono de la versión 5 del reproductor</dt>
+      <dd>La versión 5 de Brightcove Player utiliza el mismo icono tanto para los capítulos como para los subtítulos. Dado que la versión 5 está en modo de mantenimiento, y este es un problema estético, es dudoso que se solucione el problema.</dd>
     </dl>
   </section>
   <section class="bcls-section">
     <h2 id="player_plugins">Complementos de Brightcove Player</h2>
-    <p>Estará vinculado al documento del plugin en particular, así que vea los problemas conocidos para un plugin. Dado que la versión 5 está en modo de mantenimiento, y este es un problema cosmético, no se solucionará.</p>
+    <p>Se le vinculará al documento del complemento en particular, así que consulte los problemas conocidos de un complemento. Dado que la versión 5 está en modo de mantenimiento, y este es un problema estético, no se solucionará.</p>
     <ul>
-      <li><a href="https://player.support.brightcove.com/plugins/advertising-freewheel-plugin.html#Known_issues">Publicidad con el plugin FreeWheel</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/advertising-freewheel-plugin.html#Known_issues">Publicidad con el complemento FreeWheel</a></li>
       <li><a href="https://player.support.brightcove.com/plugins/advertising-ima3-plugin.html#issues">Publicidad con el complemento IMA3</a></li>
-      <li><a href="https://player.support.brightcove.com/plugins/display-error-messages-plugin.html#Known_issues">Mostrar plugin de mensajes de error</a></li>
-      <li>Complemento de selección de calidad<a href="https://player.support.brightcove.com/plugins/quality-selection-plugin.html#Known_issues"></a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/display-error-messages-plugin.html#Known_issues">Mostrar complemento de mensajes de error</a></li>
+      <li><a href="https://player.support.brightcove.com/plugins/quality-selection-plugin.html#Known_issues">Complemento de selección de calidad</a></li>
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="android">Android</h2>
+    <h2 id="android">Androide</h2>
     <ul>
       <li>
-        El control de progreso y el control deslizante de volumen de Brightcove Player no se pueden ajustar con los gestos nativos de TalkBack en Android. Esto se debe a las limitaciones de la plataforma. En su lugar, un usuario debe interactuar directamente con el elemento. En Android, un doble toque con dos dedos permitirá al usuario ajustar el progreso o el volumen a la posición del doble toque con dos dedos.
+        El control de progreso de Brightcove Player y el control deslizante de volumen no se pueden ajustar mediante los gestos nativos de TalkBack en Android. Esto se debe a las limitaciones de la plataforma. En cambio, un usuario debe interactuar con el elemento directamente. En Android, un doble toque con dos dedos permitirá al usuario ajustar el progreso o el volumen a la posición del doble toque con dos dedos.
       </li>
-      <li>En los dispositivos, puede que la barra de progreso no esté sincronizada con vídeos HLS, ya que HLS no funciona muy bien en Android. También puede ocurrir que la duración total del vídeo se indique incorrectamente, como 0:01.</li>
-      <li>En todas las versiones de Android existen múltiples problemas de accesibilidad relacionados con el navegador <em>nativo</em> tanto de teléfonos como de tabletas. Talkback no confirma mediante vibración la utilización de ningún control del reproductor. (Este problema <em>no</em> afecta al complemento de navegador Chrome en dispositivos Android, sino solo al navegador nativo.</li>
-      <li>En los dispositivos, al tocar la pantalla para confirmar mensajes de error no se abre una burbuja hasta el elemento de vídeo predecesor. Esto impide cerrar mensajes de error cuando aparecen.</li>
-      <li>En dispositivos Android, al navegar por los menús del reproductor en la barra de control, como subtítulos o selección de calidad, el menú puede quedar «atascado» en el estado abierto después de una larga pulsación sobre un elemento del menú. Esto se debe a que Chrome agrega la pseudo-clase.<code translate="No">:hover </code> Otra pulsación larga en otra parte del reproductor normalmente cerrará el menú.</li>
+      <li>En los dispositivos, es posible que la barra de progreso no esté sincronizada para los videos de HLS, ya que HLS no funciona muy bien en Android. La duración total del vídeo también puede aparecer incorrectamente como 0:01.</li>
+      <li>Hay varios problemas de accesibilidad con el <em>nativo</em> navegador en teléfonos y tabletas para todas las versiones de Android. Talkback no proporciona retroalimentación de audio y vibración para ninguno de los controles del reproductor. (Este problema no <em>no</em> se aplica al navegador Chrome complementario en dispositivos Android, solo al navegador nativo.</li>
+      <li>En los dispositivos, los eventos de toque para los mensajes de error no llegan al elemento de video principal. Esto significa que no puede cerrar un mensaje de error una vez que aparece.</li>
+      <li>En los dispositivos Android, al navegar por los menús del reproductor en la barra de control, como los subtítulos o la selección de calidad, el menú puede "atascarse" en el estado abierto después de una pulsación larga en un elemento del menú. Esto se debe a que Chrome agrega el <code translate="No">:hover </code> pseudo-clase. Otra pulsación larga en otra parte del reproductor normalmente cerrará el menú.</li>
     </ul>
-    <p class="BCL-aside">Averigüe cómo crear aplicaciones de Android que utilicen el <a href="https://sdks.support.brightcove.com/android/">SDK de reproductores de Brightcove para Android</a>.</p>
+    <p class="BCL-aside">Aprenda a crear aplicaciones de Android que utilicen la <a href="https://sdks.support.brightcove.com/android/">Brightcove Player SDK para Android</a>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="ios">iOS</h2>
     <ul>
       <li>
-        El control de progreso y el control deslizante de volumen de Brightcove Player no se pueden ajustar con los gestos nativos de VoiceOver en iOS. Esto se debe a las limitaciones de la plataforma. En su lugar, un usuario debe interactuar directamente con el elemento. En iOS, el usuario debe pulsar dos veces para seleccionar la barra de progreso o el control deslizante de volumen y, a continuación, pulsar dos veces y mantener pulsado permitirá al usuario ajustar la hora o el volumen.
+        El control de progreso de Brightcove Player y el control deslizante de volumen no se pueden ajustar mediante los gestos nativos de VoiceOver en iOS. Esto se debe a las limitaciones de la plataforma. En cambio, un usuario debe interactuar con el elemento directamente. En iOS, el usuario debe tocar dos veces para seleccionar la barra de progreso o el control deslizante de volumen y luego un toque dos veces y mantenerlo presionado permitirá al usuario ajustar la hora o el volumen.
       </li>
-      <li>Safari en iOS nunca se carga previamente. Para obtener más información, consulte la <a href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html">Guía de audio y vídeo HTML5 de Safari</a>.</li>
-      <li>El error del reproductor se produce en iOS al cambiar a otra aplicación. Cuando se reproduce un vídeo en Brightcove Player en un dispositivo iOS en Safari/Chrome, el reproductor se desactivará después de cambiar a otra aplicación y, a continuación, volver a Safari/Chrome después de un minuto o más.</li>
+      <li>Safari en iOS nunca se carga previamente. Para obtener más detalles, consulte la <a href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html">Guía de audio y video de Safari HTML5</a>.</li>
+      <li>Se produce un error de reproductor en iOS al cambiar a otra aplicación. Cuando se reproduce un video en Brightcove Player en un dispositivo iOS en Safari / Chrome, el reproductor mostrará un error después de cambiar a otra aplicación y luego volverá a Safari / Chrome después de un minuto o más.</li>
     </ul>
     <h3>iPhone</h3>
     <ul>
-      <li>No se puede compartir en redes sociales desde teléfonos iPhone. Debido a que los teléfonos iOS cambian a pantalla completa nativa, no se pueden compartir vídeos desde teléfonos iPhone.</li>
-      <li>En teléfonos iPhone, al tocar la pantalla para confirmar mensajes de error no se abre una burbuja hasta el elemento de vídeo predecesor. Esto impide cerrar mensajes de error cuando aparecen.</li>
+      <li>El intercambio social no funcionará en iPhones. Dado que los teléfonos iOS cambian a pantalla completa nativa, no puede compartir un video desde un iPhone.</li>
+      <li>En los iPhones, los eventos de toque para los mensajes de error no llegan al elemento de video principal. Esto significa que no puede cerrar un mensaje de error una vez que aparece.</li>
     </ul>
-    <p class="BCL-aside">Averigüe cómo crear aplicaciones de iOS que utilicen el <a href="https://sdks.support.brightcove.com/ios/">SDK de reproductores de Brightcove para iOS</a>.</p>
+    <p class="BCL-aside">Aprenda a crear aplicaciones de iOS que utilicen la <a href="https://sdks.support.brightcove.com/ios/">SDK de Brightcove Player para iOS</a>.</p>
   </section>
   <section class="bcls-section">
     <h2 id="windows8">Windows 8</h2>
     <ul>
-      <li>No se pueden incluir anuncios acompañantes.</li>
-      <li>En tabletas con Windows 8, la función de posicionamiento en un vídeo no funciona durante la reproducción de HTML/MP4 estándar. Funciona correctamente con la tecnología HLS.</li>
-      <li>En tabletas con Windows 8, los anuncios normales funcionan, pero con los anuncios acompañantes el navegador se cuelga.</li>
-      <li>En tabletas con Windows 8 se admiten vídeos HLS, Flash, en directo y todos los tipos de incrustación.</li>
-      <li>En teléfonos con Windows 8 se puede reproducir MP4, pero no Flash ni HLS.</li>
-      <li>En teléfonos con Windows 8, la reproducción siempre se inicia a pantalla completa tanto si el tipo de incrustación es iframe como inline. Esto impide mostrar las sobreimpresiones una vez iniciada la reproducción.</li>
-      <li>No se pueden activar los subtítulos.</li>
+      <li>No se admiten anuncios complementarios.</li>
+      <li>En las tabletas Windows 8, la búsqueda no funciona para la reproducción HTML/MP4 estándar. Funciona correctamente para la tecnología HLS.</li>
+      <li>En las tabletas con Windows 8, los anuncios funcionan, pero los complementarios hacen que el navegador se bloquee.</li>
+      <li>En tabletas con Windows 8, se admiten los tipos HLS, Flash, Live e incrustados.</li>
+      <li>En teléfonos con Windows 8, reproduce MP4, pero no es compatible con Flash o HLS.</li>
+      <li>En el teléfono con Windows 8, independientemente de si el tipo de incrustación es iframe o en línea, una vez que presione reproducir, la reproducción siempre se realizará en pantalla completa. Esto significa que las superposiciones no se muestran una vez que comienza la reproducción.</li>
+      <li>Los subtítulos no se pueden habilitar.</li>
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="chrome">Chrome</h2>
+    <h2 id="chrome">Cromar</h2>
     <ul>
-      <li><strong>Problema con las representaciones que tienen una velocidad de bits de audio baja</strong>
-        <p>Debido al error en MSE en la implementación del navegador Chrome documentada aquí:</p>
+      <li><strong>Problema con las representaciones que tienen una tasa de bits de audio baja</strong>
+        <p>Debido a un error en la implementación del navegador MSE en Chrome documentado aquí:</p>
         <p><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=534301">https://bugs.chromium.org/p/chromium/issues/detail?id=534301</a></p>
-        <p>La reproducción en ese navegador para la versión 5 y superior del reproductor BC fallará (mostrando MEDIA_ERR_DECODE) si el perfil de audio de la copia que se intenta es diferente de AAC-LC.</p>
+        <p>La reproducción en ese navegador para la versión 5 y superior del reproductor BC fallará (mostrando MEDIA_ERR_DECODE) si el perfil de audio de la reproducción que se está intentando es diferente de AAC-LC.</p>
         <p>Para evitar que esto suceda en el nuevo contenido ingerido, los clientes deben asegurarse de que</p>
         <ul>
-          <li>utilizar una velocidad de bits de audio igual o superior a 48 kbps</li>
-          <li>incluya la siguiente configuración en su perfil DI: <code translate="No">"max_aac_profile": "aac-lc" </code></li>
+          <li>utilizar una tasa de bits de audio igual o superior a 48 kbps</li>
+          <li>incluir la siguiente configuración en su perfil DI: <code translate="No">"max_aac_profile": "aac-lc" </code></li>
         </ul>
-        <p>Para evitar que esto suceda con contenidos existentes, dispone de estas opciones:</p>
+        <p>Para evitar que esto suceda en el contenido existente, las opciones son:</p>
         <ul>
           <li>retranscodificar siguiendo las recomendaciones anteriores</li>
         </ul>
       </li>
-      <li>Puede haber pendiente una solicitud de vídeo HTML5 que impide que el vídeo se cargue. Consulte el <a href="https://code.google.com/p/chromium/issues/detail?id=234779">documento</a> de Google sobre este asunto.</li>
+      <li>La solicitud de un video HTMl5 puede permanecer pendiente y el video nunca se carga. Ver Google <a href="https://code.google.com/p/chromium/issues/detail?id=234779">documento</a> sobre el tema.</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="firefox">Firefox</h2>
     <ul>
-      <li>Navegador Firefox para Android: Oficialmente incompatible, pero se intentará corregir los errores que sean posibles.</li>
-      <li>Algunos usuarios han comunicado que la versión 42 de Firefox puede tener problemas de reproducción con el reproductor Brightcove Player. Este problema parece estar relacionado con el ajuste de Firefox <strong>Utilizar aceleración de hardware</strong>. Con esta opción activada, el reproductor de vídeo solo reproducirá el audio y solo mostrará una imagen fija. Este problema se puede resolver desactivando esta opción como sigue: Opciones -&gt; Avanzado -&gt; General -&gt; (DESMARQUE) Usar aceleración de hardware cuando esté disponible<strong></strong></li>
-      <li>El Reproductor de Brightcove puede agotarse el tiempo de espera en Firefox si el primer fotograma del contenido de vídeo tiene una marca de tiempo de presentación inicial (pts) mayor que 0. La solución recomendada actualmente es volver a codificar su contenido. Tenga en cuenta que volver a codificar NO significa volver a transcodificar. El maestro original tendrá que volver a cargarse. Si esto no soluciona el problema, póngase en contacto con el servicio de <a href="https://supportportal.brightcove.com/s/login/?language=en_US">atención al cliente</a> para obtener más ayuda.</li>
+      <li>Navegador Firefox para Android: No es compatible oficialmente, pero intentará solucionar los errores si es posible.</li>
+      <li>Se ha informado que la versión 42 de Firefox puede tener problemas de reproducción con Brightcove Player. El problema parece estar relacionado con la configuración de Firefox. <strong>Usar aceleración de hardware</strong> ajustes. Cuando esto está marcado (habilitado), el reproductor de video reproducirá solo el audio y solo mostrará una imagen fija. La solución a este problema es desactivar esta opción de la siguiente manera: <strong>Opciones -&gt; Avanzado -&gt; General -&gt; (DESACTIVAR) Usar aceleración de hardware cuando esté disponible</strong></li>
+      <li>Brightcove Player puede agotarse el tiempo de espera en Firefox si el primer fotograma de su contenido de video tiene una marca de tiempo de presentación inicial (pts) mayor que 0. La solución recomendada actual es volver a codificar su contenido. Tenga en cuenta que volver a codificar NO significa volver a transcodificar. Será necesario volver a cargar el master original. Si esto no soluciona el problema, comuníquese con <a href="https://supportportal.brightcove.com">Atención al cliente</a> para obtener más ayuda.</li>
     </ul>
   </section>
   <section class="bcls-section">
     <h2 id="internetexplorer">Internet Explorer</h2>
     <ul>
-      <li>Los subtítulos configurados para que se muestren automáticamente en el vídeo (comprobar la configuración «predeterminada» para un título en el módulo multimedia) no funcionan con IE11</li>
-      <li>Los vídeos con audio superior a 48 kHz fallarán durante la reproducción en Edge e IE11 en Windows 8 y Windows 10. Esta es una limitación de Microsoft. Consulte este documento de Microsoft para obtener más detalles.<a href=" https://msdn.microsoft.com/en-us/library/windows/desktop/dd742784(v=vs.85).aspx#FORMAT_CONSTRAINTS"></a></li>
-      <li>Los anuncios en Flash IMA3 funcionan mejor en IE. Google IMA3 no es compatible con anuncios en Flash y HTML en IE, aunque durante nuestras pruebas hemos detectado que el SDK para Flash es mucho más estable en este momento.</li>
+      <li>Los subtítulos configurados para mostrarse automáticamente en el video (verificando la configuración "predeterminada" para un título en el Módulo de medios) no funcionan con IE11</li>
+      <li>Los videos con audio por encima de 48 kHz fallarán durante la reproducción en Edge e IE11 en Windows 8 y Windows 10. Esta es una limitación de Microsoft. Ver <a href=" https://msdn.microsoft.com/en-us/library/windows/desktop/dd742784(v=vs.85).aspx#FORMAT_CONSTRAINTS">este documento de Microsoft</a> para más detalles.</li>
+      <li>Los anuncios Flash IMA3 funcionan mejor en IE. Google IMA3 no admite anuncios Flash y HTML en IE, pero en nuestras pruebas, descubrimos que el SDK de Flash es mucho más sólido en este momento.</li>
     </ul>
   </section>
   <section class="bcls-section">
@@ -753,150 +1823,155 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   <section class="bcls-section">
     <h2 id="ima3">IMA3</h2>
     <ul>
-      <li>Con anuncios omitibles Google IMA3, los botones de omisión de anuncios no contienen índices de fichas, por lo que no es posible navegar hacia esos botones mediante el teclado. Por lo tanto, los espectadores que solo puedan navegar mediante el teclado no podrán saltarse el anuncio.</li>
+      <li>Cuando se utilizan anuncios que se pueden omitir de Google IMA3, los botones para omitir anuncios no tienen índices de pestañas, por lo que no es posible navegar por el teclado a esos botones. Por lo tanto, los espectadores que dependen de la navegación con el teclado no podrán omitir el anuncio.</li>
     </ul>
   </section>
   <section class="bcls-section">
-    <h2 id="brightcoveLive">Brightcove Live</h2>
+    <h2 id="brightcoveLive">Brightcove En directo</h2>
     <ul>
-      <li>Cuando el está configurado en o el no se agrega a la solicitud de trabajo, causa un problema en Windows 10 usando Firefox v57.<code translate="No">h264_profile </code><code translate="No">baseline </code><code translate="No">h264_profile </code></li>
-      <li>Cuando se alcanza el final de una transmisión en vivo, el reproductor puede mostrar un error.<code translate="No">PLAYER_ERR_TIMEOUT </code></li>
+      <li>Cuando el <code translate="No">h264_profile </code> se establece en <code translate="No">baseline </code> o el <code translate="No">h264_profile </code> no se agrega a la solicitud de trabajo, causa un problema en Windows 10 usando Firefox v57.</li>
+      <li>Cuando se llega al final de una transmisión en vivo, el reproductor puede mostrar un <code translate="No">PLAYER_ERR_TIMEOUT </code> error.</li>
     </ul>
   </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Contenido de la página</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">Contenido de la página</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
 </div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Asistencia técnica de Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            Estado del sistema<a href="https://status.brightcove.com"></a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contactar soporte</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">Documentación</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Formación</h2>
-
-        <ul class="menu">
-          <li>
-            Cursos en línea<a href="https://studio.support.brightcove.com/training/online-training-courses.html"></a>
-          </li>
-          <li>
-            Inscríbete a un curso<a href="https://studio.support.brightcove.com/training/register-training.html"></a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Universidad de Brightcove</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">BrightCove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Contáctanos</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td>Privacidad | Términos y Condiciones<a href="https://www.brightcove.com/en/legal/privacy"></a><a href="https://www.brightcove.com/en/terms-and-conditions"></a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Soporte de Brightcove</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">Estado del sistema</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">Contactar con el soporte</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">Buscar toda la documentación</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Capacitación</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">Cursos online</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">Regístrese para un curso</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">Academia Brightcove</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">Brightcove.com</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">Foro de la comunidad de Bright Spot</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">Notas de lanzamiento del producto</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">Actualizaciones de documentación</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-</footer>
-<div id="talla_wrapper">
-  <p style="text-align: right;position: relative;"><button style="background:rgb(7, 9, 140);color:;Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">¿Tiene alguna pregunta? </button> </p>
-  <div id="talla_chat">
-</div>
-</div>
-<script>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. Todos los derechos reservados.</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">Privacidad</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">Términos y condiciones</a>
 
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Gorjeo" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
   var searchBox = sajari.init({
     mode: "search-box",
     project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
+    collection: "brightcove-documentation", // Set this to your collection.
     instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
     maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
   });
 
+  
+
+
     searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
     });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
 
 
-</script>
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
   
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
   
-  <!-- <script src="/assets/js/toc.js"></script> -->
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
   
   <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
   <script src="/assets/js/feedback.js"></script>
   
-  <script src="/assets/js/sajari-search-foot.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
   
+  <script translate="no">
+    feather.replace()
+  </script>
   <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
     a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
       background-color: lightblue;
     }
@@ -923,6 +1998,5 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
     </style>
 
-</body>
-
-</html>
+  </body>
+</html> 

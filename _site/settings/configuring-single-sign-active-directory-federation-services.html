@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="es"> 
     <head>
-        <title>Abrir un maletín con Brightcove Support</title>
+        <title>Configurar el inicio de sesión único con los servicios de federación de Active Directory</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.">
+        <meta name="description" content="En este tema, aprenderá a configurar la Galería para admitir el inicio de sesión único mediante los Servicios de federación de Active Directory (ADFS).">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -908,7 +908,7 @@
 
               <li class="nav-item subsection-title">
                 
-                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento virtual</a>
+                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento Virtual</a>
                 
 
                 <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
@@ -1247,7 +1247,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/settings/configuring-single-sign-active-directory-federation-services.html">Configurar el inicio de sesión único con ADFS</a></li>
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-single-sign-active-directory-federation-services.html" aria-current="page">Configurar el inicio de sesión único con ADFS</a></li>
               
               
               
@@ -1355,7 +1355,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html" aria-current="page">Abrir un caso de soporte</a></li>
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
               
               
               
@@ -1393,11 +1393,11 @@
             <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
             
             
-            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Soporte</a></li>
+            <li class="breadcrumb-item"><a class="theme-link" href="/settings/">Ajustes</a></li>
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Abrir un maletín con Brightcove Support</li>
+            <li class="breadcrumb-item active" aria-current="page">Configurar el inicio de sesión único con los servicios de federación de Active Directory</li>
             
             
           </ol>
@@ -1418,115 +1418,66 @@
       <br/>
       
       
-<h1>Abrir un maletín con Brightcove Support</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.</summary>
+  <h1>Configurar el inicio de sesión único con los servicios de federación de Active Directory</h1>
+  <summary>En este tema, aprenderá a configurar la Galería para admitir el inicio de sesión único mediante los Servicios de federación de Active Directory (ADFS).</summary>
   <section class="bcls-section">
-    <p>Brightcove ofrece una variedad de programas de soporte para satisfacer las necesidades de nuestros clientes. Para obtener información sobre estos programas, consulte la sección Soporte de <a href="https://www.brightcove.com/en/services/customer-support">Brightcove</a> de nuestro sitio web.</p>
-    <p>Una opción de soporte es el portal de soporte que se puede utilizar para abrir un caso con Brightcove Support.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="create-account">Creación de una nueva cuenta de soporte</h2>
-    <p>Antes de crear casos mediante el Portal de soporte, debe crear una cuenta. Para crear una nueva cuenta, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Acceda al portal de soporte mediante uno de estos métodos:
-        <ul>
-          <li>En el encabezado de la aplicación, haga clic en <strong>SOPORTE &gt; Contactar con el soporte</strong></li>
-          <li>Vaya a <a href="https://supportportal.brightcove.com/">https://supportportal.brightcove.com</a></li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-login.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Registrarse</strong>.</li>
-      <li>Introduzca su <strong>nombre</strong>, <strong>apellido</strong>,<strong> correo electrónico</strong> y <strong>contraseña</strong>. Haz clic en <strong>Enviar</strong>.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-account.png"/></figure>
-      </li>
-      <li>Confirma que te redirigen a la página principal del Portal de soporte de Brightcove.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-home.png"/></figure>
-      </li>
+    <h2 id="setup">Antes de empezar</h2>
+    <p>Complete estos pasos de configuración inicial:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Habilite RelayState para el inicio de sesión iniciado por iDP siguiendo las instrucciones <a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/jj127245(v=ws.10)?redirectedfrom=MSDN#configuration-required">aquí</a>. La ubicación varía según la versión de ADFS que se esté utilizando.</li>
+      <li>Reinicie el servicio ADFS para que se apliquen los cambios.</li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="open-case">Abrir un caso de soporte</h2>
-    <p>Para abrir un caso con Brightcove Support mediante el Portal de soporte, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Haz clic en <strong>ENVIAR UN CASO</strong> en el encabezado de la página.</li>
-      <li>Introduzca la información del caso:
-        <ul>
-          <li><strong>Asunto</strong> - Título del caso</li>
-          <li><strong>Descripción</strong> - Descripción del problema, pregunta o problema</li>
-          <li><strong>Prioridad</strong>
-            <ul>
-              <li><strong>P1</strong> - Crítico: pérdida de un servicio Brightcove o pérdida crítica de una importante disponibilidad de publicación para un reproductor de producción en directo</li>
-              <li><strong>P2</strong> - Importante - El servicio Brightcove está operativo, pero existen problemas de bloqueo en relación con las capacidades de publicación esperadas específicas de un reproductor de producción en directo (es decir, relacionadas con las cargas, la actividad de la consola, reproductores específicos).</li>
-              <li><strong>P3</strong> - Normal - Solicitudes que no se definen como Críticas o Importantes (incluidas las solicitudes de modificación de cuenta/usuario)</li>
-            </ul>
-          </li>
-          <li><strong>Producto</strong>: la aplicación Brightcove a la que se refiere la solicitud de soporte</li>
-          <li><strong>Cuenta de Brightcove</strong>: nombre de la cuenta en la que se refiere la solicitud de soporte</li>
-          <li><strong>URL</strong>: URL de página en la que se puede observar el problema (si está disponible)</li>
-          <li><strong>CC adicional</strong>: además de la lista CC predeterminada, puede decidir agregar direcciones de correo electrónico adicionales de los colaboradores que deben estar informados del progreso del caso</li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-case.png"/></figure>
+    <h2 id="add_gallery_profile">Agregar un perfil de control de acceso a la galería</h2>
+    <ol class="bcls-tasklist-restart">
+      <li>Abierto <strong>Herramientas administrativas</strong> desde el menú Inicio de Windows o el Panel de control y luego abra el <strong>Administración de AD FS</strong> solicitud.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-ad-fs-mgmt.png"/></figure>
       </li>
-      <li>Haz clic en <strong>Enviar</strong>. Se mostrarán los detalles del caso.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-details.png"/></figure>
+      <li>Abierto <strong>Servicios&gt; Certificados</strong> en el panel del explorador de la izquierda.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-certificate-list.png"/></figure>
       </li>
-      <li>Haz clic en <strong>Escribir un nuevo comentario...</strong> para añadir comentarios adicionales o cargar una captura de pantalla. Los pasos detallados para reproducir el problema y las capturas de pantalla del comportamiento/problema siempre son útiles para el soporte de Brightcove y pueden acelerar el tiempo necesario para resolver el caso.</li>
+      <li>Haga doble clic en el <strong>Firma de tokens</strong> certificado que desea utilizar.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-certificate.png"/></figure>
+      </li>
+      <li>Haga clic en el <strong>Detalles</strong> pestaña y haga clic en <strong>Copiar a archivo…</strong>
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-certificate-details.png"/></figure>
+      </li>
+      <li>Hacer clic <strong>próximo</strong> en el asistente de exportación, luego seleccione el <strong>X.509 codificado en Base-64 (.CER)</strong> opción.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-certificate-export-wizard.png"/></figure>
+      </li>
+      <li>Guarde el archivo de certificado en su sistema de archivos local y luego ábralo en un editor de texto. Este es el certificado que se utilizará para configurar el perfil de control de acceso a la Galería.</li>
+      <li>Abre el Galería módulo.</li>
+      <li>Haga clic en el icono de configuración (<img class="bcls-image--no-border" alt="" src="/assets/images/get-started/icon-settings.png"/> ) en la página de inicio.</li>
+      <li>Hacer clic <strong>Perfiles de control de acceso</strong> en la navegación de la izquierda.</li>
+      <li>Haz clic en <span class="button-blue">Crear perfil</span>.</li>
+      <li>Dale un <strong>Nombre</strong> y luego seleccione <strong>SSO: requiere un nombre de usuario y una contraseña para acceder</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-new-access-control-profile.png"/></figure>
+      </li>
+      <li>En el <strong>Punto final SAML 2.0 (HTTP)</strong> , ingrese la URL a la página de inicio de sesión iniciada por iDP para su servidor ADFS. Esto generalmente termina en <code translate="No">IdpInitiatedSignOn.aspx</code>. Por ejemplo, si el enlace de inicio de sesión iniciado por SP es <code translate="No">https://sso-test.brightcove.com/adfs/ls</code>, la página de inicio de sesión iniciado por el proveedor de identidad es <code translate="No">https://sso-test.brightcove.com/adfs/ls/IdpInitiatedSignOn.aspx</code>.</li>
+      <li>Comprobar el <strong>Mi sistema SSO es ADFS (Servicios de federación de Active Directory)</strong> opción.</li>
+      <li>Copie y pegue el certificado que guardó en el paso 6 en el <strong>Certificado X.509</strong> campo.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-x509-cert.png"/></figure>
+      </li>
+      <li>Hacer clic <span class="button-blue">Ahorrar</span> para guardar el perfil de control de acceso. El nuevo perfil de control de acceso debería aparecer en la lista de perfiles.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-profile-list.png"/></figure>
+      </li>
+      <li>De vuelta en la aplicación de administración de AD FS, abra <strong> Fideicomisos de parte que dependen</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-relying-party-trusts.png"/></figure>
+      </li>
+      <li>Haz clic en <strong>Agregar confianza de parte de confianza...</strong> en el panel derecho.</li>
+      <li>Hacer clic <strong>Comienzo</strong> en el asistente y luego pegue el <strong>URL de metadatos</strong> que se mostró en el paso 15 en el <strong>Dirección de metadatos de la federación</strong> campo.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="../assets/images/settings/node18595-relying-party-trust-wizard.png"/></figure>
+      </li>
+      <li>Hacer clic <strong>próximo</strong> y luego asigne un nombre a su fideicomiso de confianza.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-relying-party-trust-name.png"/></figure>
+      </li>
+      <li>Continuar haciendo clic <strong>próximo</strong> hasta el <strong>Terminar</strong> paso. Desmarque la <strong>Configurar la política de emisión de reclamos para esta aplicación</strong> caja. Haz clic en <strong>Cerrar</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/node18595-relying-party-trust-finish.png"/></figure>
+      </li>
     </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="view-cases">Visualización de los casos de soporte</h2>
-		<aside class="bcls-aside bcls-aside--information">Nota: si tu perfil del Portal de soporte es <strong>administrador</strong>, verás todos los casos de la cuenta (no recibirás notificaciones cuando otros usuarios de la cuenta creen casos). Si es un usuario <strong>estándar</strong> o autorregistrado, solo verá los casos que haya abierto.</aside
-                                <p>Todos los casos de soporte se pueden ver fácilmente en el portal de soporte. El ESTADO DEL <strong>CASO</strong> será uno de los siguientes:</p>
-    <ul>
-      <li><strong>Nuevo</strong>: se acaba de crear el caso y está a la espera de revisión de Brightcove</li>
-      <li><strong>Abierto</strong>: el caso está en curso</li>
-      <li><strong>En espera de su respuesta</strong>: Brightcove Support requiere información adicional o se ha proporcionado una solución y Brightcove está esperando una respuesta</li>
-      <li><strong>Cerrado</strong>: el caso se ha resuelto</li>
-      <li><strong>Cerrado en espera</strong>: el caso se cerró debido a que no había respuesta del editor; el caso se volverá a abrir si el editor se pone en contacto con Brightcove</li>
-    </ul>
-    		<aside class="bcls-aside bcls-aside--information">Tenga en cuenta que los casos que Support ha eliminado como duplicados no aparecerán en el Portal de soporte.</aside>
-    <p>Para ver sus casos con Brightcove Support, siga estos pasos:</p>
-
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Hacer clic <strong>CASOS DE APOYO</strong> en el encabezado de la página. Una lista de <strong>Casos abiertos</strong> mostrará.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-listing.png"/></figure>
-      </li>
-      <li>Haga clic en el <strong>Historia del caso</strong> enlace para ver una lista de casos cerrados.</li>
-      <li>Haga clic en un número de <strong>caso</strong> para ver los detalles del caso, incluidos los comentarios de Brightcove Support.</li>
-    </ol>
-    <p>Al hacer clic en un encabezado de columna, se ordenará la lista por esa columna.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="updating">Actualización de un caso de soporte</h2>
-    <p>Una vez creado el caso, tres son algunas de las acciones que puedes llevar a cabo para mantener actualizados los casos: </p>
-    <ul>
-      <li>Añade nuevos comentarios para comunicarte con nuestro equipo de soporte</li>
-      <li>Sube o elimina archivos adjuntos con más información para ayudarnos a identificar el problema lo más rápido posible</li>
-      <li>Actualiza la prioridad del caso en caso de que necesites más atención en un caso o se vuelve más urgente de lo esperado inicialmente</li>
-      <li>Actualiza la lista CC para añadir más observadores al estuche</li>
-      <li>Solicitar el cierre del caso después de que se haya resuelto el problema</li>
-    </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="update-cc-list">Actualización de la lista de CC predeterminada</h2>
-    <p>La lista de CC predeterminada es una lista de correo electrónico por cuenta a la que se le notifica toda la actividad de casos de la cuenta. Para actualizar la lista, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Ve a la esquina superior derecha y haz clic en el icono del usuario.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-account.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Mi cuenta</strong>.</li>
-      <li>Introduzca las nuevas direcciones de correo electrónico o elimine las direcciones existentes en la lista CC predeterminada de la <strong>cuenta</strong>.</li>
-      <li>Haga clic en <strong>Actualizar lista CC predeterminada</strong> para guardar los cambios.</li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="view-system-status">Visualización de la página Estado del sistema Brightcove</h2>
-    <p>Brightcove supervisa continuamente el estado de todos los servicios de Brightcove. Si se produce alguna interrupción en el servicio, se publicará una nota en la página Estado del sistema. También se publicarán todos los avisos de mantenimiento programados.</p>
-    <p>Para acceder a la página Estado del sistema, inicie sesión en el portal de soporte técnico y haga clic en ESTADO DEL SISTEMA en el encabezado de la página o vaya a <a href="https://status.brightcove.com/">status.brightcove.com</a>.</p>
-    <p>Para obtener más información sobre la página Estado del sistema, consulte <a href="/support/viewing-brightcove-system-status-page.html">Visualización de la página Estado del sistema de Brightcove</a>.</p>
+    <p>Ahora debería poder asociar una experiencia de portal al perfil de control de acceso que se creó. Una vez publicada la experiencia, la navegación hacia ella debe pasar por el flujo de trabajo de inicio de sesión de ADFS.</p>
   </section>
 </article>
 

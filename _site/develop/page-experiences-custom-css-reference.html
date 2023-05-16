@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="es"> 
     <head>
-        <title>Abrir un maletín con Brightcove Support</title>
+        <title>Referencia de CSS personalizado de experiencias in-page</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.">
+        <meta name="description" content="Este tema describe las clases de CSS que se utilizan al crear experiencias en la página. Esta información se proporciona para que pueda diseñar aún más sus experiencias con CSS.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -908,7 +908,7 @@
 
               <li class="nav-item subsection-title">
                 
-                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento virtual</a>
+                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento Virtual</a>
                 
 
                 <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
@@ -1267,7 +1267,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/develop/page-experiences-custom-css-reference.html">Referencia CSS personalizada de la experiencia en la página</a></li>
+              <li class="nav-item"><a class="nav-link" href="/develop/page-experiences-custom-css-reference.html" aria-current="page">Referencia CSS personalizada de la experiencia en la página</a></li>
               
               
               
@@ -1355,7 +1355,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html" aria-current="page">Abrir un caso de soporte</a></li>
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
               
               
               
@@ -1393,11 +1393,11 @@
             <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
             
             
-            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Soporte</a></li>
+            <li class="breadcrumb-item"><a class="theme-link" href="/develop/">Desarrollar</a></li>
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Abrir un maletín con Brightcove Support</li>
+            <li class="breadcrumb-item active" aria-current="page">Referencia de CSS personalizado de experiencias in-page</li>
             
             
           </ol>
@@ -1418,115 +1418,667 @@
       <br/>
       
       
-<h1>Abrir un maletín con Brightcove Support</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.</summary>
+  <h1>Referencia de CSS personalizado de experiencias in-page</h1>
+  <summary>Este tema describe las clases de CSS que se utilizan al crear experiencias en la página. Esta información se proporciona para que pueda diseñar aún más sus experiencias con CSS.</summary>
   <section class="bcls-section">
-    <p>Brightcove ofrece una variedad de programas de soporte para satisfacer las necesidades de nuestros clientes. Para obtener información sobre estos programas, consulte la sección Soporte de <a href="https://www.brightcove.com/en/services/customer-support">Brightcove</a> de nuestro sitio web.</p>
-    <p>Una opción de soporte es el portal de soporte que se puede utilizar para abrir un caso con Brightcove Support.</p>
+    <h2 id="styledcomponents">Componentes con estilo</h2>
+    <p>Estas clases de CSS se aplican a elementos que se diseñan a través de la interfaz de usuario. &nbsp;Estos estilos se pueden anular con CSS personalizado mediante el uso de estas clases. &nbsp;También puede hacer que los estilos de la interfaz de usuario se apliquen a HTML personalizado mediante el uso de estas clases. &nbsp;Estas clases son estables y no deberían cambiar entre las versiones de la plantilla.</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-style-global</code></td>
+          <td>Estilo global para la experiencia</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-anchor</code></td>
+          <td>Estilo de enlace normal</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-navigation</code></td>
+          <td>Estilo de enlace de navegación (botón de retroceso, botón de compartir, etc.)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-videoInfo</code></td>
+          <td>Estilo del cuadro de información de video (sin superposición)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-videoTitle</code></td>
+          <td>Estilo de título de video (sin superposición)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-videoDescription</code></td>
+          <td>Estilo de descripción de video (sin superposición)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-overlay</code></td>
+          <td>Estilo de cuadro de información de video superpuesto</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-overlayTitle</code></td>
+          <td>Estilo de título de video superpuesto</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-overlayDescription</code></td>
+          <td>Estilo de descripción de video superpuesto</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-overlayBanner</code></td>
+          <td>Estilo de banner / indicador superpuesto (indicador de visualización)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-style-playButton</code></td>
+          <td>Estilo básico del botón de reproducción (consulte el componente Botón de reproducción para obtener un estilo más complejo)</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
   <section class="bcls-section">
-    <h2 id="create-account">Creación de una nueva cuenta de soporte</h2>
-    <p>Antes de crear casos mediante el Portal de soporte, debe crear una cuenta. Para crear una nueva cuenta, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Acceda al portal de soporte mediante uno de estos métodos:
-        <ul>
-          <li>En el encabezado de la aplicación, haga clic en <strong>SOPORTE &gt; Contactar con el soporte</strong></li>
-          <li>Vaya a <a href="https://supportportal.brightcove.com/">https://supportportal.brightcove.com</a></li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-login.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Registrarse</strong>.</li>
-      <li>Introduzca su <strong>nombre</strong>, <strong>apellido</strong>,<strong> correo electrónico</strong> y <strong>contraseña</strong>. Haz clic en <strong>Enviar</strong>.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-account.png"/></figure>
-      </li>
-      <li>Confirma que te redirigen a la página principal del Portal de soporte de Brightcove.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-home.png"/></figure>
-      </li>
-    </ol>
+    <h2 id="basecomponents">Componentes base</h2>
+    <p>Estos son componentes básicos que se pueden diseñar con CSS personalizado. &nbsp;Las clases de componentes son estables y no deberían cambiar entre las versiones de la plantilla. &nbsp;Las clases internas son relativamente estables y lo más probable es que no cambien entre las versiones de la plantilla.</p>
+    <h3>Botón de play</h3>
+    <p>El botón de reproducción aparece en cada miniatura de video.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-play-button.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-play-button</code></td>
+          <td>Componente de botón de reproducción</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-svg</code></td>
+          <td>Contenedor SVG</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-group</code></td>
+          <td>Grupo interno SVG</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-button</code></td>
+          <td>Grupo de SVG de botón de reproducción</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-frame</code></td>
+          <td>Marco de círculo de botón de reproducción</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-icon</code></td>
+          <td>Icono de botón de reproducción</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-countdown</code></td>
+          <td>Grupo SVG de cuenta regresiva</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-pause</code></td>
+          <td>Icono de pausa de cuenta regresiva</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-text</code></td>
+          <td>Texto de cuenta regresiva</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-track</code></td>
+          <td>Pista de cuenta regresiva</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-play-button-runner</code></td>
+          <td>Progreso de la cuenta regresiva</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Flecha</h3>
+    <p>Flechas para la plantilla de carrusel (para opciones de presentación con sangrado único y completo).</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-carousel-arrows.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-arrow</code></td>
+          <td>Componente de flecha (incluido el fondo)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-arrow-inner</code></td>
+          <td>Flecha</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Hasta la próxima</h3>
+    <p>El indicador Up-next se muestra en miniaturas grandes cuando <strong>Avanzar al siguiente video automáticamente</strong> está habilitado en la configuración del reproductor.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-up-next.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-up-next</code></td>
+          <td>Siguiente componente</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-up-next-thumbnail</code></td>
+          <td>Miniatura del siguiente video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-up-next-text</code></td>
+          <td>Texto siguiente (cuenta regresiva + nombre del video)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-up-next-text-countdown</code></td>
+          <td>Texto de cuenta regresiva</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-up-next-close</code></td>
+          <td>Botón cerrar</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Indicador de video visualizado</h3>
+    <p>El indicador visualizado se muestra cuando la opción está habilitada en la configuración de video.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-watched.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-watched-video-banner</code></td>
+          <td>Indicador de video visualizado</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
   </section>
   <section class="bcls-section">
-    <h2 id="open-case">Abrir un caso de soporte</h2>
-    <p>Para abrir un caso con Brightcove Support mediante el Portal de soporte, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Haz clic en <strong>ENVIAR UN CASO</strong> en el encabezado de la página.</li>
-      <li>Introduzca la información del caso:
-        <ul>
-          <li><strong>Asunto</strong> - Título del caso</li>
-          <li><strong>Descripción</strong> - Descripción del problema, pregunta o problema</li>
-          <li><strong>Prioridad</strong>
-            <ul>
-              <li><strong>P1</strong> - Crítico: pérdida de un servicio Brightcove o pérdida crítica de una importante disponibilidad de publicación para un reproductor de producción en directo</li>
-              <li><strong>P2</strong> - Importante - El servicio Brightcove está operativo, pero existen problemas de bloqueo en relación con las capacidades de publicación esperadas específicas de un reproductor de producción en directo (es decir, relacionadas con las cargas, la actividad de la consola, reproductores específicos).</li>
-              <li><strong>P3</strong> - Normal - Solicitudes que no se definen como Críticas o Importantes (incluidas las solicitudes de modificación de cuenta/usuario)</li>
-            </ul>
-          </li>
-          <li><strong>Producto</strong>: la aplicación Brightcove a la que se refiere la solicitud de soporte</li>
-          <li><strong>Cuenta de Brightcove</strong>: nombre de la cuenta en la que se refiere la solicitud de soporte</li>
-          <li><strong>URL</strong>: URL de página en la que se puede observar el problema (si está disponible)</li>
-          <li><strong>CC adicional</strong>: además de la lista CC predeterminada, puede decidir agregar direcciones de correo electrónico adicionales de los colaboradores que deben estar informados del progreso del caso</li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-case.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Enviar</strong>. Se mostrarán los detalles del caso.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-details.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Escribir un nuevo comentario...</strong> para añadir comentarios adicionales o cargar una captura de pantalla. Los pasos detallados para reproducir el problema y las capturas de pantalla del comportamiento/problema siempre son útiles para el soporte de Brightcove y pueden acelerar el tiempo necesario para resolver el caso.</li>
-    </ol>
+    <h2 id="videocomponents">Componentes de video</h2>
+    <p>Componentes relacionados con videos individuales. Estas clases son estables y no deberían cambiar entre las versiones de la plantilla.</p>
+    <h3>Jugador</h3>
+    <p>Contenedor para el reproductor Brightcove.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-player.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-player</code></td>
+          <td>Contenedor de jugador</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Miniatura</h3>
+    <p>Contenedor básico para imágenes de póster de video (no incluye el botón de reproducción).</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-thumbnail.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-thumbnail</code></td>
+          <td>Contenedor de miniaturas</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Información del video</h3>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-info.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-video-info</code></td>
+          <td>Contenedor de información de video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-content</code></td>
+          <td>Contenedor de información de video interno</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-name</code></td>
+          <td>Contenedor de nombre de video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-name-content</code></td>
+          <td>Nombre del vídeo</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-duration</code></td>
+          <td>Duración del video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-description</code></td>
+          <td>Descripción del video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-related-link</code></td>
+          <td>Enlace relacionado con el video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-info-download</code></td>
+          <td>Enlace de descarga de video</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Miniatura de video</h3>
+    <p>Contiene un componente de miniatura envuelto con un componente de información de video.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-thumbnail.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-video-thumbnail</code></td>
+          <td>Componente de miniatura de video</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
   </section>
   <section class="bcls-section">
-    <h2 id="view-cases">Visualización de los casos de soporte</h2>
-		<aside class="bcls-aside bcls-aside--information">Nota: si tu perfil del Portal de soporte es <strong>administrador</strong>, verás todos los casos de la cuenta (no recibirás notificaciones cuando otros usuarios de la cuenta creen casos). Si es un usuario <strong>estándar</strong> o autorregistrado, solo verá los casos que haya abierto.</aside
-                                <p>Todos los casos de soporte se pueden ver fácilmente en el portal de soporte. El ESTADO DEL <strong>CASO</strong> será uno de los siguientes:</p>
-    <ul>
-      <li><strong>Nuevo</strong>: se acaba de crear el caso y está a la espera de revisión de Brightcove</li>
-      <li><strong>Abierto</strong>: el caso está en curso</li>
-      <li><strong>En espera de su respuesta</strong>: Brightcove Support requiere información adicional o se ha proporcionado una solución y Brightcove está esperando una respuesta</li>
-      <li><strong>Cerrado</strong>: el caso se ha resuelto</li>
-      <li><strong>Cerrado en espera</strong>: el caso se cerró debido a que no había respuesta del editor; el caso se volverá a abrir si el editor se pone en contacto con Brightcove</li>
-    </ul>
-    		<aside class="bcls-aside bcls-aside--information">Tenga en cuenta que los casos que Support ha eliminado como duplicados no aparecerán en el Portal de soporte.</aside>
-    <p>Para ver sus casos con Brightcove Support, siga estos pasos:</p>
-
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Hacer clic <strong>CASOS DE APOYO</strong> en el encabezado de la página. Una lista de <strong>Casos abiertos</strong> mostrará.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-listing.png"/></figure>
-      </li>
-      <li>Haga clic en el <strong>Historia del caso</strong> enlace para ver una lista de casos cerrados.</li>
-      <li>Haga clic en un número de <strong>caso</strong> para ver los detalles del caso, incluidos los comentarios de Brightcove Support.</li>
-    </ol>
-    <p>Al hacer clic en un encabezado de columna, se ordenará la lista por esa columna.</p>
+    <h2 id="videocollectioncomp">Componentes de la colección de videos</h2>
+    <p>Componentes relacionados con colecciones de videos (listas de reproducción, etc.). Estas clases son estables y no deberían cambiar entre las versiones de la plantilla.</p>
+    <h3>Flujo de corriente</h3>
+    <p>Presentación tridimensional de flujo de cobertura de videos.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-coverflow.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-cover-flow</code></td>
+          <td>Componente de flujo de cobertura</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-cover-flow-item</code></td>
+          <td>Elemento de flujo de portada (miniatura de video)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Tira de puntos</h3>
+    <p>Una franja de puntos que representa cada video de la lista.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-dot-strip.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-dot-strip</code></td>
+          <td>Componente de tira de puntos</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-dot-strip-item</code></td>
+          <td>Elemento de tira de puntos</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-dot-strip-dot</code></td>
+          <td>Punto individual en la tira</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Carrusel de carteles</h3>
+    <p>Un carrusel de imágenes de carteles (con flechas)</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-poster-carousel.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-poster-carousel</code></td>
+          <td>Componente de carrusel de póster</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-poster-carousel-container</code></td>
+          <td>Contenedor de fila</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-poster-carousel-row</code></td>
+          <td>Fila de carteles</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-poster-carousel-cell</code></td>
+          <td>Elemento de fila (miniatura de video)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Tira de miniaturas</h3>
+    <p>Una tira de imágenes en miniatura (con flechas)</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-thumbnail-strip.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-thumbnail-strip</code></td>
+          <td>Componente de tira de miniaturas</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-thumbnail-strip-container</code></td>
+          <td>Contenedor de fila</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-thumbnail-strip-row</code></td>
+          <td>Fila de miniaturas</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-thumbnail-strip-cell</code></td>
+          <td>Elemento de fila (miniatura de video)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Cuadrícula de video</h3>
+    <p>Una cuadrícula de imágenes en miniatura</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-grid.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-video-grid</code></td>
+          <td>Componente de cuadrícula de video</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-grid-cell</code></td>
+          <td>Elemento de cuadrícula (miniatura de video)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Lista de videos</h3>
+    <p>Una lista vertical de imágenes en miniatura</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-video-list.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-video-list</code></td>
+          <td>Componente de lista de videos</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-video-list-item</code></td>
+          <td>Elemento de lista (miniatura de video)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
   </section>
   <section class="bcls-section">
-    <h2 id="updating">Actualización de un caso de soporte</h2>
-    <p>Una vez creado el caso, tres son algunas de las acciones que puedes llevar a cabo para mantener actualizados los casos: </p>
-    <ul>
-      <li>Añade nuevos comentarios para comunicarte con nuestro equipo de soporte</li>
-      <li>Sube o elimina archivos adjuntos con más información para ayudarnos a identificar el problema lo más rápido posible</li>
-      <li>Actualiza la prioridad del caso en caso de que necesites más atención en un caso o se vuelve más urgente de lo esperado inicialmente</li>
-      <li>Actualiza la lista CC para añadir más observadores al estuche</li>
-      <li>Solicitar el cierre del caso después de que se haya resuelto el problema</li>
-    </ul>
+    <h2 id="sharingcomponents">Compartir componentes</h2>
+    <p>Componentes relacionados con el intercambio social. &nbsp;Las clases del botón Compartir son relativamente estables y lo más probable es que no cambien entre las versiones de la plantilla. &nbsp;Es muy probable que las clases del Panel de Acciones se modifiquen en un futuro próximo y deben considerarse inestables.</p>
+    <h3>Botón de compartir</h3>
+    <p>Compartir botón o iconos.</p>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-share-button.png"/></figure>
+    o
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-share-icons.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-share-button</code></td>
+          <td>Componente de botón de compartir</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-share-button-button</code></td>
+          <td>Botón de compartir (no iconos)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Panel de compartir</h3>
+    <p>Panel para compartir cuando la pantalla de compartir en redes sociales está configurada en el botón.</p>
+    <aside class="bcls-aside bcls-aside--information">Nota: Estas clases están sujetas a cambios en el futuro.</aside>
+    <figure class="bcls-figure"><img alt="" src="/assets/images/develop/node16850-share-panel.png"/></figure>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-share-wrapper-panel</code></td>
+          <td>Componente de envoltura de panel</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-share-wrapper-inner</code></td>
+          <td>Panel</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-share-wrapper-close</code></td>
+          <td>Botón cerrar</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-share-wrapper-item</code></td>
+          <td>Compartir elemento</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-share-wrapper-item-name</code></td>
+          <td>Compartir el nombre del elemento</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
   </section>
   <section class="bcls-section">
-    <h2 id="update-cc-list">Actualización de la lista de CC predeterminada</h2>
-    <p>La lista de CC predeterminada es una lista de correo electrónico por cuenta a la que se le notifica toda la actividad de casos de la cuenta. Para actualizar la lista, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Ve a la esquina superior derecha y haz clic en el icono del usuario.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-account.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Mi cuenta</strong>.</li>
-      <li>Introduzca las nuevas direcciones de correo electrónico o elimine las direcciones existentes en la lista CC predeterminada de la <strong>cuenta</strong>.</li>
-      <li>Haga clic en <strong>Actualizar lista CC predeterminada</strong> para guardar los cambios.</li>
-    </ol>
+    <h2 id="editablecomponents">Componentes editables</h2>
+    <p>Componentes que se pueden agregar a la experiencia a través de los botones más en la interfaz de usuario. &nbsp;Estas clases son estables y no deberían cambiar entre las versiones de la plantilla. &nbsp;No se proporcionan capturas de pantalla para estos componentes ya que su apariencia depende en gran medida del contenido ingresado por el usuario.</p>
+    <h3>Anuncio publicitario</h3>
+    <p>Componente publicitario</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No"></code>ee-componentes-publicidad</td>
+          <td>Componente publicitario</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>HTML personalizado</h3>
+    <p>Componente HTML personalizado</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-html</code></td>
+          <td>Componente HTML personalizado</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Imagen</h3>
+    <p>Componente de imagen</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-image</code></td>
+          <td>Componente de imagen</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-image-image</code></td>
+          <td>Imagen interna</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Texto</h3>
+    <p>Componente de texto</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-text</code></td>
+          <td>Componente de texto</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <h3>Gorjeo</h3>
+    <p>Componente de Twitter</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-twitter</code></td>
+          <td>Componente de Twitter</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
   </section>
   <section class="bcls-section">
-    <h2 id="view-system-status">Visualización de la página Estado del sistema Brightcove</h2>
-    <p>Brightcove supervisa continuamente el estado de todos los servicios de Brightcove. Si se produce alguna interrupción en el servicio, se publicará una nota en la página Estado del sistema. También se publicarán todos los avisos de mantenimiento programados.</p>
-    <p>Para acceder a la página Estado del sistema, inicie sesión en el portal de soporte técnico y haga clic en ESTADO DEL SISTEMA en el encabezado de la página o vaya a <a href="https://status.brightcove.com/">status.brightcove.com</a>.</p>
-    <p>Para obtener más información sobre la página Estado del sistema, consulte <a href="/support/viewing-brightcove-system-status-page.html">Visualización de la página Estado del sistema de Brightcove</a>.</p>
+    <h2 id="globalclasses">Clases globales</h2>
+    <p>Estas son clases que son globales para la experiencia. &nbsp;Estas clases son estables y no deberían cambiar entre las versiones de la plantilla.</p>
+    <p>&nbsp;</p>
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Clase</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">ee-components-app</code></td>
+          <td>Elemento de experiencia más externo</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-view<</code>/td&gt;
+          <td>Vista de experiencia (in-page, lightbox)</td>
+        </tr>
+        <tr>
+          <td><code translate="No">ee-components-container</code></td>
+          <td>Contenedor de componentes con botón más</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
   </section>
 </article>
 

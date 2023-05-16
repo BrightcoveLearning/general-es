@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="es"> 
     <head>
-        <title>Abrir un maletín con Brightcove Support</title>
+        <title>Asegurar una experiencia de portal con Okta</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.">
+        <meta name="description" content="En este tema, aprenderá a proteger las Experiencias del portal con Okta SSO.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -908,7 +908,7 @@
 
               <li class="nav-item subsection-title">
                 
-                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento virtual</a>
+                <a class="nav-link" href="/experiences/virtual-event/index.html"> <span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;Evento Virtual</a>
                 
 
                 <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
@@ -1235,7 +1235,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-okta.html">Asegurar una experiencia de portal con Okta</a></li>
+              <li class="nav-item"><a class="nav-link" href="/settings/securing-portal-experience-okta.html" aria-current="page">Asegurar una experiencia de portal con Okta</a></li>
               
               
               
@@ -1355,7 +1355,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html" aria-current="page">Abrir un caso de soporte</a></li>
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
               
               
               
@@ -1393,11 +1393,11 @@
             <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
             
             
-            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Soporte</a></li>
+            <li class="breadcrumb-item"><a class="theme-link" href="/settings/">Ajustes</a></li>
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Abrir un maletín con Brightcove Support</li>
+            <li class="breadcrumb-item active" aria-current="page">Asegurar una experiencia de portal con Okta</li>
             
             
           </ol>
@@ -1418,115 +1418,103 @@
       <br/>
       
       
-<h1>Abrir un maletín con Brightcove Support</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.</summary>
+  <h1>Asegurar una experiencia de portal con Okta</h1>
+  <summary>En este tema, aprenderá a proteger las Experiencias del portal con Okta SSO.</summary>
   <section class="bcls-section">
-    <p>Brightcove ofrece una variedad de programas de soporte para satisfacer las necesidades de nuestros clientes. Para obtener información sobre estos programas, consulte la sección Soporte de <a href="https://www.brightcove.com/en/services/customer-support">Brightcove</a> de nuestro sitio web.</p>
-    <p>Una opción de soporte es el portal de soporte que se puede utilizar para abrir un caso con Brightcove Support.</p>
+    <p>Cuando una experiencia está protegida mediante SSO, los usuarios deberán autenticarse antes de poder acceder a la experiencia.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-login.png"/></figure>
+    <aside class="bcls-aside bcls-aside--information">Nota: Los pasos y las imágenes de este tema utilizan la <a href="https://www.okta.com/free-trial">versión de prueba</a> de Okta SSO.</aside>
+    <p>Los pasos de este tema suponen que se ha registrado para obtener una cuenta de prueba de Okta y puede iniciar sesión en su cuenta.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="create-account">Creación de una nueva cuenta de soporte</h2>
-    <p>Antes de crear casos mediante el Portal de soporte, debe crear una cuenta. Para crear una nueva cuenta, sigue estos pasos:</p>
+    <h2 id="identity">Creación de una aplicación</h2>
+    <p>Empiece por crear una aplicación. </p>
     <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Acceda al portal de soporte mediante uno de estos métodos:
-        <ul>
-          <li>En el encabezado de la aplicación, haga clic en <strong>SOPORTE &gt; Contactar con el soporte</strong></li>
-          <li>Vaya a <a href="https://supportportal.brightcove.com/">https://supportportal.brightcove.com</a></li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-login.png"/></figure>
+      <li>Inicie sesión en su cuenta de prueba de Okta.</li>
+      <li>Haga clic en <strong>Administrador</strong> en la parte superior de la página.</li>
+      <li>Ingrese la contraseña de su cuenta y haga clic en <strong>Verificar</strong> .</li>
+      <li>Se le pedirá que configure un método de seguridad. Haga clic en <strong>Configurar</strong> junto al método que desea utilizar.</li>
+      <li>Cuando haya iniciado sesión correctamente, confirme que aparece la página de inicio del Panel de control.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-get-started.png"/></figure>
       </li>
-      <li>Haz clic en <strong>Registrarse</strong>.</li>
-      <li>Introduzca su <strong>nombre</strong>, <strong>apellido</strong>,<strong> correo electrónico</strong> y <strong>contraseña</strong>. Haz clic en <strong>Enviar</strong>.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-account.png"/></figure>
+      <li>Haga clic en <strong>Aplicaciones &gt; Aplicaciones</strong> en la navegación izquierda.</li>
+      <li>En la página Aplicaciones, haga clic en <strong>Crear integración de aplicaciones</strong> .</li>
+      <li>Seleccione un método de inicio de sesión de <strong>SAML 2.0</strong> .
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-create-new-app-dialog.png"/></figure>
       </li>
-      <li>Confirma que te redirigen a la página principal del Portal de soporte de Brightcove.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-home.png"/></figure>
+      <li>Haz clic en <strong>Siguiente</strong>.</li>
+      <li>Ingrese un <strong>Nombre de la aplicación</strong>.</li>
+      <li>(Opcional) Busque y seleccione y <strong>Logotipo de la aplicación</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-new-app-general-settings.png"/></figure>
+      </li>
+      <li>Haz clic en <strong>Siguiente</strong>.</li>
+      <li>Selecciona el <strong>URL de inicio de sesión único</strong> a <code>https://auth.bcvp0rtal.com/login/callback</code>.</li>
+      <li>Para el <strong>URI de audiencia (ID de entidad SP)</strong>&nbsp;ingrese la URL de Okta para su página de inicio de Okta. Esto aparecerá en el correo electrónico de la nueva cuenta que recibió de Okta cuando se creó su cuenta de prueba.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-new-app-saml-settings.png"/></figure>
+      </li>
+      <li>Haga clic en el <strong> &lt;&gt; Vista previa de la afirmación SAML</strong> botón. El XML válido debe mostrarse en una nueva pestaña del navegador. Si hay algún error, se mostrará un mensaje.</li>
+      <li>Cierre la pestaña del navegador que muestra el XML y regrese a la página Okta.</li>
+      <li>Haz clic en <strong>Siguiente</strong>.</li>
+      <li>Seleccione una opción para <strong>¿Eres cliente o socio? </strong>y luego haga clic en <strong>Terminar</strong>.</li>
+      <li>Confirme que se creó la aplicación y que <strong>Ajustes</strong> aparece la página.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-new-app-created.png"/></figure>
+      </li>
+      <li>Ubica donde dice <strong>SAML 2.0&nbsp;no está configurado hasta que complete las instrucciones de configuración</strong>. Hacer clic <strong>Ver instrucciones de configuración</strong>.</li>
+    </ol>
+    <p>los <strong>Cómo configurar SAML 2.0</strong> Las instrucciones se abrirán en una nueva pestaña del navegador. Esta información será necesaria al crear un perfil de control de acceso en Brightcove Gallery.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="access_control">Creación de un perfil de control de acceso</h2>
+    <p>Debe crear un perfil de control de acceso que se utilizará para proteger cualquier experiencia que desee proteger mediante SSO.</p>
+    <ol class="bcls-tasklist-restart" style="--s:1">
+      <li>Inicie sesión en su cuenta de Brightcove Gallery.</li>
+      <li>Haga clic en el icono de configuración (<img class="bcls-image--no-border" alt="" src="/assets/images/get-started/icon-settings.png"/> ) en la página de inicio.</li>
+      <li>En el panel de navegación de la izquierda, haga clic en <strong>Perfiles de control de acceso</strong>.</li>
+      <li>Haz clic en <span class="button-blue">Crear perfil</span>.</li>
+      <li>Asigne un <strong>nombre al perfil</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-acp-name.png"/></figure>
+      </li>
+      <li>Selecciona el <strong>SSO</strong> opción.</li>
+      <li>Vuelva a las instrucciones Cómo configurar SAML 2.0. Copia el <strong>URL de inicio de sesión único del proveedor de identidad</strong> y pégalo en el <strong>Punto final SAML 2.0 (HTTP)</strong> campo.</li>
+      <li>Vuelva a las instrucciones Cómo configurar SAML 2.0. Copie el valor completo en el <strong>Certificado X.509 </strong>campo y péguelo en el <strong>Certificado X.509</strong> campo. Asegúrate de incluir el <strong>CERTIFICADO COMENZAR / FINALIZAR</strong> líneas.</li>
+      <li>Si va a pasar cualquier parámetro de SSO a la Galería, marque la <strong>Exponer todos los atributos</strong> opción.</li>
+      <li>Haga clic en <span class="button-blue">Guardar</span> y confirme que se ha creado el perfil.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-acp-created.png"/></figure>
       </li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="open-case">Abrir un caso de soporte</h2>
-    <p>Para abrir un caso con Brightcove Support mediante el Portal de soporte, sigue estos pasos:</p>
+    <h2 id="users2">Asignar permisos de grupo</h2>
+    <p>El último paso en Okta es dar a todos los usuarios de Okta acceso a la aplicación que se creó.</p>
     <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Haz clic en <strong>ENVIAR UN CASO</strong> en el encabezado de la página.</li>
-      <li>Introduzca la información del caso:
-        <ul>
-          <li><strong>Asunto</strong> - Título del caso</li>
-          <li><strong>Descripción</strong> - Descripción del problema, pregunta o problema</li>
-          <li><strong>Prioridad</strong>
-            <ul>
-              <li><strong>P1</strong> - Crítico: pérdida de un servicio Brightcove o pérdida crítica de una importante disponibilidad de publicación para un reproductor de producción en directo</li>
-              <li><strong>P2</strong> - Importante - El servicio Brightcove está operativo, pero existen problemas de bloqueo en relación con las capacidades de publicación esperadas específicas de un reproductor de producción en directo (es decir, relacionadas con las cargas, la actividad de la consola, reproductores específicos).</li>
-              <li><strong>P3</strong> - Normal - Solicitudes que no se definen como Críticas o Importantes (incluidas las solicitudes de modificación de cuenta/usuario)</li>
-            </ul>
-          </li>
-          <li><strong>Producto</strong>: la aplicación Brightcove a la que se refiere la solicitud de soporte</li>
-          <li><strong>Cuenta de Brightcove</strong>: nombre de la cuenta en la que se refiere la solicitud de soporte</li>
-          <li><strong>URL</strong>: URL de página en la que se puede observar el problema (si está disponible)</li>
-          <li><strong>CC adicional</strong>: además de la lista CC predeterminada, puede decidir agregar direcciones de correo electrónico adicionales de los colaboradores que deben estar informados del progreso del caso</li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-case.png"/></figure>
+      <li>Regrese al panel de Okta.</li>
+      <li>Para la aplicación Okta que creó, haga clic en el <strong>Asignaciones</strong> pestaña.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-assignments.png"/></figure>
       </li>
-      <li>Haz clic en <strong>Enviar</strong>. Se mostrarán los detalles del caso.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-details.png"/></figure>
+      <li>Hacer clic <strong>Asignar</strong> &gt; <strong>Asignar a grupos</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-assign-to-groups.png"/></figure>
       </li>
-      <li>Haz clic en <strong>Escribir un nuevo comentario...</strong> para añadir comentarios adicionales o cargar una captura de pantalla. Los pasos detallados para reproducir el problema y las capturas de pantalla del comportamiento/problema siempre son útiles para el soporte de Brightcove y pueden acelerar el tiempo necesario para resolver el caso.</li>
+      <li>Hacer clic <strong>Asignar</strong> al lado de <strong>Todos</strong> grupo y luego haga clic en <strong>Hecho</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-everyone-assigned.png"/></figure>
+      </li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="view-cases">Visualización de los casos de soporte</h2>
-		<aside class="bcls-aside bcls-aside--information">Nota: si tu perfil del Portal de soporte es <strong>administrador</strong>, verás todos los casos de la cuenta (no recibirás notificaciones cuando otros usuarios de la cuenta creen casos). Si es un usuario <strong>estándar</strong> o autorregistrado, solo verá los casos que haya abierto.</aside
-                                <p>Todos los casos de soporte se pueden ver fácilmente en el portal de soporte. El ESTADO DEL <strong>CASO</strong> será uno de los siguientes:</p>
-    <ul>
-      <li><strong>Nuevo</strong>: se acaba de crear el caso y está a la espera de revisión de Brightcove</li>
-      <li><strong>Abierto</strong>: el caso está en curso</li>
-      <li><strong>En espera de su respuesta</strong>: Brightcove Support requiere información adicional o se ha proporcionado una solución y Brightcove está esperando una respuesta</li>
-      <li><strong>Cerrado</strong>: el caso se ha resuelto</li>
-      <li><strong>Cerrado en espera</strong>: el caso se cerró debido a que no había respuesta del editor; el caso se volverá a abrir si el editor se pone en contacto con Brightcove</li>
-    </ul>
-    		<aside class="bcls-aside bcls-aside--information">Tenga en cuenta que los casos que Support ha eliminado como duplicados no aparecerán en el Portal de soporte.</aside>
-    <p>Para ver sus casos con Brightcove Support, siga estos pasos:</p>
-
+    <h2 id="experience">Asignar el perfil de control de acceso a una experiencia</h2>
+    <p>El último paso consiste en asignar el perfil de control de acceso creado a las experiencias que desea proteger.</p>
     <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Hacer clic <strong>CASOS DE APOYO</strong> en el encabezado de la página. Una lista de <strong>Casos abiertos</strong> mostrará.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-listing.png"/></figure>
+      <li>Regrese a Brightcove Gallery.</li>
+      <li>Edita la experiencia que quieres proteger.</li>
+      <li>En la barra de navegación de la izquierda, haga clic en <strong>Configuración del sitio &gt; Control de acceso</strong> .</li>
+      <li>Selecciona el <strong>Perfil de control de acceso</strong> que está asociado con la configuración de SSO de Okta.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-select-access-control.png"/></figure>
       </li>
-      <li>Haga clic en el <strong>Historia del caso</strong> enlace para ver una lista de casos cerrados.</li>
-      <li>Haga clic en un número de <strong>caso</strong> para ver los detalles del caso, incluidos los comentarios de Brightcove Support.</li>
+      <li>Haz clic en <span class="button-blue">Guardar</span>.</li>
+      <li><span class="button-blue"></span> Publica la experiencia.</li>
     </ol>
-    <p>Al hacer clic en un encabezado de columna, se ordenará la lista por esa columna.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="updating">Actualización de un caso de soporte</h2>
-    <p>Una vez creado el caso, tres son algunas de las acciones que puedes llevar a cabo para mantener actualizados los casos: </p>
-    <ul>
-      <li>Añade nuevos comentarios para comunicarte con nuestro equipo de soporte</li>
-      <li>Sube o elimina archivos adjuntos con más información para ayudarnos a identificar el problema lo más rápido posible</li>
-      <li>Actualiza la prioridad del caso en caso de que necesites más atención en un caso o se vuelve más urgente de lo esperado inicialmente</li>
-      <li>Actualiza la lista CC para añadir más observadores al estuche</li>
-      <li>Solicitar el cierre del caso después de que se haya resuelto el problema</li>
-    </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="update-cc-list">Actualización de la lista de CC predeterminada</h2>
-    <p>La lista de CC predeterminada es una lista de correo electrónico por cuenta a la que se le notifica toda la actividad de casos de la cuenta. Para actualizar la lista, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Ve a la esquina superior derecha y haz clic en el icono del usuario.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-account.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Mi cuenta</strong>.</li>
-      <li>Introduzca las nuevas direcciones de correo electrónico o elimine las direcciones existentes en la lista CC predeterminada de la <strong>cuenta</strong>.</li>
-      <li>Haga clic en <strong>Actualizar lista CC predeterminada</strong> para guardar los cambios.</li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="view-system-status">Visualización de la página Estado del sistema Brightcove</h2>
-    <p>Brightcove supervisa continuamente el estado de todos los servicios de Brightcove. Si se produce alguna interrupción en el servicio, se publicará una nota en la página Estado del sistema. También se publicarán todos los avisos de mantenimiento programados.</p>
-    <p>Para acceder a la página Estado del sistema, inicie sesión en el portal de soporte técnico y haga clic en ESTADO DEL SISTEMA en el encabezado de la página o vaya a <a href="https://status.brightcove.com/">status.brightcove.com</a>.</p>
-    <p>Para obtener más información sobre la página Estado del sistema, consulte <a href="/support/viewing-brightcove-system-status-page.html">Visualización de la página Estado del sistema de Brightcove</a>.</p>
+    <p>Cuando acceda a la experiencia, Okta debería solicitarle que inicie sesión.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/settings/okta-login.png"/></figure>
   </section>
 </article>
 

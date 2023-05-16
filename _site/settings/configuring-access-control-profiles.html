@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="es"> 
     <head>
-        <title>Abrir un maletín con Brightcove Support</title>
+        <title>Configuración de perfiles de control de acceso</title>
         
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.">
+        <meta name="description" content="En este tema, aprenderá a configurar perfiles de control de acceso para una experiencia de portal de galería. Puede controlar el acceso según la dirección IP, el inicio de sesión único (SSO) o un código de acceso.">
         
         <!-- Google Font -->
         <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
@@ -1217,7 +1217,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/settings/configuring-access-control-profiles.html">Configuración de perfiles de control de acceso</a></li>
+              <li class="nav-item"><a class="nav-link" href="/settings/configuring-access-control-profiles.html" aria-current="page">Configuración de perfiles de control de acceso</a></li>
               
               
               
@@ -1355,7 +1355,7 @@
               
               
               
-              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html" aria-current="page">Abrir un caso de soporte</a></li>
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">Abrir un caso de soporte</a></li>
               
               
               
@@ -1393,11 +1393,11 @@
             <li class="breadcrumb-item"><a class="theme-link" href="/">Inicio</a></li>
             
             
-            <li class="breadcrumb-item"><a class="theme-link" href="/support/">Soporte</a></li>
+            <li class="breadcrumb-item"><a class="theme-link" href="/settings/">Ajustes</a></li>
             
             
             
-            <li class="breadcrumb-item active" aria-current="page">Abrir un maletín con Brightcove Support</li>
+            <li class="breadcrumb-item active" aria-current="page">Configuración de perfiles de control de acceso</li>
             
             
           </ol>
@@ -1418,115 +1418,146 @@
       <br/>
       
       
-<h1>Abrir un maletín con Brightcove Support</h1>
 <article class="bcls-article">
-  <summary>En este tema, aprenderá a utilizar el Portal de soporte de Brightcove para abrir un caso con el Soporte de Brightcove.</summary>
+  <h1>Configuración de perfiles de control de acceso</h1>
+  <summary>En este tema, aprenderá a configurar perfiles de control de acceso para una experiencia de portal de galería. Puede controlar el acceso según la dirección IP, el inicio de sesión único (SSO) o un código de acceso.</summary>
   <section class="bcls-section">
-    <p>Brightcove ofrece una variedad de programas de soporte para satisfacer las necesidades de nuestros clientes. Para obtener información sobre estos programas, consulte la sección Soporte de <a href="https://www.brightcove.com/en/services/customer-support">Brightcove</a> de nuestro sitio web.</p>
-    <p>Una opción de soporte es el portal de soporte que se puede utilizar para abrir un caso con Brightcove Support.</p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="create-account">Creación de una nueva cuenta de soporte</h2>
-    <p>Antes de crear casos mediante el Portal de soporte, debe crear una cuenta. Para crear una nueva cuenta, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Acceda al portal de soporte mediante uno de estos métodos:
-        <ul>
-          <li>En el encabezado de la aplicación, haga clic en <strong>SOPORTE &gt; Contactar con el soporte</strong></li>
-          <li>Vaya a <a href="https://supportportal.brightcove.com/">https://supportportal.brightcove.com</a></li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-login.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Registrarse</strong>.</li>
-      <li>Introduzca su <strong>nombre</strong>, <strong>apellido</strong>,<strong> correo electrónico</strong> y <strong>contraseña</strong>. Haz clic en <strong>Enviar</strong>.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-account.png"/></figure>
-      </li>
-      <li>Confirma que te redirigen a la página principal del Portal de soporte de Brightcove.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-home.png"/></figure>
-      </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="open-case">Abrir un caso de soporte</h2>
-    <p>Para abrir un caso con Brightcove Support mediante el Portal de soporte, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Haz clic en <strong>ENVIAR UN CASO</strong> en el encabezado de la página.</li>
-      <li>Introduzca la información del caso:
-        <ul>
-          <li><strong>Asunto</strong> - Título del caso</li>
-          <li><strong>Descripción</strong> - Descripción del problema, pregunta o problema</li>
-          <li><strong>Prioridad</strong>
-            <ul>
-              <li><strong>P1</strong> - Crítico: pérdida de un servicio Brightcove o pérdida crítica de una importante disponibilidad de publicación para un reproductor de producción en directo</li>
-              <li><strong>P2</strong> - Importante - El servicio Brightcove está operativo, pero existen problemas de bloqueo en relación con las capacidades de publicación esperadas específicas de un reproductor de producción en directo (es decir, relacionadas con las cargas, la actividad de la consola, reproductores específicos).</li>
-              <li><strong>P3</strong> - Normal - Solicitudes que no se definen como Críticas o Importantes (incluidas las solicitudes de modificación de cuenta/usuario)</li>
-            </ul>
-          </li>
-          <li><strong>Producto</strong>: la aplicación Brightcove a la que se refiere la solicitud de soporte</li>
-          <li><strong>Cuenta de Brightcove</strong>: nombre de la cuenta en la que se refiere la solicitud de soporte</li>
-          <li><strong>URL</strong>: URL de página en la que se puede observar el problema (si está disponible)</li>
-          <li><strong>CC adicional</strong>: además de la lista CC predeterminada, puede decidir agregar direcciones de correo electrónico adicionales de los colaboradores que deben estar informados del progreso del caso</li>
-        </ul>
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-create-case.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Enviar</strong>. Se mostrarán los detalles del caso.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-details.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Escribir un nuevo comentario...</strong> para añadir comentarios adicionales o cargar una captura de pantalla. Los pasos detallados para reproducir el problema y las capturas de pantalla del comportamiento/problema siempre son útiles para el soporte de Brightcove y pueden acelerar el tiempo necesario para resolver el caso.</li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="view-cases">Visualización de los casos de soporte</h2>
-		<aside class="bcls-aside bcls-aside--information">Nota: si tu perfil del Portal de soporte es <strong>administrador</strong>, verás todos los casos de la cuenta (no recibirás notificaciones cuando otros usuarios de la cuenta creen casos). Si es un usuario <strong>estándar</strong> o autorregistrado, solo verá los casos que haya abierto.</aside
-                                <p>Todos los casos de soporte se pueden ver fácilmente en el portal de soporte. El ESTADO DEL <strong>CASO</strong> será uno de los siguientes:</p>
+    <p>De forma predeterminada, cuando se publica una experiencia del portal de la galería, cualquier persona con la URL del sitio podrá acceder al sitio. Se pueden crear perfiles de control de acceso para restringir el acceso a una experiencia de portal de galería. Los perfiles de control de acceso se crean como parte de la configuración de la Galería y luego los perfiles se asignan a los sitios. Se pueden crear perfiles de control de acceso para restringir el acceso según:</p>
     <ul>
-      <li><strong>Nuevo</strong>: se acaba de crear el caso y está a la espera de revisión de Brightcove</li>
-      <li><strong>Abierto</strong>: el caso está en curso</li>
-      <li><strong>En espera de su respuesta</strong>: Brightcove Support requiere información adicional o se ha proporcionado una solución y Brightcove está esperando una respuesta</li>
-      <li><strong>Cerrado</strong>: el caso se ha resuelto</li>
-      <li><strong>Cerrado en espera</strong>: el caso se cerró debido a que no había respuesta del editor; el caso se volverá a abrir si el editor se pone en contacto con Brightcove</li>
+      <li><a href="#ip">Dirección IP</a></li>
+      <li><a href="#sso">Inicio de sesión único</a></li>
+      <li><a href="#accesscode">Código de acceso</a></li>
     </ul>
-    		<aside class="bcls-aside bcls-aside--information">Tenga en cuenta que los casos que Support ha eliminado como duplicados no aparecerán en el Portal de soporte.</aside>
-    <p>Para ver sus casos con Brightcove Support, siga estos pasos:</p>
-
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Inicie sesión en el portal de soporte de Brightcove en <a href="https://supportportal.brightcove.com">https://supportportal.brightcove.com</a>.</li>
-      <li>Hacer clic <strong>CASOS DE APOYO</strong> en el encabezado de la página. Una lista de <strong>Casos abiertos</strong> mostrará.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-portal-case-listing.png"/></figure>
+    <p>Tenga en cuenta que una experiencia del portal de la galería solo se puede configurar con un único perfil de control de acceso. Cada perfil de control de acceso solo puede tener un tipo de restricción de acceso. Por ejemplo, no es posible crear un perfil que utilice tanto una dirección IP como un código de acceso. Además, cuando se utiliza el inicio de sesión único, solo se puede configurar un proveedor de identidad por perfil.</p>
+    <p>Para crear un perfil de control de acceso, siga estos pasos:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Abra el módulo <strong>Galería</strong> .</li>
+      <li>Haga clic en el icono de configuración (<img class="bcls-image--no-border" alt="" src="/assets/images/get-started/icon-settings.png"/> ) en la página de inicio.</li>
+      <li>En el panel de navegación de la izquierda, haga clic en <strong>Perfiles de control de acceso</strong>. Se mostrará una lista de perfiles de control de acceso creados.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="lista de perfiles" src="/assets/images/settings/node16450-access-control-list.png"/></figure>
+        <aside class="bcls-aside bcls-aside--information">Nota: Es posible que vea perfiles de control de acceso en su cuenta que no creó. Si había configurado restricciones IP, SSO o un código de acceso para sitios antes de que Gallery implementara los perfiles de control de acceso, esa configuración se ha guardado como perfiles de control de acceso cuando se publicó la función.</aside>
       </li>
-      <li>Haga clic en el <strong>Historia del caso</strong> enlace para ver una lista de casos cerrados.</li>
-      <li>Haga clic en un número de <strong>caso</strong> para ver los detalles del caso, incluidos los comentarios de Brightcove Support.</li>
+      <li>Haz clic en <span class="button-blue">Crear perfil</span>.</li>
+      <li>Asigne un <strong>nombre al perfil</strong>.</li>
+      <li><strong>(Opcional)</strong> Configurar un <strong>Hora de término de la sesión</strong> para especificar la cantidad de tiempo que durará la sesión de un usuario. Algunas notas:
+        <ul>
+          <li>Esta configuración se aplica cuando se usa SSO y código de acceso</li>
+          <li>Este es un "tiempo de espera inactivo". Siempre que se golpea el servidor de la Galería (ya sea al cargar una página en el sitio o mediante una llamada API al sitio), el temporizador se reinicia. Esto permite a los espectadores navegar continuamente durante más tiempo que el tiempo de espera especificado, pero tan pronto como permanezcan inactivos durante más tiempo que el tiempo de espera, se cerrará la sesión. Sin embargo, mientras se mira un video, no se accede al servidor de la Galería, por lo que el valor de tiempo de espera debe ser mayor que el del video más largo.</li>
+          <li>Su proveedor de SSO debe estar configurado para forzar la reautenticación o tener un tiempo de espera de sesión menor que nuestro tiempo de espera. Si no es así, lo redireccionaremos a su proveedor de SSO después de nuestro tiempo de espera e inmediatamente emitirán una respuesta de que el usuario ha iniciado sesión.</li>
+        </ul>
+      </li>
+      <li>Seleccione las opciones para proteger el sitio. <strong>Solo se puede seleccionar una opción por perfil de control de acceso</strong>:
+        <ul>
+          <li><a href="#ip">Dirección IP</a></li>
+          <li><a href="#sso">Inicio de sesión único</a></li>
+          <li><a href="#accesscode">Código de acceso</a></li>
+        </ul>
+      </li>
+      <li>Haz clic en <span class="button-blue">Guardar</span>.</li>
+      <li>Cree perfiles de control de acceso adicionales según sea necesario.</li>
     </ol>
-    <p>Al hacer clic en un encabezado de columna, se ordenará la lista por esa columna.</p>
+    <p>Para editar o eliminar un perfil de control de acceso, haga clic en editar (<img alt="editar icono" src="/assets/images/settings/icon-edit.png"/> ) o eliminar (<img alt="borrar icono" src="/assets/images/settings/icon-delete.png"/> ) botones asociados con el perfil de control de acceso. Una vez que se han creado los perfiles de control de acceso, se pueden asignar a un sitio como parte de las propiedades del sitio. Para obtener información, consulte <a href="/experiences/portal/publishing/controlling-access-portal-experience.html">Controlar el acceso a una experiencia de portal</a>.</p>
   </section>
   <section class="bcls-section">
-    <h2 id="updating">Actualización de un caso de soporte</h2>
-    <p>Una vez creado el caso, tres son algunas de las acciones que puedes llevar a cabo para mantener actualizados los casos: </p>
+    <h2 id="ip">Configurar la restricción de IP</h2>
+    <p>Al crear un perfil de control de acceso que utiliza restricción de IP, los espectadores con una dirección IP fuera del rango predefinido recibirán un error cuando intenten acceder al sitio.</p>
+    <p>Para configurar un perfil de control de acceso para usar la restricción de IP, siga estos pasos:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Selecciona el <strong>Limitado por la dirección IP </strong> opción.</li>
+      <li>Ingrese un rango de direcciones IP que pueden acceder al sitio. <a href="http://tools.ietf.org/html/rfc4632">Notación de bloque CIDR</a> también es compatible.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="configurar la dirección ip" src="/assets/images/settings/node16450-ip-address.png"/></figure>
+      </li>
+      <li>Haz clic en <span class="button-blue">Guardar</span>.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="sso">Configurar el inicio de sesión único</h2>
+    <p>Al crear un perfil de control de acceso que utiliza SSO, se les pedirá a los visitantes del sitio que inicien sesión con credenciales válidas antes de que puedan acceder al sitio. Gallery admite el estándar Security Assertion Markup Language 2.0 (SAML 2.0) para intercambiar datos de autenticación y autorización entre dominios de seguridad.</p>
+    <p>Gallery es compatible con la mayoría de los principales proveedores de identidad, incluidos:</p>
     <ul>
-      <li>Añade nuevos comentarios para comunicarte con nuestro equipo de soporte</li>
-      <li>Sube o elimina archivos adjuntos con más información para ayudarnos a identificar el problema lo más rápido posible</li>
-      <li>Actualiza la prioridad del caso en caso de que necesites más atención en un caso o se vuelve más urgente de lo esperado inicialmente</li>
-      <li>Actualiza la lista CC para añadir más observadores al estuche</li>
-      <li>Solicitar el cierre del caso después de que se haya resuelto el problema</li>
+      <li>Silbido</li>
+      <li>OneLogin</li>
+      <li>ADFS 2.0/3.0</li>
+      <li>Google G Suite</li>
+      <li>Santo y seña</li>
+      <li>Okta</li>
+      <li>Salesforce.com</li>
     </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="update-cc-list">Actualización de la lista de CC predeterminada</h2>
-    <p>La lista de CC predeterminada es una lista de correo electrónico por cuenta a la que se le notifica toda la actividad de casos de la cuenta. Para actualizar la lista, sigue estos pasos:</p>
-    <ol class="bcls-tasklist-restart" style="--s:1">
-      <li>Ve a la esquina superior derecha y haz clic en el icono del usuario.
-        <figure class="bcls-figure"><img alt="" src="/assets/images/s-support-img/support-account.png"/></figure>
-      </li>
-      <li>Haz clic en <strong>Mi cuenta</strong>.</li>
-      <li>Introduzca las nuevas direcciones de correo electrónico o elimine las direcciones existentes en la lista CC predeterminada de la <strong>cuenta</strong>.</li>
-      <li>Haga clic en <strong>Actualizar lista CC predeterminada</strong> para guardar los cambios.</li>
+    <p>También funcionarán otros proveedores que utilicen el estándar SAML 2.0. La galería utiliza el <a href="https://github.com/bergie/passport-saml">pasaporte-saml</a> Biblioteca. Gallery no admite proveedores de identidad que no funcionan con esta biblioteca.</p>
+    <aside class="bcls-aside bcls-aside--information">Nota: Gallery requiere SAML 2.0 para la autenticación de inicio de sesión único. SAML 1.1 no se admite.</aside>
+    <aside class="bcls-aside bcls-aside--information">Nota: Solo admitimos caracteres de un solo byte.</aside>
+    <aside class="bcls-aside bcls-aside--information">Nota: Gallery solo admite flujos SAML iniciados por el proveedor de identidad (IDP). No se admiten los flujos iniciados por el proveedor de servicios.</aside>
+    <p>Su proveedor de SSO requerirá una URL de servicio del consumidor de afirmación (URL ACS). La URL de ACS aparece en la sección SSO de la tabla Perfiles de control de acceso.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="URL de acs" src="/assets/images/settings/node16450-acs-url.png"/></figure>
+    <p>La URL de ACS tiene como valor predeterminado <code translate="No">https://auth.bcvp0rtal.com/login/callback</code>. También puede anular la URL ACS proporcionando su propia URL. Ambas opciones se pueden utilizar para configurar proveedores de SSO más estrictos. Para sitios existentes, <code translate="No">http(s)://&lt;site-root-url&gt;/login/callback</code> seguirá funcionando, pero Brightcove recomienda que los editores utilicen <code translate="No">https://auth.bcvp0rtal.com/login/callback</code>. Este punto final se encarga de reenviar los datos SAML al sitio correcto para cualquier sitio que use una ruta en un dominio.</p>
+    <aside class="bcls-aside bcls-aside--information">Nota: Cuando utilice un flujo de trabajo de SSO iniciado por IDP, la URL de ACS especificada en su software de SSO debe apuntar a un sitio de la Galería que esté configurado con ese perfil de control de acceso. En este caso, no se debe utilizar la <code translate="No">https://auth.bcvp0rtal.com/login/callback</code> URL.</aside>
+    <p>Para configurar un perfil de control de acceso para usar SSO, siga estos pasos:</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="configurar sso" src="/assets/images/settings/node16450-sso.png"/></figure>
+    <ol class="bcls-tasklist-restart">
+      <li>Selecciona el <strong>SSO </strong> opción.</li>
+      <li>Si tiene un archivo de exportación de sus metadatos SAML 2.0, haga clic en <strong>Seleccionar archivo</strong> para explorar y seleccionar el archivo de metadatos. Esto rellenará previamente el <strong>Punto final SAML 2.0</strong> y el <strong>Certificado X.509</strong> los campos.</li>
+      <li>Introduzca un valor para el endpoint <strong>SAML 2.0 (HTTP)</strong>. Este valor debe estar disponible en su proveedor de SAML.</li>
+      <li>Ingrese un valor para <strong> Certificado X.509</strong>. Este valor debe estar disponible en su proveedor de SAML.</li>
+      <li>(Opcional) Ingrese el <strong>Reemplazo de ID de entidad / emisor de SAML</strong>. Ingrese un valor aquí para anular opcionalmente el emisor SAML.</li>
+      <li>(Opcional) Ingrese el<strong> Anulación de URL ACS</strong>. Ingrese un valor aquí para anular opcionalmente la URL de ACS.</li>
+      <li>(Opcional) Ingrese el <strong>Reemplazo de AuthnContext de SAML</strong>. Ingrese un valor aquí para anular opcionalmente SAML AuthnContext.</li>
+      <li>(Opcional) Elija deshabilitar el <strong>AuthnContext predeterminado</strong>. De forma predeterminada, para los perfiles SSO, Gallery enviará PasswordProtectedTransport como contexto de autenticación SAML. A veces, esto no es compatible con los proveedores de identidad. Cuando esta opción está marcada, la Galería no enviará la solicitud de contexto de autenticación.</li>
+      <li>(Opcional) Ingrese los atributos de SAML que desee que se pasen a su JavaScript externo.</li>
+      <li>(Opcional) Verificar <strong>Exponer todos los atributos</strong> para exponer todos los atributos de SAML para su uso en JavaScript externo.</li>
+      <li>Haz clic en <strong>Guardar</strong>.</li>
     </ol>
   </section>
   <section class="bcls-section">
-    <h2 id="view-system-status">Visualización de la página Estado del sistema Brightcove</h2>
-    <p>Brightcove supervisa continuamente el estado de todos los servicios de Brightcove. Si se produce alguna interrupción en el servicio, se publicará una nota en la página Estado del sistema. También se publicarán todos los avisos de mantenimiento programados.</p>
-    <p>Para acceder a la página Estado del sistema, inicie sesión en el portal de soporte técnico y haga clic en ESTADO DEL SISTEMA en el encabezado de la página o vaya a <a href="https://status.brightcove.com/">status.brightcove.com</a>.</p>
-    <p>Para obtener más información sobre la página Estado del sistema, consulte <a href="/support/viewing-brightcove-system-status-page.html">Visualización de la página Estado del sistema de Brightcove</a>.</p>
+    <h2 id="accesscode">Configurar un código de acceso</h2>
+    <p>Cuando un sitio tiene un código de acceso aplicado, se les pedirá a los espectadores que proporcionen el código de acceso correcto cuando accedan a la URL del sitio.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="solicitud de código de acceso" src="/assets/images/settings/node16450-access-code-prompt.png"/></figure>
+    <p>Si se ingresa un código de acceso incorrecto, el espectador recibirá un error. Los códigos de acceso son una buena forma de restringir el acceso a un sitio mientras está en construcción. Los códigos de acceso no ofrecen seguridad ni autenticación en el sitio.</p>
+    <p>Para configurar un perfil de control de acceso para usar un código de acceso, siga estos pasos:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Selecciona el <strong>Requerir código de acceso </strong> opción.</li>
+      <li>Introducir el <strong>Código de acceso</strong> para el sitio. No hay restricción sobre los caracteres que se pueden utilizar para el código de acceso.</li>
+      <li>Introducir el <strong>Etiqueta de código de acceso</strong>. La <strong>Etiqueta de código de acceso</strong> aparecerá arriba donde el usuario ingresará su código de acceso.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="configurar el código de acceso" src="/assets/images/settings/node16450-access-code1.png"/></figure>
+      </li>
+      <li>(Opcional) <a href="#style">Aplicar estilo a la página de control de acceso</a>.</li>
+      <li>Haz clic en <strong>Guardar</strong>.</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="style">Aplicar estilo a la página de control de acceso</h2>
+    <p>La página de control de acceso se puede diseñar para que coincida más con el aspecto de su sitio en general. La galería ofrece tres opciones de estilo:</p>
+    <ul>
+      <li><a href="#defaultstyle">Defecto</a></li>
+      <li><a href="#imageborder">Imagen y borde</a></li>
+      <li><a href="#custom">Personalizado</a></li>
+    </ul>
+    <h3 id="defaultstyle">Estilo predeterminado</h3>
+    <p>Con la opción de estilo predeterminada, siempre se mostrará un logotipo de la Galería, la Etiqueta del Código de Acceso y un campo de código de acceso.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="solicitud de código de acceso" src="/assets/images/settings/node16450-access-code-prompt.png"/></figure>
+    <h3 id="imageborder">Estilo de imagen y borde</h3>
+    <p>La opción Imagen y borde permite algunas personalizaciones básicas a la página de control de acceso. Se puede ver un ejemplo a continuación.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="ejemplo de borde de imagen" src="/assets/images/settings/node16450-image-border-example.png"/></figure>
+    <p>Para personalizar la imagen y el estilo del borde, siga estos pasos:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Seleccione <strong>Imagen y borde</strong>.</li>
+      <li>Arrastre y suelte, explore o agregue un enlace a la imagen para mostrarla en la página de control de acceso.</li>
+      <li>Entrar a <strong>URL de clic</strong>. La <strong>URL de clic</strong> hará que la imagen sea un enlace en el que se puede hacer clic.</li>
+      <li>Haga clic en el selector de color para seleccionar un <strong>Color del borde del encabezado</strong>.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="propiedades del borde de la imagen" src="/assets/images/settings/node16450-image-border-props.png"/></figure>
+      </li>
+      <li>Haz clic en <span class="button-blue">Guardar</span>.</li>
+    </ol>
+    <h3 id="custom">Estilo personalizado</h3>
+    <p>La <strong>Personalizado</strong> La opción de estilo permite personalizaciones más avanzadas a la página de control de acceso. Se puede ver un ejemplo a continuación.</p>
+    <figure class="bcls-figure"><img class="bcls-image--no-border" alt="ejemplo personalizado" src="/assets/images/settings/node16450-custom-example.png"/></figure>
+    <p>Usar el <strong>Personalizado</strong> opción, siga estos pasos:</p>
+    <ol class="bcls-tasklist-restart">
+      <li>Seleccione<strong> Personalizado</strong>.</li>
+      <li>Ingrese HTML personalizado para el encabezado y pie de página.
+        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="propiedades personalizadas" src="/assets/images/settings/node16450-custom-props.png"/></figure>
+      </li>
+      <li>Haz clic en <span class="button-blue">Guardar</span>.</li>
+    </ol>
   </section>
 </article>
 
